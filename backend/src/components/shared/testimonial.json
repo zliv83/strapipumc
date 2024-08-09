@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_testimonials",
+  "info": {
+    "displayName": "testimonial"
+  },
+  "options": {},
+  "attributes": {
+    "author": {
+      "type": "string"
+    },
+    "quote": {
+      "type": "blocks"
+    }
+  }
+}

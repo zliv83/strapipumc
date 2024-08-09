@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "top_testimonials",
+  "info": {
+    "singularName": "top-testimonial",
+    "pluralName": "top-testimonials",
+    "displayName": "TopTestimonials"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "testimonial": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.testimonial"
+    }
+  }
+}

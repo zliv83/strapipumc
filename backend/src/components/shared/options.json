@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_options",
+  "info": {
+    "displayName": "options"
+  },
+  "options": {},
+  "attributes": {
+    "AgeGroup": {
+      "type": "string"
+    },
+    "Schedule": {
+      "type": "string"
+    }
+  }
+}

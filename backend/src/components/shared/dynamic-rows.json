@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_dynamic_rows",
+  "info": {
+    "displayName": "dynamicRows"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    }
+  }
+}

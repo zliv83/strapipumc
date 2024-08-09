@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_programs_intros",
+  "info": {
+    "displayName": "ProgramsIntro",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Header": {
+      "type": "string"
+    },
+    "Details": {
+      "type": "blocks"
+    },
+    "SubDetails": {
+      "type": "blocks"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_list_items",
+  "info": {
+    "displayName": "ListItems"
+  },
+  "options": {},
+  "attributes": {
+    "listItem": {
+      "type": "string"
+    }
+  }
+}

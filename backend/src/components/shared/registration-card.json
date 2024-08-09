@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_registration_cards",
+  "info": {
+    "displayName": "RegistrationCard"
+  },
+  "options": {},
+  "attributes": {
+    "ClassName": {
+      "type": "string"
+    },
+    "ClassImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "Schedule": {
+      "type": "string"
+    },
+    "open": {
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_program_card_lists",
+  "info": {
+    "displayName": "ProgramCardList"
+  },
+  "options": {},
+  "attributes": {
+    "ProgramListItem": {
+      "type": "string"
+    }
+  }
+}

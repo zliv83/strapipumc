@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_program_quick_infos",
+  "info": {
+    "displayName": "programQuickInfo",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "age": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.two-feilds"
+    },
+    "optionsListTitle": {
+      "type": "string"
+    },
+    "optionsLIst": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-items"
+    },
+    "Ratio": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.two-feilds"
+    }
+  }
+}

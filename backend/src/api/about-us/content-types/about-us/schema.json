@@ -1,0 +1,59 @@
+{
+  "kind": "singleType",
+  "collectionName": "about_uses",
+  "info": {
+    "singularName": "about-us",
+    "pluralName": "about-uses",
+    "displayName": "AboutUs",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "AboutParagraph": {
+      "type": "blocks"
+    },
+    "RatioTitle": {
+      "type": "string"
+    },
+    "ProgramText": {
+      "type": "string"
+    },
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.columns"
+    },
+    "rows": {
+      "displayName": "TeacherStudentRows",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.teacher-student-rows"
+    },
+    "programOptions": {
+      "displayName": "ProgramOptions",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.program-options"
+    },
+    "alt": {
+      "type": "string"
+    }
+  }
+}

@@ -12,10 +12,6 @@
       "type": "string",
       "required": true
     },
-    "description": {
-      "type": "string",
-      "required": true
-    },
     "picture": {
       "type": "media",
       "multiple": false,
@@ -23,11 +19,6 @@
       "allowedTypes": [
         "images"
       ]
-    },
-    "buttons": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.button-link"
     }
   }
 }

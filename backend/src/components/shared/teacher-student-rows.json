@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_teacher_student_rows",
+  "info": {
+    "displayName": "TeacherStudentRows",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "age": {
+      "type": "string"
+    },
+    "pumcTeacherStudentRatio": {
+      "type": "string"
+    },
+    "stateTeacherStudentRatio": {
+      "type": "string"
+    }
+  }
+}

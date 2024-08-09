@@ -1,0 +1,27 @@
+{
+  "kind": "singleType",
+  "collectionName": "programs_pages",
+  "info": {
+    "singularName": "programs-page",
+    "pluralName": "programs-pages",
+    "displayName": "ProgramsPage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ProgramHero": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.hero"
+    },
+    "ProgramsIntro": {
+      "displayName": "ProgramsIntro",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.programs-intro"
+    }
+  }
+}

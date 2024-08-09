@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_program_cards",
+  "info": {
+    "displayName": "ProgramCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "classpicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "displayName": "ProgramCardList",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.program-card-list"
+    },
+    "alt": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    }
+  }
+}

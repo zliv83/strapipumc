@@ -8,16 +8,11 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "quote": {
       "type": "string"
     },
-    "description": {
-      "type": "text"
-    },
-    "testimonials": {
-      "type": "component",
-      "repeatable": true,
-      "component": "elements.testimonial"
+    "author": {
+      "type": "string"
     }
   }
 }

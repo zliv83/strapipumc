@@ -60,6 +60,18 @@ export interface ElementsFooterSection extends Schema.Component {
   };
 }
 
+export interface ElementsHeroSection extends Schema.Component {
+  collectionName: 'components_elements_hero_sections';
+  info: {
+    displayName: 'Hero Section';
+    icon: '';
+  };
+  attributes: {
+    Header: Attribute.String;
+    Subtext: Attribute.String;
+  };
+}
+
 export interface ElementsLogos extends Schema.Component {
   collectionName: 'components_elements_logos';
   info: {
@@ -105,11 +117,6 @@ export interface ElementsPlan extends Schema.Component {
     isRecommended: Attribute.Boolean;
     price: Attribute.Decimal;
     pricePeriod: Attribute.String;
-    product_features: Attribute.Relation<
-      'elements.plan',
-      'oneToMany',
-      'api::product-feature.product-feature'
-    >;
   };
 }
 
@@ -122,7 +129,6 @@ export interface ElementsTestimonial extends Schema.Component {
     description: '';
   };
   attributes: {
-    picture: Attribute.Media & Attribute.Required;
     text: Attribute.Text & Attribute.Required;
     authorName: Attribute.String & Attribute.Required;
   };
@@ -139,11 +145,6 @@ export interface LayoutFooter extends Schema.Component {
     menuLinks: Attribute.Component<'links.link', true>;
     legalLinks: Attribute.Component<'links.link', true>;
     socialLinks: Attribute.Component<'links.social-link', true>;
-    categories: Attribute.Relation<
-      'layout.footer',
-      'oneToMany',
-      'api::category.category'
-    >;
   };
 }
 
@@ -320,9 +321,7 @@ export interface SectionsHero extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    description: Attribute.String & Attribute.Required;
     picture: Attribute.Media & Attribute.Required;
-    buttons: Attribute.Component<'links.button-link', true>;
   };
 }
 
@@ -392,9 +391,71 @@ export interface SectionsTestimonialsGroup extends Schema.Component {
     description: '';
   };
   attributes: {
+    quote: Attribute.String;
+    author: Attribute.String;
+  };
+}
+
+export interface SharedAge extends Schema.Component {
+  collectionName: 'components_shared_ages';
+  info: {
+    displayName: 'age';
+  };
+  attributes: {};
+}
+
+export interface SharedClassProgramming extends Schema.Component {
+  collectionName: 'components_shared_class_programmings';
+  info: {
+    displayName: 'classProgramming';
+    description: '';
+  };
+  attributes: {
     title: Attribute.String;
     description: Attribute.Text;
-    testimonials: Attribute.Component<'elements.testimonial', true>;
+    icon: Attribute.Media;
+  };
+}
+
+export interface SharedColumns extends Schema.Component {
+  collectionName: 'components_shared_columns';
+  info: {
+    displayName: 'columns';
+  };
+  attributes: {
+    key: Attribute.String;
+    label: Attribute.String;
+  };
+}
+
+export interface SharedDynamicRows extends Schema.Component {
+  collectionName: 'components_shared_dynamic_rows';
+  info: {
+    displayName: 'dynamicRows';
+  };
+  attributes: {
+    key: Attribute.String;
+  };
+}
+
+export interface SharedListItems extends Schema.Component {
+  collectionName: 'components_shared_list_items';
+  info: {
+    displayName: 'ListItems';
+  };
+  attributes: {
+    listItem: Attribute.String;
+  };
+}
+
+export interface SharedList extends Schema.Component {
+  collectionName: 'components_shared_lists';
+  info: {
+    displayName: 'list';
+  };
+  attributes: {
+    ListName: Attribute.String;
+    listItems: Attribute.Component<'shared.list-items', true>;
   };
 }
 
@@ -407,6 +468,108 @@ export interface SharedMedia extends Schema.Component {
   };
   attributes: {
     file: Attribute.Media;
+  };
+}
+
+export interface SharedOptionsList extends Schema.Component {
+  collectionName: 'components_shared_options_lists';
+  info: {
+    displayName: 'OptionsList';
+  };
+  attributes: {
+    Name: Attribute.String;
+  };
+}
+
+export interface SharedOptions extends Schema.Component {
+  collectionName: 'components_shared_options';
+  info: {
+    displayName: 'options';
+  };
+  attributes: {
+    AgeGroup: Attribute.String;
+    Schedule: Attribute.String;
+  };
+}
+
+export interface SharedProgramCardList extends Schema.Component {
+  collectionName: 'components_shared_program_card_lists';
+  info: {
+    displayName: 'ProgramCardList';
+  };
+  attributes: {
+    ProgramListItem: Attribute.String;
+  };
+}
+
+export interface SharedProgramCard extends Schema.Component {
+  collectionName: 'components_shared_program_cards';
+  info: {
+    displayName: 'ProgramCard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    classpicture: Attribute.Media;
+    description: Attribute.Component<'shared.program-card-list', true>;
+    alt: Attribute.String;
+    href: Attribute.String;
+  };
+}
+
+export interface SharedProgramInstance extends Schema.Component {
+  collectionName: 'components_shared_program_instances';
+  info: {
+    displayName: 'Program Instance';
+    description: '';
+  };
+  attributes: {
+    programs: Attribute.Relation<
+      'shared.program-instance',
+      'oneToMany',
+      'api::program.program'
+    >;
+    Schedule: Attribute.String;
+    open: Attribute.Boolean;
+    href: Attribute.String;
+  };
+}
+
+export interface SharedProgramOptions extends Schema.Component {
+  collectionName: 'components_shared_program_options';
+  info: {
+    displayName: 'ProgramOptions';
+  };
+  attributes: {
+    AgeGroup: Attribute.String;
+    WeeklySchedule: Attribute.String;
+  };
+}
+
+export interface SharedProgramQuickInfo extends Schema.Component {
+  collectionName: 'components_shared_program_quick_infos';
+  info: {
+    displayName: 'programQuickInfo';
+    description: '';
+  };
+  attributes: {
+    age: Attribute.Component<'shared.two-feilds'>;
+    optionsListTitle: Attribute.String;
+    optionsLIst: Attribute.Component<'shared.list-items', true>;
+    Ratio: Attribute.Component<'shared.two-feilds'>;
+  };
+}
+
+export interface SharedProgramsIntro extends Schema.Component {
+  collectionName: 'components_shared_programs_intros';
+  info: {
+    displayName: 'ProgramsIntro';
+    description: '';
+  };
+  attributes: {
+    Header: Attribute.String;
+    Details: Attribute.Blocks;
+    SubDetails: Attribute.Blocks;
   };
 }
 
@@ -424,6 +587,19 @@ export interface SharedQuote extends Schema.Component {
   };
 }
 
+export interface SharedRegistrationCard extends Schema.Component {
+  collectionName: 'components_shared_registration_cards';
+  info: {
+    displayName: 'RegistrationCard';
+  };
+  attributes: {
+    ClassName: Attribute.String;
+    ClassImage: Attribute.Media;
+    Schedule: Attribute.String;
+    open: Attribute.Boolean;
+  };
+}
+
 export interface SharedRichText extends Schema.Component {
   collectionName: 'components_shared_rich_texts';
   info: {
@@ -434,6 +610,14 @@ export interface SharedRichText extends Schema.Component {
   attributes: {
     body: Attribute.RichText;
   };
+}
+
+export interface SharedRows extends Schema.Component {
+  collectionName: 'components_shared_rows';
+  info: {
+    displayName: 'rows';
+  };
+  attributes: {};
 }
 
 export interface SharedSeo extends Schema.Component {
@@ -463,6 +647,67 @@ export interface SharedSlider extends Schema.Component {
   };
 }
 
+export interface SharedStaff extends Schema.Component {
+  collectionName: 'components_shared_staff';
+  info: {
+    displayName: 'Staff';
+    description: '';
+  };
+  attributes: {
+    headshot: Attribute.Media;
+    name: Attribute.String;
+    bio: Attribute.Blocks;
+    position: Attribute.String;
+  };
+}
+
+export interface SharedTable extends Schema.Component {
+  collectionName: 'components_shared_tables';
+  info: {
+    displayName: 'table';
+  };
+  attributes: {
+    title: Attribute.String;
+    columns: Attribute.Component<'shared.columns', true>;
+    rows: Attribute.Component<'shared.rows', true>;
+  };
+}
+
+export interface SharedTeacherStudentRows extends Schema.Component {
+  collectionName: 'components_shared_teacher_student_rows';
+  info: {
+    displayName: 'TeacherStudentRows';
+    description: '';
+  };
+  attributes: {
+    age: Attribute.String;
+    pumcTeacherStudentRatio: Attribute.String;
+    stateTeacherStudentRatio: Attribute.String;
+  };
+}
+
+export interface SharedTestimonial extends Schema.Component {
+  collectionName: 'components_shared_testimonials';
+  info: {
+    displayName: 'testimonial';
+  };
+  attributes: {
+    author: Attribute.String;
+    quote: Attribute.Blocks;
+  };
+}
+
+export interface SharedTwoFeilds extends Schema.Component {
+  collectionName: 'components_shared_two_feilds';
+  info: {
+    displayName: 'twoFeilds';
+  };
+  attributes: {
+    label: Attribute.String;
+    description: Attribute.String;
+  };
+}
+
 export interface SharedVideoEmbed extends Schema.Component {
   collectionName: 'components_sections_video_embeds';
   info: {
@@ -481,6 +726,7 @@ declare module '@strapi/types' {
       'elements.feature-row': ElementsFeatureRow;
       'elements.feature': ElementsFeature;
       'elements.footer-section': ElementsFooterSection;
+      'elements.hero-section': ElementsHeroSection;
       'elements.logos': ElementsLogos;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.plan': ElementsPlan;
@@ -504,11 +750,32 @@ declare module '@strapi/types' {
       'sections.pricing': SectionsPricing;
       'sections.rich-text': SectionsRichText;
       'sections.testimonials-group': SectionsTestimonialsGroup;
+      'shared.age': SharedAge;
+      'shared.class-programming': SharedClassProgramming;
+      'shared.columns': SharedColumns;
+      'shared.dynamic-rows': SharedDynamicRows;
+      'shared.list-items': SharedListItems;
+      'shared.list': SharedList;
       'shared.media': SharedMedia;
+      'shared.options-list': SharedOptionsList;
+      'shared.options': SharedOptions;
+      'shared.program-card-list': SharedProgramCardList;
+      'shared.program-card': SharedProgramCard;
+      'shared.program-instance': SharedProgramInstance;
+      'shared.program-options': SharedProgramOptions;
+      'shared.program-quick-info': SharedProgramQuickInfo;
+      'shared.programs-intro': SharedProgramsIntro;
       'shared.quote': SharedQuote;
+      'shared.registration-card': SharedRegistrationCard;
       'shared.rich-text': SharedRichText;
+      'shared.rows': SharedRows;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.staff': SharedStaff;
+      'shared.table': SharedTable;
+      'shared.teacher-student-rows': SharedTeacherStudentRows;
+      'shared.testimonial': SharedTestimonial;
+      'shared.two-feilds': SharedTwoFeilds;
       'shared.video-embed': SharedVideoEmbed;
     }
   }

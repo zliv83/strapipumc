@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_program_options",
+  "info": {
+    "displayName": "ProgramOptions"
+  },
+  "options": {},
+  "attributes": {
+    "AgeGroup": {
+      "type": "string"
+    },
+    "WeeklySchedule": {
+      "type": "string"
+    }
+  }
+}
