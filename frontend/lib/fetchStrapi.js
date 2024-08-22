@@ -13,9 +13,7 @@ export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
     };
     //Build request url
     const queryString = qs.stringify(urlParamsObj);
-    const requestUrl = `http://localhost:1337/api${path}${
-      queryString ? `?${queryString}` : ""
-    }`;
+    const requestUrl = `${host}${path}${queryString ? `?${queryString}` : ""}`;
 
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();

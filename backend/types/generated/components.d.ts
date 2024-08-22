@@ -689,24 +689,6 @@ export interface SharedProgramCard extends Schema.Component {
   };
 }
 
-export interface SharedProgramInstance extends Schema.Component {
-  collectionName: 'components_shared_program_instances';
-  info: {
-    displayName: 'Program Instance';
-    description: '';
-  };
-  attributes: {
-    programs: Attribute.Relation<
-      'shared.program-instance',
-      'oneToMany',
-      'api::program.program'
-    >;
-    Schedule: Attribute.String;
-    open: Attribute.Boolean;
-    href: Attribute.String;
-  };
-}
-
 export interface SharedProgramOptions extends Schema.Component {
   collectionName: 'components_shared_program_options';
   info: {
@@ -1038,7 +1020,6 @@ declare module '@strapi/types' {
       'shared.options': SharedOptions;
       'shared.program-card-list': SharedProgramCardList;
       'shared.program-card': SharedProgramCard;
-      'shared.program-instance': SharedProgramInstance;
       'shared.program-options': SharedProgramOptions;
       'shared.program-quick-info': SharedProgramQuickInfo;
       'shared.programs-intro': SharedProgramsIntro;

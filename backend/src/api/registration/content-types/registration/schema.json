@@ -32,11 +32,6 @@
     "SubTitle": {
       "type": "string"
     },
-    "Registration": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.program-instance"
-    },
     "alt": {
       "type": "string"
     },

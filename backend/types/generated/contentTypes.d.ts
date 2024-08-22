@@ -1227,7 +1227,6 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     HeroImage: Attribute.Media;
     Title: Attribute.String;
     SubTitle: Attribute.String;
-    Registration: Attribute.Component<'shared.program-instance', true>;
     alt: Attribute.String;
     my_tables: Attribute.Relation<
       'api::registration.registration',
