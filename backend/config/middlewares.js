@@ -7,8 +7,8 @@ module.exports = [
       origin: [
         "http://localhost:3000",
         "http://localhost:1337",
-        "https://helpful-positivity-9e5f57aa9a.strapiapp.com/",
-      ], // Removed single quotes around the second origin
+        "https://helpful-positivity-9e5f57aa9a.strapiapp.com",
+      ],
     },
   },
   "strapi::poweredBy",
