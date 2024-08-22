@@ -31,7 +31,7 @@ const MyButton = ({
       variant={variant}
       className={`${className} ${buttonSize(size)} ${
         landscapeBlock ? "llg:self-end" : ""
-      }`}
+      } text-xl llg:text-2xl`}
     >
       {label}
     </Button>

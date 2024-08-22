@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_my_table_rows",
+  "info": {
+    "displayName": "MyTableRows",
+    "icon": "arrowRight"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "cells": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rows"
+    }
+  }
+}

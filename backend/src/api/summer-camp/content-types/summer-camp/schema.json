@@ -1,0 +1,55 @@
+{
+  "kind": "singleType",
+  "collectionName": "summer_camps",
+  "info": {
+    "singularName": "summer-camp",
+    "pluralName": "summer-camps",
+    "displayName": "Summer Camp",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "SubTitle": {
+      "type": "string"
+    },
+    "SunPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "SummerCampInfo": {
+      "displayName": "SummerCampInfo",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.summer-camp-info"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    }
+  }
+}

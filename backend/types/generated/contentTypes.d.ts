@@ -802,13 +802,17 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   attributes: {
     HeroImage: Attribute.Media;
     Title: Attribute.String;
+    ProgramText: Attribute.String;
+    alt: Attribute.String;
+    my_tables: Attribute.Relation<
+      'api::about-us.about-us',
+      'oneToOne',
+      'api::my-table.my-table'
+    >;
+    ProgramOptions: Attribute.Blocks;
     AboutParagraph: Attribute.Blocks;
     RatioTitle: Attribute.String;
-    ProgramText: Attribute.String;
-    columns: Attribute.Component<'shared.columns', true>;
-    rows: Attribute.Component<'shared.teacher-student-rows', true>;
-    programOptions: Attribute.Component<'shared.program-options', true>;
-    alt: Attribute.String;
+    metadata: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -827,6 +831,170 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
   };
 }
 
+export interface ApiBulletinBoardBulletinBoard extends Schema.SingleType {
+  collectionName: 'bulletin_boards';
+  info: {
+    singularName: 'bulletin-board';
+    pluralName: 'bulletin-boards';
+    displayName: 'BulletinBoard';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImage: Attribute.Media;
+    BulletinBoardContent: Attribute.Component<
+      'shared.bulletin-board-content',
+      true
+    >;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::bulletin-board.bulletin-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::bulletin-board.bulletin-board',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCalendarCalendar extends Schema.SingleType {
+  collectionName: 'calendars';
+  info: {
+    singularName: 'calendar';
+    pluralName: 'calendars';
+    displayName: 'Calendar';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImg: Attribute.Media;
+    DownloadableCalendars: Attribute.Media;
+    my_table: Attribute.Relation<
+      'api::calendar.calendar',
+      'oneToOne',
+      'api::my-table.my-table'
+    >;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::calendar.calendar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::calendar.calendar',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFaqFaq extends Schema.SingleType {
+  collectionName: 'faqs';
+  info: {
+    singularName: 'faq';
+    pluralName: 'faqs';
+    displayName: 'FAQ';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImage: Attribute.Media;
+    Title: Attribute.String;
+    faqQuestions: Attribute.Component<'shared.faq-questions-answers', true>;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::faq.faq', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFormForm extends Schema.SingleType {
+  collectionName: 'forms';
+  info: {
+    singularName: 'form';
+    pluralName: 'forms';
+    displayName: 'Forms';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImage: Attribute.Media;
+    Title: Attribute.String;
+    FormsInfoTitle: Attribute.String;
+    FormsAndHandbookTitle: Attribute.String;
+    Form: Attribute.Component<'shared.forms-and-handbook-card', true>;
+    form_information: Attribute.Relation<
+      'api::form.form',
+      'oneToOne',
+      'api::form-information.form-information'
+    >;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiFormInformationFormInformation
+  extends Schema.CollectionType {
+  collectionName: 'form_informations';
+  info: {
+    singularName: 'form-information';
+    pluralName: 'form-informations';
+    displayName: 'FormInformation';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    FormsInfo: Attribute.Component<'shared.forms-info-array', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::form-information.form-information',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::form-information.form-information',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiGlobalGlobal extends Schema.SingleType {
   collectionName: 'globals';
   info: {
@@ -837,8 +1005,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     description: '';
   };
   options: {
-    increments: true;
-    timestamps: true;
     draftAndPublish: false;
   };
   pluginOptions: {
@@ -848,31 +1014,6 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
   };
   attributes: {
     metadata: Attribute.Component<'meta.metadata'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    favicon: Attribute.Media &
-      Attribute.Required &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    notificationBanner: Attribute.Component<'elements.notification-banner'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    navbar: Attribute.Component<'layout.navbar'> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    footer: Attribute.Component<'layout.footer'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -915,12 +1056,84 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     HomeHero: Attribute.Component<'sections.hero'>;
     aboutus: Attribute.Component<'sections.rich-text'>;
+    TestimonialImage: Attribute.Media;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMyTableMyTable extends Schema.CollectionType {
+  collectionName: 'my_tables';
+  info: {
+    singularName: 'my-table';
+    pluralName: 'my-tables';
+    displayName: 'MyTables';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tables: Attribute.Component<'shared.table'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::my-table.my-table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::my-table.my-table',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPaymentPayment extends Schema.SingleType {
+  collectionName: 'payments';
+  info: {
+    singularName: 'payment';
+    pluralName: 'payments';
+    displayName: 'Payments';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImage: Attribute.Media;
+    HeroText: Attribute.String;
+    TuitionInfoTitle: Attribute.String;
+    TuitionInfoText: Attribute.Blocks;
+    my_tables: Attribute.Relation<
+      'api::payment.payment',
+      'oneToMany',
+      'api::my-table.my-table'
+    >;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::payment.payment',
+      'oneToOne',
+      'admin::user'
+    > &
       Attribute.Private;
   };
 }
@@ -940,13 +1153,11 @@ export interface ApiProgramProgram extends Schema.CollectionType {
     title: Attribute.String & Attribute.Required & Attribute.Unique;
     slug: Attribute.UID<'api::program.program', 'title'> & Attribute.Required;
     programDescription: Attribute.Text & Attribute.Required;
-    quickInfo: Attribute.Component<'shared.program-quick-info'>;
     picture: Attribute.Media;
     programCardList: Attribute.Component<'shared.program-card-list', true>;
-    quickInfoTitle: Attribute.String;
-    nutFree: Attribute.String;
     classProgrammimng: Attribute.Component<'shared.class-programming', true>;
-    alt: Attribute.String;
+    QuickInfo: Attribute.Blocks;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -958,37 +1169,6 @@ export interface ApiProgramProgram extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::program.program',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiProgramInstanceProgramInstance
-  extends Schema.CollectionType {
-  collectionName: 'program_instances';
-  info: {
-    singularName: 'program-instance';
-    pluralName: 'program-instances';
-    displayName: 'programInstances';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    ProgramInstance: Attribute.Component<'shared.program-instance', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::program-instance.program-instance',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::program-instance.program-instance',
       'oneToOne',
       'admin::user'
     > &
@@ -1008,8 +1188,11 @@ export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    ProgramHero: Attribute.Component<'sections.hero'>;
-    ProgramsIntro: Attribute.Component<'shared.programs-intro'>;
+    HeroImage: Attribute.Media;
+    HeroText: Attribute.String;
+    ProgramsIntro: Attribute.Blocks;
+    Title: Attribute.String;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1046,6 +1229,13 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     SubTitle: Attribute.String;
     Registration: Attribute.Component<'shared.program-instance', true>;
     alt: Attribute.String;
+    my_tables: Attribute.Relation<
+      'api::registration.registration',
+      'oneToMany',
+      'api::my-table.my-table'
+    >;
+    RegistrationRichText: Attribute.Blocks;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1100,15 +1290,17 @@ export interface ApiStaffPageStaffPage extends Schema.SingleType {
     singularName: 'staff-page';
     pluralName: 'staff-pages';
     displayName: 'StaffPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    Header: Attribute.String;
-    Description: Attribute.Blocks;
+    StaffInfoTitle: Attribute.String;
+    StaffInfoText: Attribute.Blocks;
     HeroImage: Attribute.Media;
     HeroTitle: Attribute.String;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1120,6 +1312,42 @@ export interface ApiStaffPageStaffPage extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::staff-page.staff-page',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSummerCampSummerCamp extends Schema.SingleType {
+  collectionName: 'summer_camps';
+  info: {
+    singularName: 'summer-camp';
+    pluralName: 'summer-camps';
+    displayName: 'Summer Camp';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeroImage: Attribute.Media;
+    Title: Attribute.String;
+    SubTitle: Attribute.String;
+    SunPicture: Attribute.Media;
+    SummerCampInfo: Attribute.Component<'shared.summer-camp-info', true>;
+    meta: Attribute.Component<'meta.metadata'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::summer-camp.summer-camp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::summer-camp.summer-camp',
       'oneToOne',
       'admin::user'
     > &
@@ -1237,14 +1465,21 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::about-us.about-us': ApiAboutUsAboutUs;
+      'api::bulletin-board.bulletin-board': ApiBulletinBoardBulletinBoard;
+      'api::calendar.calendar': ApiCalendarCalendar;
+      'api::faq.faq': ApiFaqFaq;
+      'api::form.form': ApiFormForm;
+      'api::form-information.form-information': ApiFormInformationFormInformation;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
+      'api::my-table.my-table': ApiMyTableMyTable;
+      'api::payment.payment': ApiPaymentPayment;
       'api::program.program': ApiProgramProgram;
-      'api::program-instance.program-instance': ApiProgramInstanceProgramInstance;
       'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::registration.registration': ApiRegistrationRegistration;
       'api::staff.staff': ApiStaffStaff;
       'api::staff-page.staff-page': ApiStaffPageStaffPage;
+      'api::summer-camp.summer-camp': ApiSummerCampSummerCamp;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testimonials-page.testimonials-page': ApiTestimonialsPageTestimonialsPage;
       'api::top-testimonial.top-testimonial': ApiTopTestimonialTopTestimonial;

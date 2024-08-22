@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_question_answer_images",
+  "info": {
+    "displayName": "QuestionAnswerImage"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "FAQListItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-items"
+    },
+    "AnswerImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

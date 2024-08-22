@@ -8,48 +8,64 @@ const LinkBar = () => {
   const links = [
     {
       label: "About Us",
+      ariaLabel: "About Us drop down menu",
       items: [
         {
           label: "About Us",
           href: "/about",
+          ariaLabel: "About Page",
         },
         {
           label: "Meet Our Staff",
           href: "/meetOurStaff",
+          ariaLabel: "Meet our staff page",
         },
       ],
     },
     {
       label: "Programs",
       href: "/programs",
+      ariaLabel: "PUMC's Programs page",
     },
     {
       label: "Enrollment",
+      ariaLabel: "Enrollment drop down menu",
       items: [
         {
           label: "Registration",
           href: "/registration",
+          ariaLabel: "RegistrationPage",
         },
         {
           label: "Payments",
           href: "/payments",
+          ariaLabel: "Payments Page",
         },
       ],
     },
     {
       label: "Parent Resources",
+      ariaLabel: "Parent Resources drop down menu",
       items: [
         {
           label: "Calendar",
           href: "/calendar",
+          ariaLabel: "Calendar Page",
         },
         {
           label: "Forms & Handbook",
-          href: "/formsAndHandbook",
+          href: "/forms",
+          ariaLabel: "Forms and handbook page",
         },
         {
           label: "Bulletin Board",
-          href: " /bulletinBoard",
+          href: "/bulletinBoard",
+          ariaLabel: "Bulletin board page",
+        },
+        {
+          label: "FAQs",
+          href: "/faq",
+          ariaLabel: "Frequently Asked Questions Page",
         },
       ],
     },
@@ -61,6 +77,7 @@ const LinkBar = () => {
         key={`${link.label} ${i}`}
         label={link.label}
         items={link.items}
+        ariaLabel={link.ariaLabel}
       />
     ) : (
       <Link key={`${link.label} ${i}`} href="/programs">

@@ -39,6 +39,19 @@
     },
     "alt": {
       "type": "string"
+    },
+    "my_tables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::my-table.my-table"
+    },
+    "RegistrationRichText": {
+      "type": "blocks"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
     }
   }
 }

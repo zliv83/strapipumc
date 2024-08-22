@@ -24,6 +24,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/LoadMorePosts.tsx", "src/app/blog-3/page.tsx", "src/app/app/components/ErrorBoundry.jsx", "src/app/app/components/ErrorBoundary.tsx", "src/app/global-error.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/components/LoadMorePosts.tsx", "src/app/blog-3/page.tsx", "src/app/app/components/ErrorBoundry.jsx", "src/app/app/components/ErrorBoundary.tsx", "src/app/global-error.tsx", "src/components/shared/WYSIWYG.jsx", "src/components/shared/strapi/BlocksRenderer.tsx", "src/components/shared/strapi/Text.tsx", "src/components/shared/BlocksRenderer.jsx"],
   "exclude": ["node_modules"]
 }

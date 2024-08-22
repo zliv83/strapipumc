@@ -1,12 +1,18 @@
 {
   "collectionName": "components_shared_dynamic_rows",
   "info": {
-    "displayName": "dynamicRows"
+    "displayName": "dynamicRows",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "key": {
       "type": "string"
+    },
+    "cells": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rows"
     }
   }
 }

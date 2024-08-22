@@ -1,0 +1,48 @@
+{
+  "kind": "singleType",
+  "collectionName": "calendars",
+  "info": {
+    "singularName": "calendar",
+    "pluralName": "calendars",
+    "displayName": "Calendar",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImg": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "DownloadableCalendars": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "my_table": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::my-table.my-table"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    }
+  }
+}

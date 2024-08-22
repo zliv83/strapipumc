@@ -2,15 +2,14 @@ import qs from "qs";
 
 export const host = process.env.NEXT_PUBLIC_STRAPI_API_URL;
 
-export async function fetchStrapi(path, urlParamsObj, options) {
+export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
   try {
     const mergedOptions = {
-      next: { revalidate: 60 },
+      next: { revalidate: revalidate },
       headers: {
         "Content-Type": "application-json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
       },
-      ...options,
     };
     //Build request url
     const queryString = qs.stringify(urlParamsObj);

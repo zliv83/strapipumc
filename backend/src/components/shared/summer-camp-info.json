@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_summer_camp_infos",
+  "info": {
+    "displayName": "SummerCampInfo"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "blocks"
+    }
+  }
+}

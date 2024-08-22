@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_shared_faq_rich_texts",
+  "info": {
+    "displayName": "FAQRichText",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "blocks"
+    },
+    "AnswerImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_forms_and_handbook_cards",
+  "info": {
+    "displayName": "FormsAndHandbookCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "form": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "href": {
+      "type": "string"
+    },
+    "FormPDF": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

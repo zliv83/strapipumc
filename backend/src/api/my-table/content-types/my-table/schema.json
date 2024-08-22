@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "my_tables",
+  "info": {
+    "singularName": "my-table",
+    "pluralName": "my-tables",
+    "displayName": "MyTables"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "tables": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.table"
+    }
+  }
+}

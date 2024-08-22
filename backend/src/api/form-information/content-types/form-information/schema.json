@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "form_informations",
+  "info": {
+    "singularName": "form-information",
+    "pluralName": "form-informations",
+    "displayName": "FormInformation"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "FormsInfo": {
+      "displayName": "FormsInfoArray",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.forms-info-array"
+    }
+  }
+}

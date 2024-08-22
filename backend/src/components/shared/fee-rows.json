@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_fee_rows",
+  "info": {
+    "displayName": "FeeRows"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string"
+    },
+    "cells": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rows"
+    }
+  }
+}

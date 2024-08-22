@@ -4,31 +4,38 @@
   "info": {
     "singularName": "staff-page",
     "pluralName": "staff-pages",
-    "displayName": "StaffPage"
+    "displayName": "StaffPage",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "Header": {
+    "StaffInfoTitle": {
       "type": "string"
     },
-    "Description": {
+    "StaffInfoText": {
       "type": "blocks"
     },
     "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "HeroTitle": {
       "type": "string"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
     }
   }
 }

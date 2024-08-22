@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_shared_my_metas",
+  "info": {
+    "displayName": "MyMeta"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "keywords": {
+      "type": "text"
+    }
+  }
+}

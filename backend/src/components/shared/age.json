@@ -1,8 +1,13 @@
 {
   "collectionName": "components_shared_ages",
   "info": {
-    "displayName": "age"
+    "displayName": "age",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "label": {
+      "type": "string"
+    }
+  }
 }

@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_questions_and_answers",
+  "info": {
+    "displayName": "QuestionsAndAnswers"
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    }
+  }
+}

@@ -9,7 +9,10 @@ import {
   getKeyValue,
 } from "@nextui-org/table";
 
+import rowFormatter from "lib/rowFormatter";
+
 export default function MyTable({ rows, columns, ariaLabel, className }) {
+  const formattedRows = rowFormatter(rows);
   return (
     <div className={className}>
       <Table isStriped aria-label={ariaLabel}>
@@ -23,7 +26,7 @@ export default function MyTable({ rows, columns, ariaLabel, className }) {
             </TableColumn>
           )}
         </TableHeader>
-        <TableBody items={rows}>
+        <TableBody items={formattedRows}>
           {(item) => (
             <TableRow key={item.id}>
               {(columnKey) => (

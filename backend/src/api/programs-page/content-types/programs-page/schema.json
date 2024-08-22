@@ -12,16 +12,30 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ProgramHero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.hero"
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "HeroText": {
+      "type": "string"
     },
     "ProgramsIntro": {
-      "displayName": "ProgramsIntro",
+      "type": "blocks"
+    },
+    "Title": {
+      "type": "string"
+    },
+    "meta": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.programs-intro"
+      "component": "meta.metadata"
     }
   }
 }

@@ -4,60 +4,64 @@ import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import HeroMask from "@/components/shared/imageMask";
-import Description from "@/components/programs/slug/description";
-import QuickInfo from "@/components/programs/slug/quickInfo";
-import Programming from "@/components/programs/slug/programming";
+import MyButton from "@/components/shared/myButton";
+import Programming from "../components/programming";
+import WYSIWYG from "@/components/shared/WYSIWYG";
+
+const { data } = await fetchStrapi("/programs", { populate: "deep" });
+
+export async function generateMetadata({ params }) {
+  const slug = params.slug;
+  const program = data.find((item) => item.attributes.slug === slug);
+  const programData = program.attributes;
+
+  return {
+    title: programData.meta.metaTitle,
+    description: programData.meta.metaDescription,
+  };
+}
 
 export default async function ProgramPage({ params }) {
-  const fetchedData = await fetchStrapi("/programs", {
-    populate: {
-      quickInfo: { populate: "*" },
-      programCardList: { populate: "*" },
-      picture: { populate: "*" },
-      classProgrammimng: { populate: "*" },
-    },
-  });
   const slug = params.slug;
-  const program = fetchedData.data.find(
-    (item) => item.attributes.slug === slug
-  );
+  const program = data.find((item) => item.attributes.slug === slug);
   const programData = program.attributes;
-  const strapiData = {
-    HeroImage: programData.picture.data.attributes.url,
-    alt: programData.alt,
-    Title: programData.title,
-    ProgramDescription: programData.programDescription,
-    QuickInfoTitle: programData.quickInfoTitle,
-    QuickInfo: programData.quickInfo,
-    ClassProgramming: programData.classProgrammimng,
-    NutFree: programData?.nutFree,
-  };
+  const img = programData.picture.data.attributes;
 
   return (
     <>
-      <Hero size="programs" img={strapiData.HeroImage} alt={strapiData.alt}>
+      <Hero size="programs" img={img.url} alt={img.alternativeText}>
         <HeroMask />
-        <HeroH1 className="z-30">{strapiData.Title}</HeroH1>
+        <HeroH1 className="z-30">{programData.title}</HeroH1>
       </Hero>
       <div
         id="description and quick info"
         className="relative grid grid-cols-1 llg:grid-cols-[1.2fr_1fr]"
       >
-        <Description programDescription={strapiData.ProgramDescription} />
-        <QuickInfo
-          title={strapiData.QuickInfoTitle}
-          ageLabel={strapiData.QuickInfo?.age?.label}
-          ageDescription={strapiData.QuickInfo?.age?.description}
-          optionsListTitle={strapiData.QuickInfo.optionsListTitle}
-          optionsList={strapiData.QuickInfo.optionsLIst}
-          ratioLabel={strapiData.QuickInfo.Ratio.label}
-          ratioDescription={strapiData.QuickInfo.Ratio.description}
-          nutFree={strapiData?.NutFree}
-        />
+        <div id="description" className="flex flex-col p-8 llg:p-20 gap-12">
+          <h2 className="text-center llg:text-left text-3xl">
+            {programData.programDescription}
+          </h2>
+          <MyButton
+            className="self-center llg:self-end"
+            label="Tuition Info"
+            size="lg"
+            href="/registration"
+          />
+        </div>
+        <div
+          id="quick info"
+          className="bg-PumcBlue text-background flex pl-12 py-6 llg:pl-24"
+        >
+          <WYSIWYG
+            content={programData.QuickInfo}
+            pClassName="text-3xl"
+            liClassName="ml-8"
+          />
+        </div>
         <Divider className="absolute bottom-0 left-0 w-full" />
       </div>
       <div className="grid grid-cols-1 px-6 py-12 gap-12 llg:gap-20 llg:grid-cols-2 llg:p-24">
-        {strapiData.ClassProgramming.map((program) => (
+        {programData.classProgrammimng.map((program) => (
           <Programming key={program.id} classProgramming={program} />
         ))}
       </div>

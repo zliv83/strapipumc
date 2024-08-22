@@ -322,6 +322,7 @@ export interface SectionsHero extends Schema.Component {
   attributes: {
     title: Attribute.String & Attribute.Required;
     picture: Attribute.Media & Attribute.Required;
+    SubTitle: Attribute.String;
   };
 }
 
@@ -400,8 +401,22 @@ export interface SharedAge extends Schema.Component {
   collectionName: 'components_shared_ages';
   info: {
     displayName: 'age';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    label: Attribute.String;
+  };
+}
+
+export interface SharedBulletinBoardContent extends Schema.Component {
+  collectionName: 'components_shared_bulletin_board_contents';
+  info: {
+    displayName: 'BulletinBoardContent';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Image: Attribute.Media;
+  };
 }
 
 export interface SharedClassProgramming extends Schema.Component {
@@ -432,9 +447,142 @@ export interface SharedDynamicRows extends Schema.Component {
   collectionName: 'components_shared_dynamic_rows';
   info: {
     displayName: 'dynamicRows';
+    description: '';
   };
   attributes: {
     key: Attribute.String;
+    cells: Attribute.Component<'shared.rows', true>;
+  };
+}
+
+export interface SharedFaqLink extends Schema.Component {
+  collectionName: 'components_shared_faq_links';
+  info: {
+    displayName: 'FAQLink';
+    description: '';
+  };
+  attributes: {
+    Question: Attribute.String;
+    FAQLink: Attribute.Blocks;
+  };
+}
+
+export interface SharedFaqQuestionsAnswers extends Schema.Component {
+  collectionName: 'components_shared_faq_questions_answers';
+  info: {
+    displayName: 'FaqQuestionsAnswers';
+    description: '';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Answer: Attribute.Blocks;
+    image: Attribute.Media;
+    alt: Attribute.String;
+    RemindText: Attribute.String;
+    my_table: Attribute.Relation<
+      'shared.faq-questions-answers',
+      'oneToOne',
+      'api::my-table.my-table'
+    >;
+    ImageLink: Attribute.String;
+  };
+}
+
+export interface SharedFaqRichText extends Schema.Component {
+  collectionName: 'components_shared_faq_rich_texts';
+  info: {
+    displayName: 'FAQRichText';
+    description: '';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Answer: Attribute.Blocks;
+    AnswerImage: Attribute.Media;
+  };
+}
+
+export interface SharedFaqRowsNew extends Schema.Component {
+  collectionName: 'components_shared_faq_rows_news';
+  info: {
+    displayName: 'FAQRowsNew';
+  };
+  attributes: {
+    Label: Attribute.String;
+    cells: Attribute.Component<'shared.rows', true>;
+  };
+}
+
+export interface SharedFaqRows extends Schema.Component {
+  collectionName: 'components_shared_faq_rows';
+  info: {
+    displayName: 'FAQRows';
+    description: '';
+  };
+  attributes: {
+    label: Attribute.String;
+    cells: Attribute.Component<'shared.rows', true>;
+  };
+}
+
+export interface SharedFaqTable extends Schema.Component {
+  collectionName: 'components_shared_faq_tables';
+  info: {
+    displayName: 'FAQTable';
+  };
+  attributes: {
+    FAQColumns: Attribute.Component<'shared.columns', true>;
+  };
+}
+
+export interface SharedFaqs extends Schema.Component {
+  collectionName: 'components_shared_faqs';
+  info: {
+    displayName: 'FAQS';
+    description: '';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Answer: Attribute.String;
+    FAQListItems: Attribute.Component<'shared.list-items', true>;
+    FAQImage: Attribute.Media;
+    text: Attribute.String;
+    FaqTable: Attribute.Component<'shared.faq-table'>;
+  };
+}
+
+export interface SharedFeeRows extends Schema.Component {
+  collectionName: 'components_shared_fee_rows';
+  info: {
+    displayName: 'FeeRows';
+  };
+  attributes: {
+    key: Attribute.String;
+    cells: Attribute.Component<'shared.rows', true>;
+  };
+}
+
+export interface SharedFormsAndHandbookCard extends Schema.Component {
+  collectionName: 'components_shared_forms_and_handbook_cards';
+  info: {
+    displayName: 'FormsAndHandbookCard';
+    description: '';
+  };
+  attributes: {
+    form: Attribute.String;
+    description: Attribute.String;
+    href: Attribute.String;
+    FormPDF: Attribute.Media;
+  };
+}
+
+export interface SharedFormsInfoArray extends Schema.Component {
+  collectionName: 'components_shared_forms_info_arrays';
+  info: {
+    displayName: 'FormsInfoArray';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Text: Attribute.Blocks;
   };
 }
 
@@ -468,6 +616,30 @@ export interface SharedMedia extends Schema.Component {
   };
   attributes: {
     file: Attribute.Media;
+  };
+}
+
+export interface SharedMyMeta extends Schema.Component {
+  collectionName: 'components_shared_my_metas';
+  info: {
+    displayName: 'MyMeta';
+  };
+  attributes: {
+    Title: Attribute.String;
+    description: Attribute.Text;
+    keywords: Attribute.Text;
+  };
+}
+
+export interface SharedMyTableRows extends Schema.Component {
+  collectionName: 'components_shared_my_table_rows';
+  info: {
+    displayName: 'MyTableRows';
+    icon: 'arrowRight';
+  };
+  attributes: {
+    key: Attribute.String;
+    cells: Attribute.Component<'shared.rows', true>;
   };
 }
 
@@ -573,6 +745,39 @@ export interface SharedProgramsIntro extends Schema.Component {
   };
 }
 
+export interface SharedQuestionAnswerImage extends Schema.Component {
+  collectionName: 'components_shared_question_answer_images';
+  info: {
+    displayName: 'QuestionAnswerImage';
+  };
+  attributes: {
+    Question: Attribute.String;
+    FAQListItems: Attribute.Component<'shared.list-items', true>;
+    AnswerImage: Attribute.Media;
+  };
+}
+
+export interface SharedQuestionAnswer extends Schema.Component {
+  collectionName: 'components_shared_question_answers';
+  info: {
+    displayName: 'QuestionAnswer';
+  };
+  attributes: {
+    Question: Attribute.String;
+    Answer: Attribute.String;
+  };
+}
+
+export interface SharedQuestionsAndAnswers extends Schema.Component {
+  collectionName: 'components_shared_questions_and_answers';
+  info: {
+    displayName: 'QuestionsAndAnswers';
+  };
+  attributes: {
+    Question: Attribute.String;
+  };
+}
+
 export interface SharedQuote extends Schema.Component {
   collectionName: 'components_shared_quotes';
   info: {
@@ -615,9 +820,13 @@ export interface SharedRichText extends Schema.Component {
 export interface SharedRows extends Schema.Component {
   collectionName: 'components_shared_rows';
   info: {
-    displayName: 'rows';
+    displayName: 'cell';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    data: Attribute.String;
+    label: Attribute.String;
+  };
 }
 
 export interface SharedSeo extends Schema.Component {
@@ -661,15 +870,70 @@ export interface SharedStaff extends Schema.Component {
   };
 }
 
+export interface SharedSummerCampInfo extends Schema.Component {
+  collectionName: 'components_shared_summer_camp_infos';
+  info: {
+    displayName: 'SummerCampInfo';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Text: Attribute.Blocks;
+  };
+}
+
+export interface SharedTableMediaFaq extends Schema.Component {
+  collectionName: 'components_shared_table_media_faqs';
+  info: {
+    displayName: 'TableMediaFAQ';
+  };
+  attributes: {
+    columns: Attribute.Component<'shared.columns', true>;
+    rows: Attribute.Component<'shared.faq-rows', true>;
+    Question: Attribute.String;
+    Answer: Attribute.String;
+    REMINDText: Attribute.String;
+    Icon: Attribute.Media;
+  };
+}
+
+export interface SharedTableMedia extends Schema.Component {
+  collectionName: 'components_shared_table_medias';
+  info: {
+    displayName: 'TableMedia';
+    description: '';
+  };
+  attributes: {
+    FAQColumns: Attribute.Component<'shared.columns', true>;
+    Question: Attribute.String;
+    Icon: Attribute.Media;
+    RemindText: Attribute.String;
+    Rows: Attribute.Component<'shared.faq-rows-new', true>;
+  };
+}
+
+export interface SharedTableRow extends Schema.Component {
+  collectionName: 'components_shared_table_rows';
+  info: {
+    displayName: 'TableRow';
+    icon: 'arrowRight';
+    description: '';
+  };
+  attributes: {
+    cells: Attribute.Component<'shared.rows', true>;
+    label: Attribute.String;
+  };
+}
+
 export interface SharedTable extends Schema.Component {
   collectionName: 'components_shared_tables';
   info: {
     displayName: 'table';
+    description: '';
   };
   attributes: {
     title: Attribute.String;
     columns: Attribute.Component<'shared.columns', true>;
-    rows: Attribute.Component<'shared.rows', true>;
+    rows: Attribute.Component<'shared.my-table-rows', true>;
   };
 }
 
@@ -751,12 +1015,25 @@ declare module '@strapi/types' {
       'sections.rich-text': SectionsRichText;
       'sections.testimonials-group': SectionsTestimonialsGroup;
       'shared.age': SharedAge;
+      'shared.bulletin-board-content': SharedBulletinBoardContent;
       'shared.class-programming': SharedClassProgramming;
       'shared.columns': SharedColumns;
       'shared.dynamic-rows': SharedDynamicRows;
+      'shared.faq-link': SharedFaqLink;
+      'shared.faq-questions-answers': SharedFaqQuestionsAnswers;
+      'shared.faq-rich-text': SharedFaqRichText;
+      'shared.faq-rows-new': SharedFaqRowsNew;
+      'shared.faq-rows': SharedFaqRows;
+      'shared.faq-table': SharedFaqTable;
+      'shared.faqs': SharedFaqs;
+      'shared.fee-rows': SharedFeeRows;
+      'shared.forms-and-handbook-card': SharedFormsAndHandbookCard;
+      'shared.forms-info-array': SharedFormsInfoArray;
       'shared.list-items': SharedListItems;
       'shared.list': SharedList;
       'shared.media': SharedMedia;
+      'shared.my-meta': SharedMyMeta;
+      'shared.my-table-rows': SharedMyTableRows;
       'shared.options-list': SharedOptionsList;
       'shared.options': SharedOptions;
       'shared.program-card-list': SharedProgramCardList;
@@ -765,6 +1042,9 @@ declare module '@strapi/types' {
       'shared.program-options': SharedProgramOptions;
       'shared.program-quick-info': SharedProgramQuickInfo;
       'shared.programs-intro': SharedProgramsIntro;
+      'shared.question-answer-image': SharedQuestionAnswerImage;
+      'shared.question-answer': SharedQuestionAnswer;
+      'shared.questions-and-answers': SharedQuestionsAndAnswers;
       'shared.quote': SharedQuote;
       'shared.registration-card': SharedRegistrationCard;
       'shared.rich-text': SharedRichText;
@@ -772,6 +1052,10 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.staff': SharedStaff;
+      'shared.summer-camp-info': SharedSummerCampInfo;
+      'shared.table-media-faq': SharedTableMediaFaq;
+      'shared.table-media': SharedTableMedia;
+      'shared.table-row': SharedTableRow;
       'shared.table': SharedTable;
       'shared.teacher-student-rows': SharedTeacherStudentRows;
       'shared.testimonial': SharedTestimonial;

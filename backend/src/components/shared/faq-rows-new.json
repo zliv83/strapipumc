@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_faq_rows_news",
+  "info": {
+    "displayName": "FAQRowsNew"
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string"
+    },
+    "cells": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.rows"
+    }
+  }
+}

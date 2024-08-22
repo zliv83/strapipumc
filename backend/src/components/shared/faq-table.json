@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_shared_faq_tables",
+  "info": {
+    "displayName": "FAQTable"
+  },
+  "options": {},
+  "attributes": {
+    "FAQColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.columns"
+    }
+  }
+}

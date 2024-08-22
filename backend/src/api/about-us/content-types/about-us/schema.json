@@ -26,34 +26,30 @@
     "Title": {
       "type": "string"
     },
+    "ProgramText": {
+      "type": "string"
+    },
+    "alt": {
+      "type": "string"
+    },
+    "my_tables": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::my-table.my-table"
+    },
+    "ProgramOptions": {
+      "type": "blocks"
+    },
     "AboutParagraph": {
       "type": "blocks"
     },
     "RatioTitle": {
       "type": "string"
     },
-    "ProgramText": {
-      "type": "string"
-    },
-    "columns": {
+    "metadata": {
       "type": "component",
-      "repeatable": true,
-      "component": "shared.columns"
-    },
-    "rows": {
-      "displayName": "TeacherStudentRows",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.teacher-student-rows"
-    },
-    "programOptions": {
-      "displayName": "ProgramOptions",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.program-options"
-    },
-    "alt": {
-      "type": "string"
+      "repeatable": false,
+      "component": "meta.metadata"
     }
   }
 }

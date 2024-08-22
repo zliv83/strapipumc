@@ -6,7 +6,7 @@ import { useDividerContext } from "lib/dividerContext";
 import PUMCLogo from "@/components/shared/logo";
 import FooterLinks from "@/components/footer/footerLinks";
 import Copyright from "@/components/footer/copyright";
-import Socials from "@/components/shared/socials";
+import Socials from "@/components/footer/socials";
 import MyButton from "@/components/shared/myButton";
 
 const footer = () => {
@@ -14,7 +14,7 @@ const footer = () => {
   return (
     <>
       {showDivider ? <Divider /> : null}
-      <div className="p-12">
+      <footer className="p-12">
         <div
           id="footer grid"
           className="flex flex-col gap-12 pt-6 pb-16 llg:pt-0 llg:pb-0 llg:gap-0 llg:grid llg:grid-cols-[45%_35%_20%] items-center justify-items-end"
@@ -30,7 +30,7 @@ const footer = () => {
           <Copyright className="mt-16 llg:mt-0" />
           <Socials className="hidden llg:flex" />
         </div>
-      </div>
+      </footer>
     </>
   );
 };

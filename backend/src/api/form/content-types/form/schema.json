@@ -1,0 +1,52 @@
+{
+  "kind": "singleType",
+  "collectionName": "forms",
+  "info": {
+    "singularName": "form",
+    "pluralName": "forms",
+    "displayName": "Forms",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "Title": {
+      "type": "string"
+    },
+    "FormsInfoTitle": {
+      "type": "string"
+    },
+    "FormsAndHandbookTitle": {
+      "type": "string"
+    },
+    "Form": {
+      "displayName": "FormsAndHandbookCard",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.forms-and-handbook-card"
+    },
+    "form_information": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::form-information.form-information"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    }
+  }
+}

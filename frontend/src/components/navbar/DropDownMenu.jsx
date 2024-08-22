@@ -7,14 +7,14 @@ import {
 import { Button } from "@nextui-org/button";
 import { ArrowDown01Icon } from "hugeicons-react";
 
-const DropDownMenu = ({ label, items }) => {
+const DropDownMenu = ({ label, items, ariaLabel }) => {
   const itemsMap = items.map((item) => (
-    <DropdownItem key={item.label} href={item.href}>
+    <DropdownItem key={item.label} href={item.href} textValue={item.label}>
       <span className="text-xl">{item.label}</span>
     </DropdownItem>
   ));
   return (
-    <Dropdown>
+    <Dropdown aria-label={ariaLabel}>
       <DropdownTrigger>
         <Button
           disableRipple

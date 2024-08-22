@@ -2,6 +2,9 @@
   "scripts": {
     "frontend": "yarn dev --prefix ../frontend/",
     "backend": "yarn dev --prefix ../backend/",
+    "build": "concurrently \"yarn build:frontend\" \"yarn build:backend\"",
+    "build:frontend": "cd frontend && yarn build",  
+    "build:backend": "cd backend && yarn build", 
     "clear": "cd frontend && rm -rf .next && rm -rf cache",
     "setup:frontend": "cd frontend && yarn",
     "setup:backend": "cd backend && yarn",
@@ -13,6 +16,7 @@
   },
   "dependencies": {
     "concurrently": "^8.2.2",
-    "npm-check-updates": "^16.14.15"
+    "npm-check-updates": "^16.14.15",
+    "react-markdown": "^9.0.1"
   }
 }

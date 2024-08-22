@@ -1,8 +1,16 @@
 {
   "collectionName": "components_shared_rows",
   "info": {
-    "displayName": "rows"
+    "displayName": "cell",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "data": {
+      "type": "string"
+    },
+    "label": {
+      "type": "string"
+    }
+  }
 }

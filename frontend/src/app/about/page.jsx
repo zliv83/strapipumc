@@ -1,79 +1,74 @@
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
-import { BlockH1 } from "@/components/shared/h1s";
 import Hero from "@/components/shared/hero";
-import PageCard from "@/components/shared/pageCard";
+import PageView from "@/components/shared/pageView";
+import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyTable from "@/components/shared/myTable";
 
-const Title = ({ children, className }) => {
+const {
+  data: { attributes },
+} = await fetchStrapi("/about-us", { populate: "deep, 5" });
+
+export const metadata = {
+  title: attributes.metadata.metaTitle,
+  description: attributes.metadata.metaDescription,
+};
+
+const Title = ({ children }) => {
   return (
-    <h2
-      className={`text-primary text-4xl pt-6 text-center llg:text-left llg:pt-12 ${className}`}
-    >
+    <h2 className="text-primary text-center text-4xl llg:text-left">
       {children}
     </h2>
   );
 };
 
-export default async function About() {
-  const fetchedData = await fetchStrapi("/about-us", { populate: "*" });
-  const data = fetchedData.data.attributes;
-  const strapiData = {
-    HeroImage: data.HeroImage.data.attributes.url,
-    Title: data.Title,
-    AboutParagraph: data.AboutParagraph,
-    RatioTitle: data.RatioTitle,
-    ProgramText: data.ProgramText,
-    Columns: data.columns,
-    Rows: data.rows,
-    ProgramOptions: data.programOptions,
-  };
-
-  const aboutParagraphs = strapiData.AboutParagraph.map((paragraph, i) => (
-    <p key={i} className="text-2xl pt-4 text-center llg:text-left llg:pt-6">
-      {paragraph.children.map((child) => child.text).join("")}
-    </p>
-  ));
-
-  const programOptions = strapiData.ProgramOptions.map((option) => (
-    <div
-      key={option.id}
-      className="flex flex-col llg:flex-row llg:gap-4 llg:pt-6"
-    >
-      {" "}
-      {/* Add flex-col for mobile */}
-      <p className="font-bold text-2xl pb-2 llg:pb-0 text-center llg:text-left">
-        {option.AgeGroup}
-      </p>
-      <span className="hidden llg:inline">-</span>{" "}
-      {/* Only show hyphen on larger screens */}
-      <p className="text-xl pb-2 llg:pb-0 text-center llg:text-left">
-        {option.WeeklySchedule}
-      </p>
-    </div>
-  ));
-
+export default async function AboutUs() {
+  const heroImg = attributes.HeroImage.data.attributes;
   return (
     <>
-      <Hero size="about" img={strapiData.HeroImage} />
-      <div className="bg-PumcGreen p-4 llg:p-12">
-        <PageCard>
-          <BlockH1 className="text-primary">About Us</BlockH1>
+      <Hero
+        img={heroImg.url}
+        alt={heroImg.alternativeText}
+        height={heroImg.height}
+        width={heroImg.width}
+        size="about"
+      ></Hero>
+      <PageView className="llg:bg-PumcGreen">
+        <div className="flex flex-col gap-6">
+          <h1 className="text-primary text-center text-6xl llg:text-[6rem] llg:text-left">
+            About Us
+          </h1>
           <Divider />
-          <Title>{strapiData.Title}</Title>
-          {aboutParagraphs}
-          <Title>{strapiData.RatioTitle}</Title>
-          <MyTable
-            className="pt-6"
-            rows={strapiData.Rows}
-            columns={strapiData.Columns}
-            ariaLabel="PUMC vs State Teacher to Student Ratios"
-          />
-          <Title className="pb-6">{strapiData.ProgramText}</Title>
-          {programOptions}
-        </PageCard>
-      </div>
+          <section aria-label="About Paragraph Section">
+            <Title className="text-center text-4xl llg:text-left">
+              {attributes.Title}
+            </Title>
+            <WYSIWYG
+              content={attributes.AboutParagraph}
+              pClassName="text-xl text-center llg:text-left llg:text-2xl"
+            />
+          </section>
+          <section aria-label="Student/Teacher Ratio Table Section">
+            <Title className="text-center text-4xl llg:text-left mb-6">
+              {attributes.RatioTitle}
+            </Title>
+            <MyTable
+              columns={attributes.my_tables.data.attributes.tables.columns}
+              rows={attributes.my_tables.data.attributes.tables.rows}
+              ariaLabel="PUMC vs State Teacher to Student Ratios"
+              className="pt-6"
+            />
+          </section>
+          <section aria-label="Program Options Section">
+            <Title>{attributes.ProgramText}</Title>
+            <WYSIWYG
+              content={attributes.ProgramOptions}
+              pClassName="text-2xl"
+            />
+          </section>
+        </div>
+      </PageView>
     </>
   );
 }

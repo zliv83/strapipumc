@@ -1,9 +1,9 @@
-import "../../styles/globals.css";
-
 import { Alegreya } from "next/font/google";
 
 import { NextUIProvider } from "@nextui-org/system";
 import { DividerProvider } from "lib/dividerContext";
+import { fetchStrapi } from "lib/fetchStrapi";
+import "styles/globals.css";
 
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
@@ -13,15 +13,18 @@ const alegreya = Alegreya({
   display: "swap",
 });
 
-export const metadata = {
-  title: "PUMC Preschool",
-  description: "Powell United Methodist Church Preschool in Powell, Ohio",
+const {
+  data: { attributes },
+} = await fetchStrapi("/global", { populate: "deep" });
+
+export const metaData = {
+  title: attributes.metadata.metaTitle,
+  description: attributes.metadata.metaDescription,
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
   return (
-    <html suppressHydrationWarning lang="en">
-      <head />
+    <html lang="en">
       <body className={alegreya.className}>
         <DividerProvider>
           <NextUIProvider>

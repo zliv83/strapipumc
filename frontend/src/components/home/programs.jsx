@@ -1,7 +1,7 @@
 import MyButton from "@/components/shared/myButton";
-import BeeBackground from "@/components/programs/beeBackground";
+import BeeBackground from "./beeBackground";
 import { BlockH1 } from "@/components/shared/h1s";
-import ProgramGrid from "@/components/programs/programGrid";
+import ProgramGrid from "@/components/shared/programGrid";
 
 const Programs = () => {
   return (

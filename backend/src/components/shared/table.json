@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_tables",
   "info": {
-    "displayName": "table"
+    "displayName": "table",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,10 +16,10 @@
       "component": "shared.columns"
     },
     "rows": {
-      "displayName": "rows",
+      "displayName": "MyTableRows",
       "type": "component",
       "repeatable": true,
-      "component": "shared.rows"
+      "component": "shared.my-table-rows"
     }
   }
 }

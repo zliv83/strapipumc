@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_table_media_faqs",
+  "info": {
+    "displayName": "TableMediaFAQ"
+  },
+  "options": {},
+  "attributes": {
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.columns"
+    },
+    "rows": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-rows"
+    },
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "string"
+    },
+    "REMINDText": {
+      "type": "string"
+    },
+    "Icon": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

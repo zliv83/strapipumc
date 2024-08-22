@@ -2,17 +2,17 @@ import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 
-const HomeHero = ({ img, title, description }) => {
+const HomeHero = ({ img, title, subTitle, width, height, alt }) => {
   return (
-    <Hero img={img} alt="Home hero" size="main">
+    <Hero img={img} alt={alt} width={width} height={height} size="main">
       <ImageMask />
-      <div className="flex flex-col gap-12 justify-start mt-16 p-6 llg:w-[80%] llg:text-left llg:p-12 leading-none z-30">
+      <div className="flex flex-col gap-6 justify-start mt-16 llg:w-[80%] llg:text-left llg:p-12 leading-none z-30">
         <h1 className={`text-[3.4rem] llg:text-[8rem]`}>{title}</h1>
         <h2 className={`text-[2rem] llg:text-[4rem] text-[#90ACE6] `}>
-          {description}
+          {subTitle}
         </h2>
         <MyButton
-          label="Register"
+          label="Register Now"
           size="lg"
           href="/registration"
           className="llg:hidden self-center"

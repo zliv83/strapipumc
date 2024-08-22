@@ -26,12 +26,6 @@
       "type": "text",
       "required": true
     },
-    "quickInfo": {
-      "displayName": "programQuickInfo",
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.program-quick-info"
-    },
     "picture": {
       "type": "media",
       "multiple": false,
@@ -48,20 +42,19 @@
       "repeatable": true,
       "component": "shared.program-card-list"
     },
-    "quickInfoTitle": {
-      "type": "string"
-    },
-    "nutFree": {
-      "type": "string"
-    },
     "classProgrammimng": {
       "displayName": "classProgramming",
       "type": "component",
       "repeatable": true,
       "component": "shared.class-programming"
     },
-    "alt": {
-      "type": "string"
+    "QuickInfo": {
+      "type": "blocks"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
     }
   }
 }

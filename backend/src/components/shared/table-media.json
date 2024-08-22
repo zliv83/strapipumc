@@ -1,0 +1,38 @@
+{
+  "collectionName": "components_shared_table_medias",
+  "info": {
+    "displayName": "TableMedia",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "FAQColumns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.columns"
+    },
+    "Question": {
+      "type": "string"
+    },
+    "Icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "RemindText": {
+      "type": "string"
+    },
+    "Rows": {
+      "displayName": "FAQRowsNew",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.faq-rows-new"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_bulletin_board_contents",
+  "info": {
+    "displayName": "BulletinBoardContent"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

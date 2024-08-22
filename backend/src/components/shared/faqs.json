@@ -1,0 +1,41 @@
+{
+  "collectionName": "components_shared_faqs",
+  "info": {
+    "displayName": "FAQS",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Question": {
+      "type": "string"
+    },
+    "Answer": {
+      "type": "string"
+    },
+    "FAQListItems": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.list-items"
+    },
+    "FAQImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "text": {
+      "type": "string"
+    },
+    "FaqTable": {
+      "displayName": "FAQTable",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.faq-table"
+    }
+  }
+}

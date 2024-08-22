@@ -1,35 +1,44 @@
-import TestimonialGrid from "@/components/testimonials/testimonialGrid";
-import Hero from "@/components/shared/hero";
-import { HeroH1 } from "@/components/shared/h1s";
-import PageCard from "@/components/shared/pageCard";
-
 import { fetchStrapi } from "lib/fetchStrapi";
 
+import Testimonials from "@/components/shared/testimonials";
+import Hero from "@/components/shared/hero";
+import { HeroH1 } from "@/components/shared/h1s";
+import PageView from "@/components/shared/pageView";
+
 export default async function Testimoinals() {
-  const fetchedData = await fetchStrapi("/testimonials-page", {
-    populate: "*",
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/testimonials-page", {
+    populate: "deep",
   });
 
-  const data = fetchedData.data.attributes;
   const strapiData = {
-    Title: data.Title,
-    HeroImage: data.HeroImage.data.attributes.url,
+    title: attributes.Title,
+    img: attributes.HeroImage.data.attributes.url,
+    alt: attributes.HeroImage.data.attributes.atl,
+  };
+
+  const Content = () => {
+    return (
+      <section>
+        <HeroH1 className="text-primary pb-6">{strapiData.title}</HeroH1>
+        <Testimonials />
+      </section>
+    );
   };
   return (
     <>
       <Hero
-        img={strapiData.HeroImage}
+        img={strapiData.img}
         alt="Childrens hands that spell out Testimonials"
-        objectPosition="center bottom"
+        size="about"
       />
-      <div className="bg-PumcGreen p-4 llg:p-12">
-        <PageCard>
-          <HeroH1 className="text-primary pb-6 llg:pb-12">
-            {strapiData.Title}
-          </HeroH1>
-          <TestimonialGrid />
-        </PageCard>
-      </div>
+      <PageView>
+        <section>
+          <HeroH1 className="text-primary pb-6">{strapiData.title}</HeroH1>
+          <Testimonials />
+        </section>
+      </PageView>
     </>
   );
 }

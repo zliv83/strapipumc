@@ -1,0 +1,38 @@
+{
+  "kind": "singleType",
+  "collectionName": "bulletin_boards",
+  "info": {
+    "singularName": "bulletin-board",
+    "pluralName": "bulletin-boards",
+    "displayName": "BulletinBoard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "HeroImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "BulletinBoardContent": {
+      "displayName": "BulletinBoardContent",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.bulletin-board-content"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    }
+  }
+}

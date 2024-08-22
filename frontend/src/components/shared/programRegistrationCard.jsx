@@ -15,6 +15,7 @@ export default function ProgramRegistrationCard({
   height,
   width,
   cardHeight,
+  titleColor,
 }) {
   const router = useRouter();
   return (
@@ -25,10 +26,14 @@ export default function ProgramRegistrationCard({
       onPress={() => router.push(href)}
       shadow={shadow}
     >
-      <CardBody id="Card Body" className="grid grid-cols-2 llg:grid-cols-1 p-0">
+      <CardBody
+        id="Card Body"
+        className="grid grid-cols-2 llg:grid-cols-1 p-0 llg:grid-rows-[1fr_1fr]"
+      >
         <Image
           alt={alt}
           src={`${host}${img}`}
+          aria-label={alt}
           className="rounded-r-none llg:rounded-b-none"
           style={{
             height: "100%",
@@ -42,7 +47,7 @@ export default function ProgramRegistrationCard({
         >
           <span
             id="Card Title"
-            className="text-primary text-center text-xl llg:text-3xl"
+            className={`text-center text-xl llg:text-4xl ${titleColor}`}
           >
             {title}
           </span>

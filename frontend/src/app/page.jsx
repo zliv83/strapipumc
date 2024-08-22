@@ -3,38 +3,40 @@ import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/home/hero";
 import Programs from "@/components/home/programs";
 import AboutUs from "@/components/home/aboutUs";
-import Testimonials from "@/components/home/testimonials";
-import TestimonialGrid from "@/components/testimonials/testimonialGrid";
+import TestimonialSection from "@/components/home/testimonials";
+import Testimonials from "@/components/shared/testimonials";
+
+const {
+  data: { attributes },
+} = await fetchStrapi("/home", { populate: "deep" });
+
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+};
 
 export default async function Home() {
-  const path = "/home";
-  const urlParamsObject = {
-    populate: {
-      HomeHero: { populate: "*" },
-      aboutus: { populate: "*" },
-    },
-  };
-  const fetchedData = await fetchStrapi(path, urlParamsObject);
-  const data = fetchedData.data.attributes;
-  const strapiData = {
-    heroImg: data.HomeHero.picture.data.attributes.url,
-    title: data.HomeHero.title,
-    description: data.HomeHero.description,
-    content: data.aboutus.content,
-  };
+  const heroImg = attributes.HomeHero.picture.data.attributes;
+  const testimonialImg = attributes.TestimonialImage.data.attributes;
 
   return (
     <>
       <Hero
-        img={strapiData.heroImg}
-        title={strapiData.title}
-        description={strapiData.description}
+        img={heroImg.url}
+        title={attributes.HomeHero.title}
+        subTitle={attributes.HomeHero.SubTitle}
+        alt={heroImg.alternativeText}
+        height={heroImg.height}
+        width={heroImg.width}
       />
       <Programs />
-      <AboutUs aboutus={strapiData.content} />
-      <Testimonials>
-        <TestimonialGrid top />
-      </Testimonials>
+      <AboutUs aboutus={attributes.aboutus.content} />
+      <TestimonialSection
+        img={testimonialImg.url}
+        alt={testimonialImg.alternativeText}
+      >
+        <Testimonials top />
+      </TestimonialSection>
     </>
   );
 }

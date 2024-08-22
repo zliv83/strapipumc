@@ -5,4 +5,9 @@ module.exports = ({ env }) => ({
   "drag-drop-content-types": {
     enabled: true,
   },
+  "strapi-plugin-populate-deep": {
+    config: {
+      defaultDepth: 3,
+    },
+  },
 });

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_forms_info_arrays",
+  "info": {
+    "displayName": "FormsInfoArray"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Text": {
+      "type": "blocks"
+    }
+  }
+}
