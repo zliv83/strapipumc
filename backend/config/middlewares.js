@@ -4,7 +4,11 @@ module.exports = [
   {
     name: "strapi::cors",
     config: {
-      origin: ["http://localhost:3000", "http://localhost:1337"], // Removed single quotes around the second origin
+      origin: [
+        "http://localhost:3000",
+        "http://localhost:1337",
+        "https://helpful-positivity-9e5f57aa9a.strapiapp.com/",
+      ], // Removed single quotes around the second origin
     },
   },
   "strapi::poweredBy",
