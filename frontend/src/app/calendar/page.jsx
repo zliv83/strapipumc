@@ -35,7 +35,7 @@ export default async function Calendar() {
   const Remind = () => (
     <div className="flex flex-row gap-4 items-center llg:pl-6">
       <Image
-        src="/uploads/bubble_chat_stroke_rounded_0a02a8ea07.svg"
+        src="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/bubble_chat_stroke_rounded_283a167de1.svg"
         alt="Orange Bubble Text Icon"
         height={48}
         width={48}

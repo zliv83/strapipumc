@@ -8,47 +8,51 @@ import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyTable from "@/components/shared/myTable";
 
 export default function FAQAccorion({ faqs }) {
-  const faqMap = faqs.map((faq, i) => (
-    <AccordionItem
-      key={i}
-      title={
-        <p className="text-3xl llg:text-4xl text-primary">{faq.Question}</p>
-      }
-      textValue={faq.Question}
-    >
-      <WYSIWYG content={faq.Answer} pClassName="text-2xl" />
-      {faq.my_table &&
-      faq.my_table?.data?.attributes?.tables?.columns &&
-      faq.my_table?.data?.attributes?.tables?.rows ? (
-        <MyTable
-          columns={faq.my_table.data.attributes.tables.columns}
-          rows={faq.my_table.data.attributes.tables.rows}
-          ariaLabel="Delay table listing hours in the event of a school delay"
-          className="pb-6"
-        />
-      ) : null}
-      {faq.image?.data?.attributes?.url &&
-      faq.alt &&
-      faq.image?.data?.attributes?.width &&
-      faq.image?.data?.attributes?.height ? (
-        <div className="flex flex-row justify-center items-center gap-4">
-          <Link
-            href={`${host}${faq.ImageLink ? faq.ImageLink : "#"}`}
-            target="_blank"
-          >
-            <Image
-              src={faq.image.data.attributes.url}
-              alt={faq.alt}
-              width={faq.image.data.attributes.width}
-              height={faq.image.data.attributes.height}
-              aria-label={faq.alt}
-            />
-          </Link>
-          {faq.RemindText ? <p className="text-3xl">{faq.RemindText}</p> : null}
-        </div>
-      ) : null}
-    </AccordionItem>
-  ));
+  const faqMap = faqs.map((faq, i) => {
+    return (
+      <AccordionItem
+        key={i}
+        title={
+          <p className="text-3xl llg:text-4xl text-primary">{faq.Question}</p>
+        }
+        textValue={faq.Question}
+      >
+        <WYSIWYG content={faq.Answer} pClassName="text-2xl" />
+        {faq.my_table &&
+        faq.my_table?.data?.attributes?.tables?.columns &&
+        faq.my_table?.data?.attributes?.tables?.rows ? (
+          <MyTable
+            columns={faq.my_table.data.attributes.tables.columns}
+            rows={faq.my_table.data.attributes.tables.rows}
+            ariaLabel="Delay table listing hours in the event of a school delay"
+            className="pb-6"
+          />
+        ) : null}
+        {faq.image?.data?.attributes?.url &&
+        faq.alt &&
+        faq.image?.data?.attributes?.width &&
+        faq.image?.data?.attributes?.height ? (
+          <div className="flex flex-row justify-center items-center gap-4">
+            <Link
+              href={`${faq.ImageLink ? faq.ImageLink : "#"}`}
+              target="_blank"
+            >
+              <Image
+                src={faq.image.data.attributes.url}
+                alt={faq.alt}
+                width={faq.image.data.attributes.width}
+                height={faq.image.data.attributes.height}
+                aria-label={faq.alt}
+              />
+            </Link>
+            {faq.RemindText ? (
+              <p className="text-3xl">{faq.RemindText}</p>
+            ) : null}
+          </div>
+        ) : null}
+      </AccordionItem>
+    );
+  });
   return (
     <div className="p-6">
       <Accordion>{faqMap}</Accordion>

@@ -13,8 +13,6 @@ const {
   populate: "deep, 5",
 });
 
-console.log(attributes);
-
 export const metadata = {
   title: attributes.meta.metaTitle,
   description: attributes.meta.metaDescription,
@@ -23,31 +21,37 @@ export const metadata = {
 export default async function Registration() {
   const image = attributes.HeroImage.data.attributes;
 
-  //const registrationCards = attributes.RegistraionCard.map((card) => {
-  //  return (
-  //    <ProgramRegistrationCard
-  //      key={card.id}
-  //      href={card.href}
-  //      img={card.programs.data[0].attributes.picture.data.attributes.url}
-  //      alt={
-  //        card.programs.data[0].attributes.picture.data.attributes
-  //          .alternativeText
-  //      }
-  //      title={card.programs.data[0].attributes.title}
-  //      height={card.programs.data[0].attributes.picture.data.attributes.height}
-  //      width={card.programs.data[0].attributes.picture.data.attributes.width}
-  //      cardHeight="min-h-[10rem]"
-  //      titleColor="text-primary"
-  //    >
-  //      <span className="text-center llg:text-2xl">{card.Schedule}</span>
-  //      <span
-  //        className={`${card.open ? "invisible" : ""} text-PumcRed llg:text-lg`}
-  //      >
-  //        Class is full
-  //      </span>
-  //    </ProgramRegistrationCard>
-  //  );
-  //});
+  const registrationCards = attributes.RegistraionCard.map((card) => {
+    let modifierText;
+    if (card.ClassFull) {
+      modifierText = "Class Full";
+    } else if (card.ClassCancelled) {
+      modifierText = "Class Calncelled";
+    }
+    const image = card.ClassPicture.data.attributes;
+    return (
+      <ProgramRegistrationCard
+        key={card.id}
+        href={card.href}
+        img={image.url}
+        alt={image.alternativeText}
+        title={card.ClassName}
+        height={image.height}
+        width={image.width}
+        cardHeight="min-h-[10rem]"
+        titleColor="text-primary"
+      >
+        <span className="text-center llg:text-2xl">{card.Schedule}</span>
+        <span
+          className={`${
+            card.ClassFull || card.ClassCancelled ? "" : "invisible"
+          } text-PumcRed llg:text-lg`}
+        >
+          {modifierText}
+        </span>
+      </ProgramRegistrationCard>
+    );
+  });
 
   return (
     <>
@@ -62,9 +66,9 @@ export default async function Registration() {
         <h2 className="text-center text-4xl py-6 llg:py-12 llg:text-left">
           {attributes.SubTitle}
         </h2>
-        {/*<div id="card grid" className="grid grid-cols-1 gap-6 llg:grid-cols-3">
+        <div id="card grid" className="grid grid-cols-1 gap-6 llg:grid-cols-3">
           {registrationCards}
-        </div>*/}
+        </div>
         <FeeTables tables={attributes.my_tables.data} />
         <WYSIWYG content={attributes.RegistrationRichText} />
       </PageView>
