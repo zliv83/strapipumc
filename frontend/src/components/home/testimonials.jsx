@@ -11,7 +11,7 @@ export default function TestimonialSection({ img, alt, children }) {
   return (
     <div className="relative w-full">
       <Image
-        src={`${host}${img}`}
+        src={img}
         alt={alt}
         fill
         className="object-cover"

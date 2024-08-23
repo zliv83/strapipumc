@@ -32,7 +32,7 @@ export default function ProgramRegistrationCard({
       >
         <Image
           alt={alt}
-          src={`${host}${img}`}
+          src={img}
           aria-label={alt}
           className="rounded-r-none llg:rounded-b-none"
           style={{

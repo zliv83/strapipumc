@@ -10,6 +10,8 @@ const {
   data: { attributes },
 } = await fetchStrapi("/home", { populate: "deep" });
 
+console.log(attributes);
+
 export const metadata = {
   title: attributes.meta.metaTitle,
   description: attributes.meta.metaDescription,
@@ -18,6 +20,8 @@ export const metadata = {
 export default async function Home() {
   const heroImg = attributes.HomeHero.picture.data.attributes;
   const testimonialImg = attributes.TestimonialImage.data.attributes;
+
+  //https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/Home_Hero_84a869e49e.jpg
 
   return (
     <>

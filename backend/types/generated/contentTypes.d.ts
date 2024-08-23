@@ -1235,6 +1235,7 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     >;
     RegistrationRichText: Attribute.Blocks;
     meta: Attribute.Component<'meta.metadata'>;
+    RegistraionCard: Attribute.Component<'shared.new-reg-card', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

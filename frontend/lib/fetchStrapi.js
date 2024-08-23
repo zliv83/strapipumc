@@ -1,6 +1,6 @@
 import qs from "qs";
 
-export const host = process.env.NEXT_PUBLIC_STRAPI_API_URL;
+export const host = process.env.NEXT_PUBLIC_STRAPI_IMAGE_URL;
 
 export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
   try {
@@ -13,7 +13,9 @@ export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
     };
     //Build request url
     const queryString = qs.stringify(urlParamsObj);
-    const requestUrl = `${host}${path}${queryString ? `?${queryString}` : ""}`;
+    const requestUrl = `${process.env.NEXT_PUBLIC_STRAPI_API_URL}${path}${
+      queryString ? `?${queryString}` : ""
+    }`;
 
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();
@@ -25,14 +27,3 @@ export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
     );
   }
 }
-
-//export async function fetchStrapi(url) {
-//  const res = await fetch(url, {
-//    headers: {
-//      "Content-Type": "application/json",
-//      Authorization: `Bearer ${process.env.NEXT_PUBLIC_STRAPI_API_TOKEN}`,
-//    },
-//  });
-
-//  return res.json();
-//}

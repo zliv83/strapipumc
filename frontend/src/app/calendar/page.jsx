@@ -35,7 +35,7 @@ export default async function Calendar() {
   const Remind = () => (
     <div className="flex flex-row gap-4 items-center llg:pl-6">
       <Image
-        src={`${host}/uploads/bubble_chat_stroke_rounded_0a02a8ea07.svg`}
+        src="/uploads/bubble_chat_stroke_rounded_0a02a8ea07.svg"
         alt="Orange Bubble Text Icon"
         height={48}
         width={48}

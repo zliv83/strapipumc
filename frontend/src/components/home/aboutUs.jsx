@@ -22,9 +22,9 @@ const AboutUs = ({ aboutus }) => {
         >
           <BlockH1 className="llg:hidden">About Us</BlockH1>
           <Image
-            src="http://localhost:1337/uploads/aboutus_497cb52fe8.jpeg"
+            src="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/aboutus_d2bab64844.jpeg"
             alt="Teacher reading a book to children"
-            className="w-full" // Adjust as needed
+            className="w-full"
           />
           <p className="text-lg text-center llg:hidden">{aboutus}</p>
           <div className="hidden llg:flex flex-col gap-4 justify-center p-4">

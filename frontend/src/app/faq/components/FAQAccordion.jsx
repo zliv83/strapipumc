@@ -37,7 +37,7 @@ export default function FAQAccorion({ faqs }) {
             target="_blank"
           >
             <Image
-              src={`${host}${faq.image.data.attributes.url}`}
+              src={faq.image.data.attributes.url}
               alt={faq.alt}
               width={faq.image.data.attributes.width}
               height={faq.image.data.attributes.height}

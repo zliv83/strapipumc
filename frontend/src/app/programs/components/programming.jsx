@@ -9,7 +9,7 @@ export default function Programming({ classProgramming }) {
         height={classProgramming.icon.data.attributes.height}
         alt={classProgramming.icon.data.attributes.alternativeText}
         width={classProgramming.icon.data.attributes.width}
-        src={`${host}${classProgramming.icon.data.attributes.url}`}
+        src={classProgramming.icon.data.attributes.url}
         className="self-start"
       />
       <div>

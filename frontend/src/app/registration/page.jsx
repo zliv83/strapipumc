@@ -13,6 +13,8 @@ const {
   populate: "deep, 5",
 });
 
+console.log(attributes);
+
 export const metadata = {
   title: attributes.meta.metaTitle,
   description: attributes.meta.metaDescription,
@@ -20,6 +22,7 @@ export const metadata = {
 
 export default async function Registration() {
   const image = attributes.HeroImage.data.attributes;
+  //console.log(image.url);
 
   const registrationCards = attributes.Registration.map((card) => {
     return (

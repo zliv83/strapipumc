@@ -1,32 +1,30 @@
 {
-  "collectionName": "components_shared_registration_cards",
+  "collectionName": "components_shared_new_reg_cards",
   "info": {
-    "displayName": "RegistrationCard",
-    "description": ""
+    "displayName": "NewRegCard"
   },
   "options": {},
   "attributes": {
     "ClassName": {
       "type": "string"
     },
-    "ClassImage": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
+    "ClassPicture": {
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ]
+      ],
+      "type": "media",
+      "multiple": false
     },
     "Schedule": {
       "type": "string"
     },
-    "open": {
+    "ClassFull": {
       "type": "boolean"
     },
-    "Cancelled": {
+    "ClassCancelled": {
       "type": "boolean"
     }
   }

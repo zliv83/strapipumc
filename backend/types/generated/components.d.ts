@@ -643,6 +643,20 @@ export interface SharedMyTableRows extends Schema.Component {
   };
 }
 
+export interface SharedNewRegCard extends Schema.Component {
+  collectionName: 'components_shared_new_reg_cards';
+  info: {
+    displayName: 'NewRegCard';
+  };
+  attributes: {
+    ClassName: Attribute.String;
+    ClassPicture: Attribute.Media;
+    Schedule: Attribute.String;
+    ClassFull: Attribute.Boolean;
+    ClassCancelled: Attribute.Boolean;
+  };
+}
+
 export interface SharedOptionsList extends Schema.Component {
   collectionName: 'components_shared_options_lists';
   info: {
@@ -778,12 +792,14 @@ export interface SharedRegistrationCard extends Schema.Component {
   collectionName: 'components_shared_registration_cards';
   info: {
     displayName: 'RegistrationCard';
+    description: '';
   };
   attributes: {
     ClassName: Attribute.String;
     ClassImage: Attribute.Media;
     Schedule: Attribute.String;
     open: Attribute.Boolean;
+    Cancelled: Attribute.Boolean;
   };
 }
 
@@ -1016,6 +1032,7 @@ declare module '@strapi/types' {
       'shared.media': SharedMedia;
       'shared.my-meta': SharedMyMeta;
       'shared.my-table-rows': SharedMyTableRows;
+      'shared.new-reg-card': SharedNewRegCard;
       'shared.options-list': SharedOptionsList;
       'shared.options': SharedOptions;
       'shared.program-card-list': SharedProgramCardList;

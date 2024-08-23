@@ -27,7 +27,7 @@ const Hero = ({ img, alt, children, size, className }) => {
   return (
     <div className={`relative w-full ${height}`}>
       <Image
-        src={`${host}${img}`}
+        src={img}
         alt={alt}
         fill
         className={`object-cover ${className}`}

@@ -22,7 +22,7 @@ export default async function SummerCamp() {
     return (
       <div className="max-h-24 max-w-24">
         <Image
-          src={`${host}${sunImg.url}`}
+          src={sunImg.url}
           alt={sunImg.alternativeText}
           width={sunImg.width}
           height={sunImg.height}

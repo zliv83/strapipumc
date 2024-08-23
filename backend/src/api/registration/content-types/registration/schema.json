@@ -47,6 +47,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "RegistraionCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.new-reg-card"
     }
   }
 }

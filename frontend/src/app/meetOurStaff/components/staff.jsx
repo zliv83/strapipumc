@@ -21,7 +21,7 @@ export default async function Staff() {
     return (
       <div className="grid grid-cols-1 llg:grid-cols-2">
         <Image
-          src={`${host}${member.img}`}
+          src={member.img}
           alt={member.alt}
           aira-label={member.alt}
           height={member.height}

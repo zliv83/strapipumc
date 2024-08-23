@@ -23,7 +23,7 @@ export default async function BulletinBoard() {
         <h3 className="text-primary text-6xl text-center">{item.Title}</h3>
         <Image
           className="self-center"
-          src={`${host}${img.url}`}
+          src={img.url}
           alt={img.alternativeText}
           width={img.width}
           height={img.height}
