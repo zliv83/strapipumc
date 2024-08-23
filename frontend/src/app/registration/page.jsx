@@ -22,33 +22,32 @@ export const metadata = {
 
 export default async function Registration() {
   const image = attributes.HeroImage.data.attributes;
-  //console.log(image.url);
 
-  const registrationCards = attributes.Registration.map((card) => {
-    return (
-      <ProgramRegistrationCard
-        key={card.id}
-        href={card.href}
-        img={card.programs.data[0].attributes.picture.data.attributes.url}
-        alt={
-          card.programs.data[0].attributes.picture.data.attributes
-            .alternativeText
-        }
-        title={card.programs.data[0].attributes.title}
-        height={card.programs.data[0].attributes.picture.data.attributes.height}
-        width={card.programs.data[0].attributes.picture.data.attributes.width}
-        cardHeight="min-h-[10rem]"
-        titleColor="text-primary"
-      >
-        <span className="text-center llg:text-2xl">{card.Schedule}</span>
-        <span
-          className={`${card.open ? "invisible" : ""} text-PumcRed llg:text-lg`}
-        >
-          Class is full
-        </span>
-      </ProgramRegistrationCard>
-    );
-  });
+  //const registrationCards = attributes.RegistraionCard.map((card) => {
+  //  return (
+  //    <ProgramRegistrationCard
+  //      key={card.id}
+  //      href={card.href}
+  //      img={card.programs.data[0].attributes.picture.data.attributes.url}
+  //      alt={
+  //        card.programs.data[0].attributes.picture.data.attributes
+  //          .alternativeText
+  //      }
+  //      title={card.programs.data[0].attributes.title}
+  //      height={card.programs.data[0].attributes.picture.data.attributes.height}
+  //      width={card.programs.data[0].attributes.picture.data.attributes.width}
+  //      cardHeight="min-h-[10rem]"
+  //      titleColor="text-primary"
+  //    >
+  //      <span className="text-center llg:text-2xl">{card.Schedule}</span>
+  //      <span
+  //        className={`${card.open ? "invisible" : ""} text-PumcRed llg:text-lg`}
+  //      >
+  //        Class is full
+  //      </span>
+  //    </ProgramRegistrationCard>
+  //  );
+  //});
 
   return (
     <>
@@ -63,9 +62,9 @@ export default async function Registration() {
         <h2 className="text-center text-4xl py-6 llg:py-12 llg:text-left">
           {attributes.SubTitle}
         </h2>
-        <div id="card grid" className="grid grid-cols-1 gap-6 llg:grid-cols-3">
+        {/*<div id="card grid" className="grid grid-cols-1 gap-6 llg:grid-cols-3">
           {registrationCards}
-        </div>
+        </div>*/}
         <FeeTables tables={attributes.my_tables.data} />
         <WYSIWYG content={attributes.RegistrationRichText} />
       </PageView>

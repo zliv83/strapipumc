@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_new_reg_cards",
   "info": {
-    "displayName": "NewRegCard"
+    "displayName": "NewRegCard",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,14 +10,15 @@
       "type": "string"
     },
     "ClassPicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "Schedule": {
       "type": "string"
@@ -26,6 +28,9 @@
     },
     "ClassCancelled": {
       "type": "boolean"
+    },
+    "href": {
+      "type": "string"
     }
   }
 }

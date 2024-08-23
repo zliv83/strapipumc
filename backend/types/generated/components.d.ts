@@ -647,6 +647,7 @@ export interface SharedNewRegCard extends Schema.Component {
   collectionName: 'components_shared_new_reg_cards';
   info: {
     displayName: 'NewRegCard';
+    description: '';
   };
   attributes: {
     ClassName: Attribute.String;
@@ -654,6 +655,7 @@ export interface SharedNewRegCard extends Schema.Component {
     Schedule: Attribute.String;
     ClassFull: Attribute.Boolean;
     ClassCancelled: Attribute.Boolean;
+    href: Attribute.String;
   };
 }
 
