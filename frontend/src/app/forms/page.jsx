@@ -1,19 +1,14 @@
 import { fetchStrapi } from "lib/fetchStrapi";
+import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import FormsInfo from "./components/FormsInfo";
 import FormsAndHandbook from "./components/FormsAndHandbook";
 import PageView from "@/components/shared/pageView";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/form", { populate: "deep" });
-
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescriptions,
-};
-
 export default async function Forms() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/form", { populate: "deep" });
   const image = attributes.HeroImage.data.attributes;
   const hero = {
     img: image.url,
@@ -22,6 +17,10 @@ export default async function Forms() {
 
   return (
     <>
+      <MetaData
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
+      />
       <Hero
         img={hero.img}
         alt={hero.alt}
@@ -29,8 +28,14 @@ export default async function Forms() {
         className="object-[0%_65%] "
       />
       <PageView className="llg:bg-PumcBlue">
-        <FormsInfo />
-        <FormsAndHandbook />
+        <FormsInfo
+          formInfo={attributes.form_information.data.attributes.FormsInfo}
+          title={attributes.FormsInfoTitle}
+        />
+        <FormsAndHandbook
+          title={attributes.FormsAndHandbookTitle}
+          form={attributes.Form}
+        />
       </PageView>
     </>
   );

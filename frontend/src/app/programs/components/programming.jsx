@@ -1,7 +1,5 @@
 import Image from "next/image";
 
-import { host } from "lib/fetchStrapi";
-
 export default function Programming({ classProgramming }) {
   return (
     <div className="flex flex-row gap-8">

@@ -1,4 +1,5 @@
 import { fetchStrapi } from "lib/fetchStrapi";
+import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
@@ -7,18 +8,12 @@ import ProgramRegistrationCard from "@/components/shared/programRegistrationCard
 import FeeTables from "@/components/shared/feeTables";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/registration", {
-  populate: "deep, 5",
-});
-
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-};
-
 export default async function Registration() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/registration", {
+    populate: "deep, 5",
+  });
   const image = attributes.HeroImage.data.attributes;
 
   const registrationCards = attributes.RegistraionCard.map((card) => {
@@ -55,6 +50,10 @@ export default async function Registration() {
 
   return (
     <>
+      <MetaData
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
+      />
       <Hero img={image.url} alt={image.alternativeText}>
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
         <HeroMask />

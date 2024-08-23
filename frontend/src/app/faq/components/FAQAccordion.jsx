@@ -2,7 +2,6 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { host } from "lib/fetchStrapi";
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyTable from "@/components/shared/myTable";

@@ -1,7 +1,7 @@
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
-
+import MetaData from "@/components/shared/metaData";
 import PageView from "@/components/shared/pageView";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
@@ -19,20 +19,18 @@ const MakeAPayment = ({ className }) => (
   />
 );
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/payment", { populate: "deep, 5" });
-
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-};
-
 export default async function Payments() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/payment", { populate: "deep, 5" });
   const image = attributes.HeroImage.data.attributes;
 
   return (
     <>
+      <MetaData
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
+      />
       <Hero
         img={image.url}
         alt={image.alternativeText}

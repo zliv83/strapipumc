@@ -2,9 +2,10 @@ import { Alegreya } from "next/font/google";
 
 import { NextUIProvider } from "@nextui-org/system";
 import { DividerProvider } from "lib/dividerContext";
-import { fetchStrapi } from "lib/fetchStrapi";
-import "styles/globals.css";
 
+import "styles/globals.css";
+import { fetchStrapi } from "lib/fetchStrapi";
+import MetaData from "@/components/shared/metaData";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 
@@ -13,18 +14,16 @@ const alegreya = Alegreya({
   display: "swap",
 });
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/global", { populate: "deep" });
-
-export const metaData = {
-  title: attributes.metadata.metaTitle,
-  description: attributes.metadata.metaDescription,
-};
-
 export default async function RootLayout({ children }) {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/global", { populate: "deep" });
   return (
     <html lang="en">
+      <MetaData
+        title={attributes.metadata.metaTitle}
+        description={attributes.metadata.metaDescription}
+      />
       <body className={alegreya.className}>
         <DividerProvider>
           <NextUIProvider>

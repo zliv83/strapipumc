@@ -18,14 +18,6 @@ export default async function Testimoinals() {
     alt: attributes.HeroImage.data.attributes.atl,
   };
 
-  const Content = () => {
-    return (
-      <section>
-        <HeroH1 className="text-primary pb-6">{strapiData.title}</HeroH1>
-        <Testimonials />
-      </section>
-    );
-  };
   return (
     <>
       <Hero

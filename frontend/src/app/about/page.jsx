@@ -1,19 +1,10 @@
 import { Divider } from "@nextui-org/divider";
-
+import MetaData from "@/components/shared/metaData";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyTable from "@/components/shared/myTable";
-
-const {
-  data: { attributes },
-} = await fetchStrapi("/about-us", { populate: "deep, 5" });
-
-export const metadata = {
-  title: attributes.metadata.metaTitle,
-  description: attributes.metadata.metaDescription,
-};
 
 const Title = ({ children }) => {
   return (
@@ -24,9 +15,17 @@ const Title = ({ children }) => {
 };
 
 export default async function AboutUs() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/about-us", { populate: "deep, 5" });
+  console.log(attributes);
   const heroImg = attributes.HeroImage.data.attributes;
   return (
     <>
+      <MetaData
+        title={attributes.metadata.metaTitle}
+        description={attributes.metadata.metaDescription}
+      />
       <Hero
         img={heroImg.url}
         alt={heroImg.alternativeText}

@@ -1,20 +1,14 @@
 import Image from "next/image";
-
-import { fetchStrapi, host } from "lib/fetchStrapi";
+import MetaData from "@/components/shared/metaData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import SummerCampInfo from "./components/summerCampInfo";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/summer-camp", { populate: "deep" });
-
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-};
-
 export default async function SummerCamp() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/summer-camp", { populate: "deep" });
   const heroImg = attributes.HeroImage.data.attributes;
   const sunImg = attributes.SunPicture.data.attributes;
 
@@ -57,6 +51,10 @@ export default async function SummerCamp() {
 
   return (
     <>
+      <MetaData
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
+      />
       <Hero img={heroImg.url} alt={heroImg.alternativeText} size="board" />
       <PageView className="llg:bg-PumcYellow">
         <div className="flex flex-col gap-12">

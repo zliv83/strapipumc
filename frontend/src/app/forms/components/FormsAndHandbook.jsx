@@ -1,5 +1,3 @@
-import { fetchStrapi } from "lib/fetchStrapi";
-
 import { Divider } from "@nextui-org/divider";
 import { Card } from "@nextui-org/card";
 import { Link } from "@nextui-org/link";
@@ -7,18 +5,12 @@ import { Link } from "@nextui-org/link";
 import { host } from "lib/fetchStrapi";
 import { BlockH1 } from "@/components/shared/h1s";
 
-export default async function FormsAndHandbook() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi("/form", { populate: "deep" });
-
+export default async function FormsAndHandbook({ title, form }) {
   return (
     <>
-      <BlockH1 className="pb-6 text-primary">
-        {attributes.FormsInfoTitle}
-      </BlockH1>
+      <BlockH1 className="pb-6 text-primary">{title}</BlockH1>
       <Card className="p-8">
-        {attributes.Form.map((item, i) => {
+        {form.map((item, i) => {
           const link =
             item.FormPDF && item.FormPDF.data
               ? `${host}${item.FormPDF.data.attributes.url}`

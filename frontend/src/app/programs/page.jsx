@@ -1,26 +1,21 @@
-import { Image } from "@nextui-org/image";
+import Image from "next/image";
 
+import { fetchStrapi, host } from "lib/fetchStrapi";
+import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 import { HeroH1 } from "@/components/shared/h1s";
-import { fetchStrapi, host } from "lib/fetchStrapi";
 import PageView from "@/components/shared/pageView";
 import ProgramGrid from "@/components/shared/programGrid";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/programs-page", {
-  populate: "deep, 4",
-});
-
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-};
-
 export default async function Programs() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi("/programs-page", {
+    populate: "deep, 4",
+  });
   const heroImg = attributes.HeroImage.data.attributes;
 
   const Butterfly = () => {
@@ -30,6 +25,8 @@ export default async function Programs() {
           src={`${host}/uploads/Butterfly_151b660a14.svg`}
           alt=""
           aria-hidden="true"
+          height={300}
+          width={300}
           className="h-[300px] w-[300px]"
         />
       </div>
@@ -38,6 +35,10 @@ export default async function Programs() {
 
   return (
     <>
+      <MetaData
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
+      />
       <Hero img={heroImg.url} alt={heroImg.alternativeText}>
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
         <ImageMask />
@@ -60,7 +61,7 @@ export default async function Programs() {
           shadow="lg"
           className="pt-6 llg:pt-12"
           titleColor="text-PumcBlue llg:text-primary"
-        />{" "}
+        />
         <MyButton
           label="Tuition Info"
           size="lg"
