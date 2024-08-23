@@ -21,8 +21,8 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <MetaData
-        title={attributes.metadata.metaTitle}
-        description={attributes.metadata.metaDescription}
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
       />
       <body className={alegreya.className}>
         <DividerProvider>

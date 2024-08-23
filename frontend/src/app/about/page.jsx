@@ -18,13 +18,12 @@ export default async function AboutUs() {
   const {
     data: { attributes },
   } = await fetchStrapi("/about-us", { populate: "deep, 5" });
-  console.log(attributes);
   const heroImg = attributes.HeroImage.data.attributes;
   return (
     <>
       <MetaData
-        title={attributes.metadata.metaTitle}
-        description={attributes.metadata.metaDescription}
+        title={attributes.meta.metaTitle}
+        description={attributes.meta.metaDescription}
       />
       <Hero
         img={heroImg.url}

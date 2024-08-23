@@ -12,7 +12,7 @@ export default async function Home() {
   } = await fetchStrapi("/home", { populate: "deep" });
   const heroImg = attributes.HomeHero.picture.data.attributes;
   const testimonialImg = attributes.TestimonialImage.data.attributes;
-
+  console.log(attributes);
   return (
     <>
       <MetaData
@@ -24,8 +24,6 @@ export default async function Home() {
         title={attributes.HomeHero.title}
         subTitle={attributes.HomeHero.SubTitle}
         alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
       />
       <Programs />
       <AboutUs aboutus={attributes.aboutus.content} />

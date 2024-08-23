@@ -46,7 +46,7 @@
     "RatioTitle": {
       "type": "string"
     },
-    "metadata": {
+    "meta": {
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"

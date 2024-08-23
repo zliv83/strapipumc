@@ -812,7 +812,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     ProgramOptions: Attribute.Blocks;
     AboutParagraph: Attribute.Blocks;
     RatioTitle: Attribute.String;
-    metadata: Attribute.Component<'meta.metadata'>;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1013,7 +1013,7 @@ export interface ApiGlobalGlobal extends Schema.SingleType {
     };
   };
   attributes: {
-    metadata: Attribute.Component<'meta.metadata'> &
+    meta: Attribute.Component<'meta.metadata'> &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1391,6 +1391,7 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
     singularName: 'testimonials-page';
     pluralName: 'testimonials-pages';
     displayName: 'TestimonialsPage';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1398,6 +1399,7 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
   attributes: {
     Title: Attribute.String;
     HeroImage: Attribute.Media;
+    meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
