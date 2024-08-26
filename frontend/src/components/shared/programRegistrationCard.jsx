@@ -2,7 +2,6 @@
 import { useRouter } from "next/navigation";
 import { Card, CardBody } from "@nextui-org/card";
 
-import { host } from "lib/fetchStrapi";
 import Image from "next/image";
 
 export default function ProgramRegistrationCard({
@@ -35,9 +34,6 @@ export default function ProgramRegistrationCard({
           src={img}
           aria-label={alt}
           className="rounded-r-none llg:rounded-b-none"
-          style={{
-            height: "100%",
-          }}
           height={height}
           width={width}
         />

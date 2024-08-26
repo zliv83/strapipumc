@@ -1,13 +1,24 @@
 import BlockContainer from "@/components/home/blockContainer";
 
-const BeeBackground = ({ children, main, className }) => {
+import Image from "next/image";
+
+const BeeBackground = ({ children, main, className, img }) => {
   return (
     <BlockContainer
       id="background"
-      className={`flex-col gap-6 bg-[#FFC904] bg-[url('http://localhost:1337/uploads/Bee_a5aa961c72.svg')] bg-no-repeat bg-cover ${
+      className={`flex flex-col gap-6 bg-PumcYellow relative ${
         main ? "bg-[center_top_1.5rem]" : "bg-[center_top_20.5rem]"
       } ${className}`}
     >
+      <Image
+        src={img}
+        alt=""
+        aria-hidden="true"
+        fill
+        style={{ objectFit: "cover" }}
+        priority
+        className="-z-1"
+      />
       {children}
     </BlockContainer>
   );

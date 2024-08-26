@@ -3,9 +3,9 @@ import BeeBackground from "./beeBackground";
 import { BlockH1 } from "@/components/shared/h1s";
 import ProgramGrid from "@/components/shared/programGrid";
 
-const Programs = () => {
+const Programs = ({ img }) => {
   return (
-    <BeeBackground main>
+    <BeeBackground main img={img}>
       <BlockH1 className="text-background">Programs</BlockH1>
       <ProgramGrid />
       <MyButton

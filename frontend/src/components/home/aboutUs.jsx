@@ -1,20 +1,23 @@
-import { Image } from "@nextui-org/image";
+import Image from "next/image";
+import { Image as NextImage } from "@nextui-org/image";
 
 import MyButton from "@/components/shared/myButton";
 import BlockContainer from "@/components/home/blockContainer";
 import { BlockH1 } from "@/components/shared/h1s";
+import Butterfly from "@/components/shared/butterfly";
 
-const AboutUs = ({ aboutus }) => {
+const AboutUs = ({ aboutus, img, alt, height, width }) => {
   return (
     <BlockContainer>
       <div className="relative">
         <div className="absolute">
-          <Image
+          <NextImage
             src="http://localhost:1337/uploads/Butterfly_151b660a14.svg"
             alt=""
             aria-hidden="true"
             className="h-[200px] w-[200px] llg:h-[300px] llg:w-[300px] top-0 left-0 z-10 -mt-32 llg:-mt-36 -ml-12 llg:ml-[63rem] llg:left-auto llg:right-0 llg:mr-12"
-          ></Image>
+          ></NextImage>
+          <Butterfly className="h-[200px] w-[200px] llg:h-[300px] llg:w-[300px] top-0 left-0 z-10 -mt-32 llg:-mt-36 -ml-12 llg:ml-[63rem] llg:left-auto llg:right-0 llg:mr-12" />
         </div>
         <div
           id="grid"
@@ -22,9 +25,11 @@ const AboutUs = ({ aboutus }) => {
         >
           <BlockH1 className="llg:hidden">About Us</BlockH1>
           <Image
-            src="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/aboutus_d2bab64844.jpeg"
-            alt="Teacher reading a book to children"
-            className="w-full"
+            src={img}
+            alt={alt}
+            height={height}
+            width={width}
+            className="rounded-xl"
           />
           <p className="text-lg text-center llg:hidden">{aboutus}</p>
           <div className="hidden llg:flex flex-col gap-4 justify-center p-4">

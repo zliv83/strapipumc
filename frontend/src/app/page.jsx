@@ -23,6 +23,7 @@ export default async function Home() {
   } = await fetchStrapi(route, { populate: "deep" });
   const heroImg = attributes.HomeHero.picture.data.attributes;
   const testimonialImg = attributes.TestimonialImage.data.attributes;
+  const aboutUsPicture = attributes.aboutus.AboutUsPicture.data.attributes;
 
   return (
     <>
@@ -32,8 +33,14 @@ export default async function Home() {
         subTitle={attributes.HomeHero.SubTitle}
         alt={heroImg.alternativeText}
       />
-      <Programs />
-      <AboutUs aboutus={attributes.aboutus.content} />
+      <Programs img={attributes.BeeBackground.data.attributes.url} />
+      <AboutUs
+        aboutus={attributes.aboutus.content}
+        img={aboutUsPicture.url}
+        alt={aboutUsPicture.alternativeText}
+        height={aboutUsPicture.height}
+        width={aboutUsPicture.width}
+      />
       <TestimonialSection
         img={testimonialImg.url}
         alt={testimonialImg.alternativeText}

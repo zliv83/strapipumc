@@ -9,6 +9,7 @@ import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import ProgramGrid from "@/components/shared/programGrid";
 import WYSIWYG from "@/components/shared/WYSIWYG";
+import Butterfly from "@/components/shared/butterfly";
 
 const route = "/programs-page";
 
@@ -29,21 +30,6 @@ export default async function Programs() {
     populate: "deep, 4",
   });
   const heroImg = attributes.HeroImage.data.attributes;
-
-  const Butterfly = () => {
-    return (
-      <div className="hidden llg:flex absolute bottom-0 right-0 mr-48 mb-24">
-        <Image
-          src={`${host}/uploads/Butterfly_151b660a14.svg`}
-          alt=""
-          aria-hidden="true"
-          height={300}
-          width={300}
-          className="h-[300px] w-[300px]"
-        />
-      </div>
-    );
-  };
 
   return (
     <>
