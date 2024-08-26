@@ -9,7 +9,6 @@ export default async function FormsAndHandbook({ title, form }) {
       <BlockH1 className="pb-6 text-primary">{title}</BlockH1>
       <Card className="p-8">
         {form.map((item, i) => {
-          console.log(item);
           const link =
             item.FormPDF && item.FormPDF.data
               ? item.FormPDF.data.attributes.url

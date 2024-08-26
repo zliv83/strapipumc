@@ -25,8 +25,6 @@ export default async function Calendar() {
   const image = attributes.HeroImg.data.attributes;
   const delayTable = attributes.my_table.data.attributes.tables;
 
-  console.log(attributes.DownloadableCalendars.data);
-
   const calendarMap = attributes.DownloadableCalendars.data.map(
     (calendar, i) => (
       <Link
