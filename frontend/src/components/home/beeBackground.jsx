@@ -6,9 +6,7 @@ const BeeBackground = ({ children, main, className, img }) => {
   return (
     <BlockContainer
       id="background"
-      className={`flex flex-col gap-6 bg-PumcYellow relative ${
-        main ? "bg-[center_top_1.5rem]" : "bg-[center_top_20.5rem]"
-      } ${className}`}
+      className={`flex flex-col gap-6 bg-PumcYellow relative  ${className}`}
     >
       <Image
         src={img}
@@ -17,7 +15,7 @@ const BeeBackground = ({ children, main, className, img }) => {
         fill
         style={{ objectFit: "cover" }}
         priority
-        className="-z-1"
+        className="-z-1 object-[40%_0%] "
       />
       {children}
     </BlockContainer>

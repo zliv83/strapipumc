@@ -11,12 +11,6 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
     <BlockContainer>
       <div className="relative">
         <div className="absolute">
-          <NextImage
-            src="http://localhost:1337/uploads/Butterfly_151b660a14.svg"
-            alt=""
-            aria-hidden="true"
-            className="h-[200px] w-[200px] llg:h-[300px] llg:w-[300px] top-0 left-0 z-10 -mt-32 llg:-mt-36 -ml-12 llg:ml-[63rem] llg:left-auto llg:right-0 llg:mr-12"
-          ></NextImage>
           <Butterfly className="h-[200px] w-[200px] llg:h-[300px] llg:w-[300px] top-0 left-0 z-10 -mt-32 llg:-mt-36 -ml-12 llg:ml-[63rem] llg:left-auto llg:right-0 llg:mr-12" />
         </div>
         <div

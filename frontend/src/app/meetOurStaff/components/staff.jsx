@@ -26,9 +26,9 @@ export default async function Staff() {
           aira-label={member.alt}
           height={member.height}
           width={member.width}
-          className="rounded-[.75rem]"
+          className="rounded-[.75rem] pb-4"
         />
-        <div className="flex flex-col justify-center items-center p-4 gap-2">
+        <div className="flex flex-col justify-center items-center p-0 llg:p-4 gap-2">
           <h3 className="text-primary text-4xl llg:text-6xl text-center">
             {member.name}
           </h3>
