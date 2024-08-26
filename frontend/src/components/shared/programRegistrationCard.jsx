@@ -15,6 +15,7 @@ export default function ProgramRegistrationCard({
   width,
   cardHeight,
   titleColor,
+  ariaLabel,
 }) {
   const router = useRouter();
   return (
@@ -23,6 +24,7 @@ export default function ProgramRegistrationCard({
       isPressable
       className={`bg-background ${cardHeight}`}
       onPress={() => router.push(href)}
+      aria-label={ariaLabel}
       shadow={shadow}
     >
       <CardBody

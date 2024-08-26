@@ -19,6 +19,7 @@ export default async function ProgramGrid({ className, titleColor }) {
       ),
       title: `${programcard.title}`,
       href: `/programs/${programcard.slug}`,
+      ariaLabel: `Link to ${programcard.title}`,
     };
   });
   const cardList = programCardItems.map((item, i) => {
@@ -32,6 +33,7 @@ export default async function ProgramGrid({ className, titleColor }) {
         height={item.height}
         title={item.title}
         titleColor={titleColor}
+        ariaLabel={item.ariaLabel}
       >
         <div id="Star list" className="hidden flex-col gap-4 llg:flex">
           {item.description.map((item, i) => (

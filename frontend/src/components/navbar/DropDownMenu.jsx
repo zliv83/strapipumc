@@ -9,7 +9,12 @@ import { ArrowDown01Icon } from "hugeicons-react";
 
 const DropDownMenu = ({ label, items, ariaLabel }) => {
   const itemsMap = items.map((item) => (
-    <DropdownItem key={item.label} href={item.href} textValue={item.label}>
+    <DropdownItem
+      key={item.label}
+      href={item.href}
+      aria-label={`Link to ${item.label}`}
+      textValue={item.label}
+    >
       <span className="text-xl">{item.label}</span>
     </DropdownItem>
   ));

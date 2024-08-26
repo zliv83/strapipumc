@@ -94,7 +94,7 @@ const Navbar = () => {
         <NavbarBrand id="fart">
           <Link
             href="/"
-            aria-label="Home Page"
+            aria-label="Link to Home Page"
             onClick={() => setIsMenuOpen(false)}
           >
             <PUMCLogo className="llg:w-[18rem] llg:h-[12rem] sm: h-[6rem] sm: w-[10rem]" />

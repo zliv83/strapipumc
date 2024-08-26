@@ -39,12 +39,12 @@ const LinkBar = () => {
         {
           label: "Registration",
           href: "/registration",
-          ariaLabel: "RegistrationPage",
+          ariaLabel: "Link to Registration Page",
         },
         {
           label: "Payments",
           href: "/payments",
-          ariaLabel: "Payments Page",
+          ariaLabel: "Link to Payments Page",
         },
       ],
     },
@@ -55,7 +55,7 @@ const LinkBar = () => {
         {
           label: "Calendar",
           href: "/calendar",
-          ariaLabel: "Calendar Page",
+          ariaLabel: "Link to Calendar Page",
         },
         {
           label: "Forms & Handbook",
@@ -85,7 +85,11 @@ const LinkBar = () => {
         ariaLabel={link.ariaLabel}
       />
     ) : (
-      <Link key={`${link.label} ${i}`} href="/programs">
+      <Link
+        key={`${link.label} ${i}`}
+        href="/programs"
+        aria-label="Link to the programs page"
+      >
         <Button
           disableRipple
           className="p-0 bg-transparent data-[hover=true]: bg-transparent text-xl"

@@ -8,6 +8,7 @@ import MyTable from "@/components/shared/myTable";
 
 export default function FAQAccorion({ faqs }) {
   const faqMap = faqs.map((faq, i) => {
+    console.log(faq);
     return (
       <AccordionItem
         key={i}
@@ -34,6 +35,7 @@ export default function FAQAccorion({ faqs }) {
           <div className="flex flex-row justify-center items-center gap-4">
             <Link
               href={`${faq.ImageLink ? faq.ImageLink : "#"}`}
+              aria-label={faq.image.data.attributes.alternativeText}
               target="_blank"
             >
               <Image
