@@ -24,10 +24,11 @@ export default async function FAQ() {
   return (
     <>
       <Hero
-        img={image.url}
-        size="about"
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/FAQ_51e75a7674.webp"
         alt={image.alternativeText}
-        height="h-[15rem] llg:h-[35rem]"
+        height={image.height}
+        width={image.width}
+        myHeight="h-[15rem] llg:h-[35rem]"
       />
       <PageView>
         <FAQAccordion faqs={attributes.faqQuestions} />

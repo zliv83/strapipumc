@@ -63,9 +63,11 @@ export default async function Calendar() {
   return (
     <>
       <Hero
-        img={image.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/calendars_9426de2064.webp"
         alt={image.alternativeText}
-        height="h-[15rem] llg:h-[30rem] "
+        height={image.height}
+        width={image.width}
+        myHeight="h-[15rem] llg:h-[30rem] "
       >
         <h1 className="text-PumcBlue text-6xl llg:text-9xl llg:self-start llg:ml-20">
           Calendars

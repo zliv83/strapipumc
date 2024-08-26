@@ -21,17 +21,15 @@ export default async function Forms() {
     data: { attributes },
   } = await fetchStrapi(route, { populate: "deep" });
   const image = attributes.HeroImage.data.attributes;
-  const hero = {
-    img: image.url,
-    alt: image.alternativeText,
-  };
 
   return (
     <>
       <Hero
-        img={hero.img}
-        alt={hero.alt}
-        height="h-[15rem] llg:h-[35rem] "
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/forms_5943651233.webp"
+        alt={image.alt}
+        height={image.height}
+        width={image.width}
+        myHeight="h-[15rem] llg:h-[35rem] "
         className="object-[0%_65%] "
       />
       <PageView className="llg:bg-PumcBlue">

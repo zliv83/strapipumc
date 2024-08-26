@@ -65,7 +65,9 @@ export default async function SummerCamp() {
       <Hero
         img={heroImg.url}
         alt={heroImg.alternativeText}
-        height="h-[15rem] llg:h-[45rem] "
+        height={heroImg.height}
+        width={heroImg.width}
+        myHeight="h-[15rem] llg:h-[45rem] "
       />
       <PageView className="llg:bg-PumcYellow">
         <div className="flex flex-col gap-12">

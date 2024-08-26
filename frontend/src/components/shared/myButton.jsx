@@ -1,5 +1,5 @@
+import Link from "next/link";
 import { Button } from "@nextui-org/button";
-import { Link } from "@nextui-org/link";
 
 const buttonSize = (size) => {
   switch (size) {

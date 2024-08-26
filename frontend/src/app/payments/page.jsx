@@ -40,9 +40,11 @@ export default async function Payments() {
   return (
     <>
       <Hero
-        img={image.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/payment_635ff17648.webp"
         alt={image.alternativeText}
-        height="h-[15rem] llg:h-[30rem] "
+        height={image.height}
+        width={image.width}
+        myHeight="h-[15rem] llg:h-[30rem] "
         className="object-[0%_25%]"
       >
         <HeroMask />

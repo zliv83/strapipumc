@@ -62,9 +62,11 @@ export default async function Registration() {
   return (
     <>
       <Hero
-        img={image.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/registration_5eb8ebcb64.webp"
         alt={image.alternativeText}
-        height="h-[15rem] llg:h-[45rem]"
+        height={image.height}
+        width={image.width}
+        myHeight="h-[15rem] llg:h-[45rem]"
       >
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
         <HeroMask />

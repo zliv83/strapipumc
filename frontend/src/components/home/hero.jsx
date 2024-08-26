@@ -2,9 +2,15 @@ import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 
-const HomeHero = ({ img, title, subTitle, alt }) => {
+const HomeHero = ({ img, title, subTitle, alt, height, width }) => {
   return (
-    <Hero img={img} alt={alt} height="h-[40rem] llg:h-[50rem]">
+    <Hero
+      img={img}
+      alt={alt}
+      height={height}
+      width={width}
+      myHeight="h-[40rem] llg:h-[50rem]"
+    >
       <ImageMask />
       <div className="flex flex-col gap-6 justify-start mt-16 llg:w-[80%] llg:text-left llg:p-12 leading-none z-30">
         <h1 className={`text-[3.4rem] llg:text-[8rem]`}>{title}</h1>

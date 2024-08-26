@@ -31,7 +31,9 @@ export default async function Testimoinals() {
       <Hero
         img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/testimonials_47bbe68f60.webp"
         alt={image.alternativeText}
-        height="h-[10rem] llg:h-[30rem]"
+        height={image.height}
+        width={image.width}
+        myHeight="h-[10rem] llg:h-[30rem]"
         className="llg:object-[0%_100%]"
       />
       <PageView>

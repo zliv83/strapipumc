@@ -33,9 +33,11 @@ export default async function AboutUs() {
   return (
     <>
       <Hero
-        img={heroImg.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/aboutus_636fba3030.webp"
         alt={heroImg.alternativeText}
-        height="h-[15rem] llg:h-[30rem]"
+        height={heroImg.height}
+        width={heroImg.width}
+        myHeight="h-[15rem] llg:h-[30rem]"
       />
       <PageView className="llg:bg-PumcGreen">
         <div className="flex flex-col gap-6">

@@ -29,7 +29,9 @@ export default async function MeetOurStaff() {
       <Hero
         img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/staff_4a87437ee4.webp"
         alt={heroImg.alternativeText}
-        height="h-[15rem] llg:h-[45rem]"
+        height={heroImg.height}
+        width={heroImg.width}
+        myHeight="h-[15rem] llg:h-[45rem]"
       >
         <ImageMask />
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>

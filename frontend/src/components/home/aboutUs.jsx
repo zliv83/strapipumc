@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { Image as NextImage } from "@nextui-org/image";
 
 import MyButton from "@/components/shared/myButton";
 import BlockContainer from "@/components/home/blockContainer";

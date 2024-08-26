@@ -31,9 +31,11 @@ export default async function Programs() {
   return (
     <>
       <Hero
-        img={heroImg.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/programs_e144dc8fae.webp"
         alt={heroImg.alternativeText}
-        height="h-[15rem] llg:h-[35rem] "
+        height={heroImg.height}
+        width={heroImg.width}
+        myHeight="h-[15rem] llg:h-[35rem] "
       >
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
         <ImageMask />

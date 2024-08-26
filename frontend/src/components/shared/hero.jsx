@@ -1,12 +1,13 @@
 import Image from "next/image";
 
-const Hero = ({ img, alt, children, height, className }) => {
+const Hero = ({ img, alt, height, width, children, myHeight, className }) => {
   return (
-    <section className={`relative w-full ${height}`}>
+    <section className={`relative w-full ${myHeight}`}>
       <Image
         src={img}
         alt={alt}
-        fill
+        height={height}
+        width={width}
         className={`object-cover ${className}`}
         aria-label={alt}
         priority
