@@ -23,7 +23,12 @@ export default async function FAQ() {
 
   return (
     <>
-      <Hero img={image.url} size="about" alt={image.alternativeText} />
+      <Hero
+        img={image.url}
+        size="about"
+        alt={image.alternativeText}
+        height="h-[15rem] llg:h-[35rem]"
+      />
       <PageView>
         <FAQAccordion faqs={attributes.faqQuestions} />
       </PageView>

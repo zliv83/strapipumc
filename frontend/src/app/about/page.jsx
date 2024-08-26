@@ -35,10 +35,8 @@ export default async function AboutUs() {
       <Hero
         img={heroImg.url}
         alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
-        size="about"
-      ></Hero>
+        height="h-[15rem] llg:h-[30rem]"
+      />
       <PageView className="llg:bg-PumcGreen">
         <div className="flex flex-col gap-6">
           <h1 className="text-primary text-center text-6xl llg:text-[6rem] llg:text-left">

@@ -61,7 +61,11 @@ export default async function Registration() {
 
   return (
     <>
-      <Hero img={image.url} alt={image.alternativeText}>
+      <Hero
+        img={image.url}
+        alt={image.alternativeText}
+        height="h-[15rem] llg:h-[45rem]"
+      >
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
         <HeroMask />
       </Hero>

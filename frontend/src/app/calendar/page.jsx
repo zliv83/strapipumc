@@ -61,13 +61,15 @@ export default async function Calendar() {
 
   return (
     <>
-      <section>
-        <Hero img={image.url} alt={image.alternativeText} size="about">
-          <h1 className="text-PumcBlue text-6xl llg:text-9xl llg:self-start llg:ml-20">
-            Calendars
-          </h1>
-        </Hero>
-      </section>
+      <Hero
+        img={image.url}
+        alt={image.alternativeText}
+        height="h-[15rem] llg:h-[30rem] "
+      >
+        <h1 className="text-PumcBlue text-6xl llg:text-9xl llg:self-start llg:ml-20">
+          Calendars
+        </h1>
+      </Hero>
       <PageView>
         <div className="flex flex-col gap-12">
           <Block label="Upcoming Events">

@@ -20,6 +20,11 @@ const LinkBar = () => {
           href: "/meetOurStaff",
           ariaLabel: "Meet our staff page",
         },
+        {
+          label: "Testimonials",
+          href: "/testimonials",
+          ariaLabel: "Testimonial Page",
+        },
       ],
     },
     {

@@ -31,7 +31,7 @@ export default async function Forms() {
       <Hero
         img={hero.img}
         alt={hero.alt}
-        size="about"
+        height="h-[15rem] llg:h-[35rem] "
         className="object-[0%_65%] "
       />
       <PageView className="llg:bg-PumcBlue">

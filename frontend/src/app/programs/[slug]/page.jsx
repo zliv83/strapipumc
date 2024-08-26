@@ -30,7 +30,11 @@ export default async function ProgramPage({ params }) {
 
   return (
     <>
-      <Hero size="programs" img={img.url} alt={img.alternativeText}>
+      <Hero
+        height="h-[15rem] llg:h-[35rem] "
+        img={img.url}
+        alt={img.alternativeText}
+      >
         <HeroMask />
         <HeroH1 className="z-30">{attributes.title}</HeroH1>
       </Hero>

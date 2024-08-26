@@ -30,7 +30,11 @@ export default async function Programs() {
 
   return (
     <>
-      <Hero img={heroImg.url} alt={heroImg.alternativeText}>
+      <Hero
+        img={heroImg.url}
+        alt={heroImg.alternativeText}
+        height="h-[15rem] llg:h-[35rem] "
+      >
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
         <ImageMask />
       </Hero>

@@ -42,7 +42,7 @@ export default async function Payments() {
       <Hero
         img={image.url}
         alt={image.alternativeText}
-        size="about"
+        height="h-[15rem] llg:h-[30rem] "
         className="object-[0%_25%]"
       >
         <HeroMask />

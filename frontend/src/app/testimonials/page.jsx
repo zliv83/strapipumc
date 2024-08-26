@@ -35,7 +35,8 @@ export default async function Testimoinals() {
       <Hero
         img={strapiData.img}
         alt="Childrens hands that spell out Testimonials"
-        size="about"
+        height="h-[10rem] llg:h-[30rem]"
+        className="llg:object-[0%_100%]"
       />
       <PageView>
         <section>

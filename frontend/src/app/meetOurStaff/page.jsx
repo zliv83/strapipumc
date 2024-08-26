@@ -26,7 +26,11 @@ export default async function MeetOurStaff() {
 
   return (
     <>
-      <Hero img={heroImg.url} alt={heroImg.alternativeText} size="about">
+      <Hero
+        img={heroImg.url}
+        alt={heroImg.alternativeText}
+        height="h-[15rem] llg:h-[45rem]"
+      >
         <ImageMask />
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
       </Hero>

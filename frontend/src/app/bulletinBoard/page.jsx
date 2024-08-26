@@ -35,6 +35,7 @@ export default async function BulletinBoard() {
           width={img.width}
           height={img.height}
           aria-label={img.alternativeText}
+          priority={i === 1 ? true : false}
         />
       </div>
     );
@@ -42,7 +43,11 @@ export default async function BulletinBoard() {
 
   return (
     <div>
-      <Hero img={heroImg.url} alt={heroImg.alternativeText} size="board">
+      <Hero
+        img={heroImg.url}
+        alt={heroImg.alternativeText}
+        height="h-[15rem] h-[50rem]"
+      >
         <ImageMask />
         <p className="text-6xl llg:text-9xl z-30">
           Bulletin <br className="llg:hidden" /> Board
