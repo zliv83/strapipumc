@@ -26,7 +26,7 @@ export default async function Home() {
   const aboutUsPicture = attributes.aboutus.AboutUsPicture.data.attributes;
 
   return (
-    <>
+    <div>
       <Hero
         img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/home_Hero_fe8bb30418.webp"
         title={attributes.HomeHero.title}
@@ -49,6 +49,6 @@ export default async function Home() {
       >
         <Testimonials top />
       </TestimonialSection>
-    </>
+    </div>
   );
 }
