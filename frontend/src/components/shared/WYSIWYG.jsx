@@ -2,7 +2,12 @@
 import { BlocksRenderer } from "@strapi/blocks-react-renderer";
 import Link from "next/link";
 
-export default function WYSIWYG({ content, pClassName, liClassName }) {
+export default function WYSIWYG({
+  content,
+  pClassName,
+  liClassName,
+  linkAriaLabel,
+}) {
   return (
     <div className="p-6">
       <BlocksRenderer
@@ -29,7 +34,11 @@ export default function WYSIWYG({ content, pClassName, liClassName }) {
             </li>
           ),
           link: ({ children, url }) => (
-            <Link href={url} className="text-[#0000EE]">
+            <Link
+              href={url}
+              className="text-[#0000EE]"
+              aria-label={linkAriaLabel}
+            >
               {children}
             </Link>
           ),

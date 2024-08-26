@@ -80,7 +80,10 @@ export default async function Registration() {
           {registrationCards}
         </div>
         <FeeTables tables={attributes.my_tables.data} />
-        <WYSIWYG content={attributes.RegistrationRichText} />
+        <WYSIWYG
+          content={attributes.RegistrationRichText}
+          linkAriaLabel="Link to preschools payment portal"
+        />
       </PageView>
     </>
   );

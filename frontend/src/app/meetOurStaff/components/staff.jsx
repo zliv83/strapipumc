@@ -17,9 +17,9 @@ export default async function Staff() {
     };
   });
 
-  const staffMap = staffArray.map((member) => {
+  const staffMap = staffArray.map((member, i) => {
     return (
-      <div className="grid grid-cols-1 llg:grid-cols-2">
+      <div key={i} className="grid grid-cols-1 llg:grid-cols-2">
         <Image
           src={member.img}
           alt={member.alt}
@@ -27,6 +27,7 @@ export default async function Staff() {
           height={member.height}
           width={member.width}
           className="rounded-[.75rem] pb-4"
+          priority={i === 0 ? true : false}
         />
         <div className="flex flex-col justify-center items-center p-0 llg:p-4 gap-2">
           <h3 className="text-primary text-4xl llg:text-6xl text-center">

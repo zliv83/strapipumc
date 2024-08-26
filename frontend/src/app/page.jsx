@@ -28,7 +28,7 @@ export default async function Home() {
   return (
     <>
       <Hero
-        img={heroImg.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/home_Hero_fe8bb30418.webp"
         title={attributes.HomeHero.title}
         subTitle={attributes.HomeHero.SubTitle}
         alt={heroImg.alternativeText}
