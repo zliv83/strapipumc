@@ -22,6 +22,7 @@ const MyButton = ({
   className,
   size,
   landscapeBlock,
+  ariaLabel,
 }) => {
   return (
     <Button
@@ -29,6 +30,7 @@ const MyButton = ({
       color={color}
       href={href}
       variant={variant}
+      aria-label={ariaLabel}
       className={`${className} ${buttonSize(size)} ${
         landscapeBlock ? "llg:self-end" : ""
       } text-xl llg:text-2xl`}

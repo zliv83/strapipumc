@@ -13,6 +13,7 @@ const Programs = ({ img }) => {
         label="Learn More"
         size="lg"
         className="self-center z-30"
+        ariaLabel="Link to the programs page"
         landscapeBlock
       />
     </BeeBackground>

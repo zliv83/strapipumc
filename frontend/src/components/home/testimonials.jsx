@@ -32,6 +32,7 @@ export default function TestimonialSection({ img, alt, children }) {
           className="z-30"
           size="lg"
           href="/testimonials"
+          ariaLabel="Link to the testimonial page"
           landscapeBlock
         />
       </BlockContainer>

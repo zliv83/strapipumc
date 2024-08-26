@@ -46,6 +46,7 @@ export default async function Programs() {
           label="Tuition Info"
           size="lg"
           href="/payments"
+          ariaLabel="Link to the payments page"
           className="hidden llg:flex llg:self-end"
         />
         <ProgramGrid
@@ -57,6 +58,7 @@ export default async function Programs() {
           label="Tuition Info"
           size="lg"
           href="/payments"
+          ariaLabel="link to the payments page"
           className="self-center llg:hidden my-8"
         />
         <Butterfly />

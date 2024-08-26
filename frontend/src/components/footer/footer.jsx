@@ -22,7 +22,12 @@ const footer = () => {
           <PUMCLogo className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start" />
           <FooterLinks className="hidden llg:flex" />
           <Socials className="llg:hidden" />
-          <MyButton label="Register" href="/registration" size="lg" />
+          <MyButton
+            label="Register"
+            href="/registration"
+            size="lg"
+            ariaLabel="Link to the registration pages"
+          />
         </div>
         <Divider />
         <div className="flex flex-col llg:flex-row justify-between items-center w-full pt-16">

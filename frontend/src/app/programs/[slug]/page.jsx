@@ -47,6 +47,7 @@ export default async function ProgramPage({ params }) {
             label="Tuition Info"
             size="lg"
             href="/registration"
+            ariaLabel="Link to the registration page"
           />
         </div>
         <div

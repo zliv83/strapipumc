@@ -104,7 +104,12 @@ const Navbar = () => {
       <LinkBar />
       <NavbarContent justify="end">
         <NavbarItem>
-          <MyButton label="Register" href="/registration" size="both" />
+          <MyButton
+            label="Register"
+            href="/registration"
+            size="both"
+            ariaLabel="Link to the Registration page"
+          />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu className="pt-24">

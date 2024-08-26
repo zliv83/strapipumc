@@ -15,6 +15,7 @@ const HomeHero = ({ img, title, subTitle, alt }) => {
           label="Register Now"
           size="lg"
           href="/registration"
+          ariaLabel="Link to the registration page"
           className="llg:hidden self-center"
         />
       </div>

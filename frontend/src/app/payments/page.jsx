@@ -27,6 +27,7 @@ const MakeAPayment = ({ className }) => (
     label="Make a Payment"
     size="lg"
     href="https://pumcpreschool.breezechms.com/give/online"
+    ariaLabel="Link to make a payment on the preschool's payment portal"
   />
 );
 

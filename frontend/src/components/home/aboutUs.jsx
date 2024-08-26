@@ -35,6 +35,7 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
               label="Learn More"
               href="/about"
               size="lg"
+              ariaLabel="Link to the about page"
               landscapeBlock
             />
           </div>
