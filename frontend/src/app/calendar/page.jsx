@@ -7,10 +7,22 @@ import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import MyTable from "@/components/shared/myTable";
 
+const route = "/calendar";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Calendar() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/calendar", { populate: "deep, 5" });
+  } = await fetchStrapi(route, { populate: "deep, 5" });
   const image = attributes.HeroImg.data.attributes;
   const delayTable = attributes.my_table.data.attributes.tables;
 

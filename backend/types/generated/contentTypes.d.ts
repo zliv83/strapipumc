@@ -1058,6 +1058,7 @@ export interface ApiHomeHome extends Schema.SingleType {
     aboutus: Attribute.Component<'sections.rich-text'>;
     TestimonialImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
+    BeeBackground: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1193,6 +1194,7 @@ export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
     ProgramsIntro: Attribute.Blocks;
     Title: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
+    Butterfly: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

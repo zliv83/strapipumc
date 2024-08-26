@@ -5,10 +5,22 @@ import ImageMask from "@/components/shared/imageMask";
 import Image from "next/image";
 import PageView from "@/components/shared/pageView";
 
+const route = "/bulletin-board";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function BulletinBoard() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/bulletin-board", { populate: "deep" });
+  } = await fetchStrapi(route, { populate: "deep" });
 
   const heroImg = attributes.HeroImage.data.attributes;
 

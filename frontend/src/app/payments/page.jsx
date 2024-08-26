@@ -10,6 +10,18 @@ import FeeTables from "@/components/shared/feeTables";
 import MyButton from "@/components/shared/myButton";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
+const route = "/payment";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 const MakeAPayment = ({ className }) => (
   <MyButton
     className={`self-center llg:self-end mt-6 ${className}`}
@@ -22,7 +34,7 @@ const MakeAPayment = ({ className }) => (
 export default async function Payments() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/payment", { populate: "deep, 5" });
+  } = await fetchStrapi(route, { populate: "deep, 5" });
   const image = attributes.HeroImage.data.attributes;
 
   return (

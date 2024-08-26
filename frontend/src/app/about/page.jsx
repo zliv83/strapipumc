@@ -6,19 +6,31 @@ import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyTable from "@/components/shared/myTable";
 
-const Title = ({ children }) => {
-  return (
-    <h2 className="text-primary text-center text-4xl llg:text-left">
-      {children}
-    </h2>
-  );
-};
+const route = "/about-us";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
 
 export default async function AboutUs() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/about-us", { populate: "deep, 5" });
+  } = await fetchStrapi(route, { populate: "deep, 5" });
   const heroImg = attributes.HeroImage.data.attributes;
+
+  const Title = ({ children }) => {
+    return (
+      <h2 className="text-primary text-center text-4xl llg:text-left">
+        {children}
+      </h2>
+    );
+  };
   return (
     <>
       <MetaData

@@ -10,10 +10,22 @@ import PageView from "@/components/shared/pageView";
 import ProgramGrid from "@/components/shared/programGrid";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
+const route = "/programs-page";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Programs() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/programs-page", {
+  } = await fetchStrapi(route, {
     populate: "deep, 4",
   });
   const heroImg = attributes.HeroImage.data.attributes;

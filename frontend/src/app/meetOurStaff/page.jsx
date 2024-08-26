@@ -7,10 +7,22 @@ import Staff from "./components/staff";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import PageView from "@/components/shared/pageView";
 
+const route = "/staff-page";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function MeetOurStaff() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/staff-page", { populate: "deep" });
+  } = await fetchStrapi(route, { populate: "deep" });
   const heroImg = attributes.HeroImage.data.attributes;
 
   return (

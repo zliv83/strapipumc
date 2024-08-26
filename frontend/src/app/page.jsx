@@ -1,24 +1,31 @@
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/home/hero";
 import Programs from "@/components/home/programs";
 import AboutUs from "@/components/home/aboutUs";
 import TestimonialSection from "@/components/home/testimonials";
 import Testimonials from "@/components/shared/testimonials";
 
+const route = "/home";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Home() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/home", { populate: "deep" });
+  } = await fetchStrapi(route, { populate: "deep" });
   const heroImg = attributes.HomeHero.picture.data.attributes;
   const testimonialImg = attributes.TestimonialImage.data.attributes;
-  console.log(attributes);
+
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero
         img={heroImg.url}
         title={attributes.HomeHero.title}

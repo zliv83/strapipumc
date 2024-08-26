@@ -5,10 +5,22 @@ import FormsInfo from "./components/FormsInfo";
 import FormsAndHandbook from "./components/FormsAndHandbook";
 import PageView from "@/components/shared/pageView";
 
+const route = "/form";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Forms() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/form", { populate: "deep" });
+  } = await fetchStrapi(route, { populate: "deep" });
   const image = attributes.HeroImage.data.attributes;
   const hero = {
     img: image.url,

@@ -5,10 +5,22 @@ import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import SummerCampInfo from "./components/summerCampInfo";
 
+const route = "/summer-camp";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function SummerCamp() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/summer-camp", { populate: "deep" });
+  } = await fetchStrapi(route, { populate: "deep" });
   const heroImg = attributes.HeroImage.data.attributes;
   const sunImg = attributes.SunPicture.data.attributes;
 

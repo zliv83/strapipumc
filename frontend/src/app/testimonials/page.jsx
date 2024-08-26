@@ -5,10 +5,22 @@ import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 
+const route = "/testimonials-page";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Testimoinals() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/testimonials-page", {
+  } = await fetchStrapi(route, {
     populate: "deep",
   });
 

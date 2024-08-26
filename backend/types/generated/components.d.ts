@@ -377,9 +377,11 @@ export interface SectionsRichText extends Schema.Component {
     name: 'RichText';
     displayName: 'Rich text';
     icon: 'text-height';
+    description: '';
   };
   attributes: {
     content: Attribute.RichText;
+    AboutUsPicture: Attribute.Media;
   };
 }
 

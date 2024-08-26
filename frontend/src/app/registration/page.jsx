@@ -8,10 +8,22 @@ import ProgramRegistrationCard from "@/components/shared/programRegistrationCard
 import FeeTables from "@/components/shared/feeTables";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
+const route = "/registration";
+
+export async function generateMetadata() {
+  const {
+    data: { attributes },
+  } = await fetchStrapi(route, { populate: "deep" });
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function Registration() {
   const {
     data: { attributes },
-  } = await fetchStrapi("/registration", {
+  } = await fetchStrapi(route, {
     populate: "deep, 5",
   });
   const image = attributes.HeroImage.data.attributes;

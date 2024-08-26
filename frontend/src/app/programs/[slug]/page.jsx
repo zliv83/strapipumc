@@ -9,8 +9,21 @@ import MyButton from "@/components/shared/myButton";
 import Programming from "../components/programming";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
+const route = "/programs";
+
+export async function generateMetadata({ params }) {
+  const { data } = await fetchStrapi(route, { populate: "deep" });
+  const slug = params.slug;
+  const program = data.find((item) => item.attributes.slug === slug);
+  const attributes = program.attributes;
+  return {
+    title: attributes.meta.metaTitle,
+    description: attributes.meta.metaDescription,
+  };
+}
+
 export default async function ProgramPage({ params }) {
-  const { data } = await fetchStrapi("/programs", { populate: "deep" });
+  const { data } = await fetchStrapi(route, { populate: "deep" });
   const slug = params.slug;
   const program = data.find((item) => item.attributes.slug === slug);
   const attributes = program.attributes;

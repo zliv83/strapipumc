@@ -34,7 +34,7 @@ const AboutUs = ({ aboutus }) => {
           <div className="flex justify-center">
             <MyButton
               label="Learn More"
-              href="/aboutUs"
+              href="/about"
               size="lg"
               landscapeBlock
             />
