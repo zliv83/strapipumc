@@ -27,7 +27,7 @@ export default async function MeetOurStaff() {
   return (
     <>
       <Hero
-        img={heroImg.url}
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/staff_4a87437ee4.webp"
         alt={heroImg.alternativeText}
         height="h-[15rem] llg:h-[45rem]"
       >

@@ -24,23 +24,19 @@ export default async function Testimoinals() {
     populate: "deep",
   });
 
-  const strapiData = {
-    title: attributes.Title,
-    img: attributes.HeroImage.data.attributes.url,
-    alt: attributes.HeroImage.data.attributes.atl,
-  };
+  const image = attributes.HeroImage.data.attributes;
 
   return (
     <>
       <Hero
-        img={strapiData.img}
-        alt="Childrens hands that spell out Testimonials"
+        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/testimonials_47bbe68f60.webp"
+        alt={image.alternativeText}
         height="h-[10rem] llg:h-[30rem]"
         className="llg:object-[0%_100%]"
       />
       <PageView>
         <section>
-          <HeroH1 className="text-primary pb-6">{strapiData.title}</HeroH1>
+          <HeroH1 className="text-primary pb-6">{attributes.Title}</HeroH1>
           <Testimonials />
         </section>
       </PageView>
