@@ -33,7 +33,7 @@ export default function ProgramRegistrationCard({
           alt={alt}
           src={img}
           aria-label={alt}
-          className="rounded-r-none llg:rounded-b-none"
+          className="rounded-r-none llg:rounded-b-none llg:h-full"
           height={height}
           width={width}
         />

@@ -1,7 +1,6 @@
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import PageView from "@/components/shared/pageView";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
@@ -39,10 +38,6 @@ export default async function Payments() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero
         img={image.url}
         alt={image.alternativeText}

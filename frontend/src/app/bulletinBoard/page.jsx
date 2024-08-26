@@ -1,5 +1,4 @@
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import Image from "next/image";
@@ -43,10 +42,6 @@ export default async function BulletinBoard() {
 
   return (
     <div>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero img={heroImg.url} alt={heroImg.alternativeText} size="board">
         <ImageMask />
         <p className="text-6xl llg:text-9xl z-30">

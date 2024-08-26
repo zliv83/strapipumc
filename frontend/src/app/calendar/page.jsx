@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { fetchStrapi, host } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import MyTable from "@/components/shared/myTable";
@@ -62,10 +61,6 @@ export default async function Calendar() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <section>
         <Hero img={image.url} alt={image.alternativeText} size="about">
           <h1 className="text-PumcBlue text-6xl llg:text-9xl llg:self-start llg:ml-20">

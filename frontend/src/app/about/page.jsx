@@ -1,5 +1,4 @@
 import { Divider } from "@nextui-org/divider";
-import MetaData from "@/components/shared/metaData";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
@@ -33,10 +32,6 @@ export default async function AboutUs() {
   };
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero
         img={heroImg.url}
         alt={heroImg.alternativeText}

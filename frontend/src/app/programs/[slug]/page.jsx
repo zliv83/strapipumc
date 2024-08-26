@@ -1,7 +1,6 @@
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import HeroMask from "@/components/shared/imageMask";
@@ -31,10 +30,6 @@ export default async function ProgramPage({ params }) {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero size="programs" img={img.url} alt={img.alternativeText}>
         <HeroMask />
         <HeroH1 className="z-30">{attributes.title}</HeroH1>

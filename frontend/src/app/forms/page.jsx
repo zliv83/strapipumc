@@ -1,5 +1,4 @@
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import FormsInfo from "./components/FormsInfo";
 import FormsAndHandbook from "./components/FormsAndHandbook";
@@ -29,10 +28,6 @@ export default async function Forms() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero
         img={hero.img}
         alt={hero.alt}

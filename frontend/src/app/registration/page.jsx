@@ -1,5 +1,4 @@
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
@@ -62,10 +61,6 @@ export default async function Registration() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero img={image.url} alt={image.alternativeText}>
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
         <HeroMask />

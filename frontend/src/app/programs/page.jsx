@@ -1,7 +1,4 @@
-import Image from "next/image";
-
-import { fetchStrapi, host } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
@@ -33,10 +30,6 @@ export default async function Programs() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero img={heroImg.url} alt={heroImg.alternativeText}>
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
         <ImageMask />

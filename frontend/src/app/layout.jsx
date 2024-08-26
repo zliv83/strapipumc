@@ -5,7 +5,6 @@ import { DividerProvider } from "lib/dividerContext";
 
 import "styles/globals.css";
 import { fetchStrapi } from "lib/fetchStrapi";
-import MetaData from "@/components/shared/metaData";
 import Navbar from "@/components/navbar/navbar";
 import Footer from "@/components/footer/footer";
 
@@ -32,10 +31,6 @@ export default async function RootLayout({ children }) {
   } = await fetchStrapi(route, { populate: "deep" });
   return (
     <html lang="en">
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <body className={alegreya.className}>
         <DividerProvider>
           <NextUIProvider>

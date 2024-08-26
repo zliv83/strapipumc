@@ -1,5 +1,4 @@
 import Image from "next/image";
-import MetaData from "@/components/shared/metaData";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
@@ -63,10 +62,6 @@ export default async function SummerCamp() {
 
   return (
     <>
-      <MetaData
-        title={attributes.meta.metaTitle}
-        description={attributes.meta.metaDescription}
-      />
       <Hero img={heroImg.url} alt={heroImg.alternativeText} size="board" />
       <PageView className="llg:bg-PumcYellow">
         <div className="flex flex-col gap-12">
