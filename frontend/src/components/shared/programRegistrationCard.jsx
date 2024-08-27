@@ -35,17 +35,17 @@ export default function ProgramRegistrationCard({
           alt={alt}
           src={img}
           aria-label={alt}
-          className="rounded-r-none llg:rounded-b-none llg:h-full"
+          className="rounded-r-none llg:rounded-b-none llg:h-[75%]"
           height={height}
           width={width}
         />
         <div
           id="Text container"
-          className="flex flex-col p-2 items-center justify-center llg:gap-6 llg:p-12"
+          className="flex flex-col p-2 items-center justify-center llg:p-6 llg:-mt-12"
         >
           <span
             id="Card Title"
-            className={`text-center text-xl llg:text-4xl ${titleColor}`}
+            className={`text-center text-xl llg:text-4xl llg:pb-6 ${titleColor}`}
           >
             {title}
           </span>

@@ -19,15 +19,15 @@ export default async function Testimonials({ top }) {
   ));
 
   const testimonialMap = testimonialsArray.map((item, i) => (
-    <Card key={i} className="bg-background p-6 z-30">
-      <CardBody className="flex flex-col llg:gap-2">
+    <Card key={i} className="bg-background z-30">
+      <CardBody className="flex flex-col llg:gap-2 p-4">
         <QuoteUpIcon color="#F17B20" className="h-[4.5rem] w-[4.5rem]" />
-        <div className="flex-grow llg:p-16">
+        <div className="flex-grow llg:p-6">
           <WYSIWYG content={item.quote} pClassName="text-2xl" />
         </div>
         <div
           id="stars and name row"
-          className="flex flex-col gap-4 mt-4 llg:mt-0 llg:gap-0 llg:flex-row llg:justify-between"
+          className="flex flex-col gap-4 mt-4 llg:mt-0 llg:gap-0 llg:flex-row llg:justify-between items-center"
         >
           <div id="stars row" className="flex flex-row">
             {stars}

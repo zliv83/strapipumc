@@ -1,3 +1,4 @@
+"use client";
 import {
   Dropdown,
   DropdownItem,
@@ -6,18 +7,23 @@ import {
 } from "@nextui-org/dropdown";
 import { Button } from "@nextui-org/button";
 import { ArrowDown01Icon } from "hugeicons-react";
+import { useRouter } from "next/navigation";
 
 const DropDownMenu = ({ label, items, ariaLabel }) => {
-  const itemsMap = items.map((item) => (
-    <DropdownItem
-      key={item.label}
-      href={item.href}
-      aria-label={`Link to ${item.label}`}
-      textValue={item.label}
-    >
-      <span className="text-xl">{item.label}</span>
-    </DropdownItem>
-  ));
+  const router = useRouter();
+  const itemsMap = items.map((item) => {
+    return (
+      <DropdownItem
+        key={item.label}
+        href={item.href}
+        aria-label={`Link to ${item.label}`}
+        textValue={item.label}
+        onClick={() => router.push(item.href)}
+      >
+        <span className="text-xl">{item.label}</span>
+      </DropdownItem>
+    );
+  });
   return (
     <Dropdown aria-label={ariaLabel}>
       <DropdownTrigger>

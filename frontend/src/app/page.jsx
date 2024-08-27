@@ -28,12 +28,10 @@ export default async function Home() {
   return (
     <div>
       <Hero
-        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/home_Hero_fe8bb30418.webp"
+        img={heroImg.url}
         title={attributes.HomeHero.title}
         subTitle={attributes.HomeHero.SubTitle}
         alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
       />
       <Programs img={attributes.BeeBackground.data.attributes.url} />
       <AboutUs

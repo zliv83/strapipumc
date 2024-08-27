@@ -38,7 +38,7 @@ export default async function Testimoinals() {
       />
       <PageView>
         <section>
-          <HeroH1 className="text-primary pb-6">{attributes.Title}</HeroH1>
+          <HeroH1 className="text-primary">{attributes.Title}</HeroH1>
           <Testimonials />
         </section>
       </PageView>

@@ -81,7 +81,7 @@ const Navbar = () => {
 
   return (
     <NextUINavbar
-      className="py-2 llg:py-12 llg:px-6  "
+      className="py-2 llg:py-6 llg:px-6  "
       maxWidth="full"
       onMenuOpenChange={setIsMenuOpen}
       isMenuOpen={isMenuOpen}
@@ -94,10 +94,10 @@ const Navbar = () => {
         <NavbarBrand id="fart">
           <Link
             href="/"
-            aria-label="Link to Home Page"
+            aria-label="Home Page"
             onClick={() => setIsMenuOpen(false)}
           >
-            <PUMCLogo className="llg:w-[18rem] llg:h-[12rem] sm: h-[6rem] sm: w-[10rem]" />
+            <PUMCLogo className="llg:w-[15rem] llg:h-[6rem] sm: h-[6rem] sm: w-[10rem]" />
           </Link>
         </NavbarBrand>
       </NavbarContent>

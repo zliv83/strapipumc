@@ -7,7 +7,7 @@ const Programs = ({ img }) => {
   return (
     <BeeBackground main img={img}>
       <BlockH1 className="text-background">Programs</BlockH1>
-      <ProgramGrid />
+      <ProgramGrid titleColor="text-primary llg:text-foreground" />
       <MyButton
         href="/programs"
         label="Learn More"

@@ -78,7 +78,7 @@ export default async function Registration() {
         <h2 className="text-center text-4xl py-6 llg:py-12 llg:text-left">
           {attributes.SubTitle}
         </h2>
-        <div id="card grid" className="grid grid-cols-1 gap-6 llg:grid-cols-3">
+        <div id="card grid" className="grid grid-cols-1 gap-16 llg:grid-cols-4">
           {registrationCards}
         </div>
         <FeeTables tables={attributes.my_tables.data} />

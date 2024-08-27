@@ -21,7 +21,7 @@ export default function TestimonialSection({ img, alt, children }) {
       <HeroMask />
       <BlockContainer
         id="children container"
-        className="flex-col items-center justify-start gap-8 llg:gap-24"
+        className="flex-col items-center justify-start gap-8 llg:gap-12"
       >
         <BlockH1 className="text-primary z-10 font-extrabold drop-shadow-2xl z-30">
           Testimonials

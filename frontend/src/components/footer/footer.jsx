@@ -2,7 +2,6 @@
 
 import { Divider } from "@nextui-org/divider";
 
-import { useDividerContext } from "lib/dividerContext";
 import PUMCLogo from "@/components/shared/logo";
 import FooterLinks from "@/components/footer/footerLinks";
 import Copyright from "@/components/footer/copyright";
@@ -10,10 +9,8 @@ import Socials from "@/components/footer/socials";
 import MyButton from "@/components/shared/myButton";
 
 const footer = () => {
-  const { showDivider } = useDividerContext();
   return (
     <>
-      {showDivider ? <Divider /> : null}
       <footer className="p-12">
         <div
           id="footer grid"
