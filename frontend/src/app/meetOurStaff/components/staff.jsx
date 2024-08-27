@@ -1,6 +1,5 @@
-import Image from "next/image";
-
-import { fetchStrapi, host } from "lib/fetchStrapi";
+import { Image } from "@nextui-org/image";
+import { fetchStrapi } from "lib/fetchStrapi";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
 export default async function Staff() {
@@ -19,31 +18,23 @@ export default async function Staff() {
 
   const staffMap = staffArray.map((member, i) => {
     return (
-      <div key={i} className="grid grid-cols-1 llg:grid-cols-2">
-        <Image
-          src={member.img}
-          alt={member.alt}
-          aira-label={member.alt}
-          height={member.height}
-          width={member.width}
-          className="rounded-[.75rem] pb-4"
-          priority={i === 0 ? true : false}
-        />
-        <div className="flex flex-col justify-center items-center p-0 llg:p-4 gap-2">
-          <h3 className="text-primary text-4xl llg:text-6xl text-center">
+      <div key={i} className="grid llg:grid-cols-2 llg:px-24 gap-6 llg:gap-0">
+        <Image src={member.img} alt={member.alt} aria-label={member.alt} />
+        <div className={`flex flex-col gap-2 justify-center `}>
+          <h3 className="text-primary text-center llg:text-left text-4xl">
             {member.name}
           </h3>
-          <h5 className="text-2xl llg:text-3xl llg:text-4xl text-center">
+          <h4 className="text-2xl text-center llg:text-left">
             {member.position}
-          </h5>
+          </h4>
           <WYSIWYG
             content={member.bio}
-            pClassName="text-center llg:text-left text-2xl"
+            pClassName="text-xl text-center llg:text-left"
           />
         </div>
       </div>
     );
   });
 
-  return staffMap;
+  return <div className="flex flex-col gap-16">{staffMap}</div>;
 }

@@ -37,17 +37,15 @@ export default async function MeetOurStaff() {
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
       </Hero>
       <PageView>
-        <h1 className="text-primary text-center text-5xl llg:text-6xl">
+        <h2 className="text-primary text-center text-5xl llg:text-6xl">
           {attributes.StaffInfoTitle}
-        </h1>
+        </h2>
         <WYSIWYG
           content={attributes.StaffInfoText}
-          pClassName="text-2xl llg:text-3xl text-center llg:text-left"
+          pClassName="text-2xl llg:text-2xl text-center llg:text-left"
         />
         <div className="pb-12" />
-        <div className="flex flex-col gap-12">
-          <Staff />
-        </div>
+        <Staff />
       </PageView>
     </>
   );
