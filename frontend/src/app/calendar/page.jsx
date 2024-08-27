@@ -27,6 +27,8 @@ export default async function Calendar() {
   } = await fetchStrapi(route, { populate: "deep, 5" });
   const image = attributes.HeroImg.data.attributes;
   const delayTable = attributes.my_table.data.attributes.tables;
+  const remindIcon = attributes.RemindIcon.data.attributes;
+  console.log(attributes);
 
   const calendarMap = attributes.DownloadableCalendars.data.map(
     (calendar, i) => (
@@ -45,8 +47,8 @@ export default async function Calendar() {
   const Remind = () => (
     <div className="flex flex-row gap-4 items-center llg:pl-6">
       <Image
-        src="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/bubble_chat_stroke_rounded_283a167de1.svg"
-        alt="Orange Bubble Text Icon"
+        src={remindIcon.url}
+        alt={remindIcon.alternativeText}
         height={48}
         width={48}
       />

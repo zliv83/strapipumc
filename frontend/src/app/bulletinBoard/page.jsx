@@ -49,9 +49,7 @@ export default async function BulletinBoard() {
       <Hero
         img={heroImg.url}
         alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
-        myHeight="h-[15rem] h-[50rem]"
+        myHeight="h-[15rem] llg:h-[50rem]"
       >
         <ImageMask />
         <p className="text-6xl llg:text-9xl z-30">

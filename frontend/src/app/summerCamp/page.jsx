@@ -40,11 +40,11 @@ export default async function SummerCamp() {
   };
 
   const Subtitle = () => (
-    <h3 className="text-4xl text-center">{attributes.SubTitle}</h3>
+    <h3 className="text-5xl text-center">{attributes.SubTitle}</h3>
   );
 
   const Desktop = () => (
-    <div className="hidden llg:flex flex-col gap-12">
+    <div className="hidden llg:flex flex-col gap-12 p-12">
       <div className="flex flex-row items-center gap-12 self-center">
         <Sun />
         <Subtitle />
@@ -55,7 +55,7 @@ export default async function SummerCamp() {
   );
 
   const Mobile = () => (
-    <div className="flex flex-col gap-12 llg:hidden items-center">
+    <div className="flex flex-col gap-12 llg:hidden items-center p-6">
       <Subtitle />
       <Sun />
       <SummerCampInfo summerCampInfo={attributes.SummerCampInfo} />
@@ -74,7 +74,7 @@ export default async function SummerCamp() {
       />
       <PageView className="llg:bg-PumcYellow">
         <div className="flex flex-col gap-12">
-          <h1 className="text-center text-6xl llg:text-9xl text-primary">
+          <h1 className="text-center text-7xl llg:text-9xl text-primary">
             {attributes.Title}
           </h1>
           <Desktop />

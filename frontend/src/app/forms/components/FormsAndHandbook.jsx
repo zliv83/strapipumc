@@ -16,6 +16,7 @@ export default async function FormsAndHandbook({ title, form }) {
           return item.href ? (
             <Link
               href={link ? link : "#"}
+              target="_blank"
               key={i}
               aria-label={`Link to ${item.form}`}
             >
