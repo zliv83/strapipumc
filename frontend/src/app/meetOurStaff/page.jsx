@@ -31,7 +31,7 @@ export default async function MeetOurStaff() {
         alt={heroImg.alternativeText}
         height={heroImg.height}
         width={heroImg.width}
-        myHeight="h-[15rem] llg:h-[45rem]"
+        myHeight="h-[15rem] llg:h-[25rem]"
       >
         <ImageMask />
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>

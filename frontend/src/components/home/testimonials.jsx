@@ -8,6 +8,7 @@ import BlockContainer from "@/components/home/blockContainer";
 import HeroMask from "@/components/shared/imageMask";
 
 export default function TestimonialSection({ img, alt, children }) {
+  console.log(alt);
   return (
     <div className="relative w-full">
       <Image
