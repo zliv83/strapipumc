@@ -74,7 +74,7 @@ const Navbar = () => {
     },
     {
       label: "FAQs",
-      path: "/faqs",
+      path: "/faq",
       ariaLabel: "Frequently Asked Questions Page",
     },
   ];
