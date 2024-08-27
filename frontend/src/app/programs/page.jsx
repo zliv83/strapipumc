@@ -38,7 +38,7 @@ export default async function Programs() {
         alt={heroImg.alternativeText}
         height={heroImg.height}
         width={heroImg.width}
-        myHeight="h-[15rem] llg:h-[35rem] "
+        myHeight="h-[15rem] llg:h-[25rem] "
       >
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
         <ImageMask />

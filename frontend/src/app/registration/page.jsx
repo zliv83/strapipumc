@@ -47,7 +47,7 @@ export default async function Registration() {
         title={card.ClassName}
         height={image.height}
         width={image.width}
-        cardHeight="min-h-[10rem]"
+        cardHeight="llg:min-h-[30rem]"
         titleColor="text-primary"
       >
         <span className="text-center llg:text-2xl">{card.Schedule}</span>
@@ -69,7 +69,7 @@ export default async function Registration() {
         alt={image.alternativeText}
         height={image.height}
         width={image.width}
-        myHeight="h-[15rem] llg:h-[45rem]"
+        myHeight="h-[15rem] llg:h-[20rem]"
       >
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
         <HeroMask />
@@ -78,10 +78,13 @@ export default async function Registration() {
         <HeroH1 className="text-center llg:text-left text-primary text-6xl">
           {attributes.Title}
         </HeroH1>
-        <h2 className="text-center text-4xl py-6 llg:py-12 llg:text-left">
+        <h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
           {attributes.SubTitle}
         </h2>
-        <div id="card grid" className="grid grid-cols-1 gap-16 llg:grid-cols-4">
+        <div
+          id="card grid"
+          className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
+        >
           {registrationCards}
         </div>
         <FeeTables tables={attributes.my_tables.data} />

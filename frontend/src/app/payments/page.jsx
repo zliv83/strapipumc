@@ -47,7 +47,7 @@ export default async function Payments() {
         alt={image.alternativeText}
         height={image.height}
         width={image.width}
-        myHeight="h-[15rem] llg:h-[30rem] "
+        myHeight="h-[15rem] llg:h-[25rem] "
         className="object-[0%_25%]"
       >
         <HeroMask />

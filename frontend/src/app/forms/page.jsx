@@ -32,7 +32,7 @@ export default async function Forms() {
         alt={image.alternativeText}
         height={image.height}
         width={image.width}
-        myHeight="h-[15rem] llg:h-[35rem] "
+        myHeight="h-[15rem] llg:h-[25rem] "
         className="object-[0%_65%] "
       />
       <PageView className="llg:bg-PumcBlue">

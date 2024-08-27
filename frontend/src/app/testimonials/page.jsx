@@ -39,7 +39,7 @@ export default async function Testimoinals() {
         myHeight="h-[10rem] llg:h-[30rem]"
         className="llg:object-[0%_100%]"
       />
-      <PageView>
+      <PageView className="bg-PumcGreen">
         <section>
           <HeroH1 className="text-primary">{attributes.Title}</HeroH1>
           <Testimonials />
