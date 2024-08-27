@@ -7,6 +7,6 @@ export default function Admin() {
   const router = useRouter();
 
   useEffect(() => {
-    router.push("https://thoughtful-growth-c2a66179de.strapiapp.com/admin");
+    router.push("https://helpful-positivity-9e5f57aa9a.strapiapp.com/admin");
   });
 }

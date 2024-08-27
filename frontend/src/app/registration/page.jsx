@@ -16,6 +16,9 @@ export async function generateMetadata() {
   return {
     title: attributes.meta.metaTitle,
     description: attributes.meta.metaDescription,
+    robots: {
+      index: true,
+    },
   };
 }
 
@@ -62,7 +65,7 @@ export default async function Registration() {
   return (
     <>
       <Hero
-        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/registration_5eb8ebcb64.webp"
+        img={image.url}
         alt={image.alternativeText}
         height={image.height}
         width={image.width}

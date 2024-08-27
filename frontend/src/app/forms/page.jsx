@@ -13,6 +13,9 @@ export async function generateMetadata() {
   return {
     title: attributes.meta.metaTitle,
     description: attributes.meta.metaDescription,
+    robots: {
+      index: true,
+    },
   };
 }
 
@@ -25,8 +28,8 @@ export default async function Forms() {
   return (
     <>
       <Hero
-        img="https://helpful-positivity-9e5f57aa9a.media.strapiapp.com/forms_5943651233.webp"
-        alt={image.alt}
+        img={image.url}
+        alt={image.alternativeText}
         height={image.height}
         width={image.width}
         myHeight="h-[15rem] llg:h-[35rem] "

@@ -18,6 +18,9 @@ export async function generateMetadata({ params }) {
   return {
     title: attributes.meta.metaTitle,
     description: attributes.meta.metaDescription,
+    robots: {
+      index: true,
+    },
   };
 }
 

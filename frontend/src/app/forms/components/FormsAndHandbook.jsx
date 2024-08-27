@@ -26,7 +26,7 @@ export default async function FormsAndHandbook({ title, form }) {
               </div>
             </Link>
           ) : (
-            <div className="w-full">
+            <div key={i} className="w-full">
               <h3 className="text-3xl text-primary py-4">{item.form}</h3>
               <p className="pb-4 text-xl text-PumcBlue">{item.description}</p>
               <Divider />
