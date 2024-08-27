@@ -887,6 +887,8 @@ export interface ApiCalendarCalendar extends Schema.SingleType {
       'api::my-table.my-table'
     >;
     meta: Attribute.Component<'meta.metadata'>;
+    RemindText: Attribute.String;
+    RemindIcon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

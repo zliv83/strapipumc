@@ -41,7 +41,7 @@ export default function ProgramRegistrationCard({
         />
         <div
           id="Text container"
-          className="flex flex-col p-2 items-center justify-center llg:p-6 llg:-mt-12"
+          className="flex flex-col p-2 items-center justify-center llg:justify-between llg:p-6 llg:-mt-12"
         >
           <span
             id="Card Title"

@@ -51,13 +51,15 @@ export default async function Registration() {
         titleColor="text-primary"
       >
         <span className="text-center llg:text-2xl">{card.Schedule}</span>
-        <span
-          className={`${
-            card.ClassFull || card.ClassCancelled ? "" : "invisible"
-          } text-PumcRed llg:text-lg`}
-        >
-          {modifierText}
-        </span>
+        <div className="llg:mt-auto ">
+          <span
+            className={`${
+              card.ClassFull || card.ClassCancelled ? "" : "invisible"
+            } text-PumcRed llg:text-lg`}
+          >
+            {modifierText}
+          </span>
+        </div>
       </ProgramRegistrationCard>
     );
   });
