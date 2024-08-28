@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { GoogleTagManager, GoogleAnalytics } from "@next/third-parties/google";
 
 import { Alegreya } from "next/font/google";
 
@@ -40,6 +40,7 @@ export default async function RootLayout({ children }) {
         </NextUIProvider>
       </body>
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
+      <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GOOGLE_TAG} />
     </html>
   );
 }
