@@ -1,3 +1,5 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
+
 import { Alegreya } from "next/font/google";
 
 import { NextUIProvider } from "@nextui-org/system";
@@ -37,6 +39,7 @@ export default async function RootLayout({ children }) {
           <Footer />
         </NextUIProvider>
       </body>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
     </html>
   );
 }
