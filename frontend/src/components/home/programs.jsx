@@ -10,9 +10,9 @@ const Programs = ({ img }) => {
       <ProgramGrid titleColor="text-primary llg:text-foreground" />
       <MyButton
         href="/programs"
-        label="Learn More"
+        label="Explore Programs"
         size="lg"
-        className="self-center z-30"
+        className="self-center z-30 llg:w-button-lg"
         ariaLabel="Link to the programs page"
         landscapeBlock
       />

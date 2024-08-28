@@ -32,6 +32,7 @@ module.exports = {
       width: {
         "button-sm": "5.938rem",
         "button-md": "10.625rem",
+        "button-lg": "16rem",
       },
       height: {
         "button-sm": "3rem",

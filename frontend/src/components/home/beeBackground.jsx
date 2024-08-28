@@ -15,7 +15,7 @@ const BeeBackground = ({ children, main, className, img }) => {
         fill
         style={{ objectFit: "cover" }}
         priority
-        className="-z-1 object-[40%_0%] "
+        className="-z-1 object-[40%_0%] llg:object-[100%_0%] "
       />
       {children}
     </BlockContainer>

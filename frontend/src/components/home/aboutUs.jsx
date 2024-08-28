@@ -31,11 +31,12 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
           </div>
           <div className="flex justify-center">
             <MyButton
-              label="Learn More"
+              label="Explore Our Mission"
               href="/about"
               size="lg"
               ariaLabel="Link to the about page"
               landscapeBlock
+              className="llg:w-button-lg"
             />
           </div>
         </div>
