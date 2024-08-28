@@ -31,14 +31,16 @@ export default function ProgramRegistrationCard({
         id="Card Body"
         className="grid grid-cols-2 llg:grid-cols-1 p-0 llg:grid-rows-[1fr_1fr]"
       >
-        <Image
-          alt={alt}
-          src={img}
-          aria-label={alt}
-          className="rounded-r-none llg:rounded-b-none llg:h-[75%]"
-          height={height}
-          width={width}
-        />
+        <div>
+          <Image
+            alt={alt}
+            src={img}
+            aria-label={alt}
+            className="rounded-r-none llg:rounded-b-none llg:h-[75%]"
+            height={height}
+            width={width}
+          />
+        </div>
         <div
           id="Text container"
           className="flex flex-col p-2 items-center justify-center llg:justify-between llg:p-6 llg:-mt-12"

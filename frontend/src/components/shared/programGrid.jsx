@@ -51,11 +51,13 @@ export default async function ProgramGrid({ className, titleColor }) {
     );
   });
   return (
-    <div
-      id="card grid"
-      className={`grid grid-col-1 gap-6 llg:grid-cols-4 ${className}`}
-    >
-      {cardList}
+    <div>
+      <div
+        id="card grid"
+        className={`grid grid-col-1 gap-6 llg:grid-cols-4 ${className}`}
+      >
+        {cardList}
+      </div>
     </div>
   );
 }

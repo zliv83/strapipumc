@@ -4,7 +4,6 @@ import Programs from "@/components/home/programs";
 import AboutUs from "@/components/home/aboutUs";
 import TestimonialSection from "@/components/home/testimonials";
 import Testimonials from "@/components/shared/testimonials";
-import sitemap from "@/app/sitemap";
 
 const route = "/home";
 
