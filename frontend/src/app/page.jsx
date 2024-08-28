@@ -21,8 +21,6 @@ export async function generateMetadata() {
   };
 }
 
-sitemap();
-
 export default async function Home() {
   const {
     data: { attributes },
