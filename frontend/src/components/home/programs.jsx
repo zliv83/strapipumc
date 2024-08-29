@@ -11,8 +11,7 @@ const Programs = ({ img }) => {
       <MyButton
         href="/programs"
         label="Explore Programs"
-        size="lg"
-        className="self-center z-30 llg:w-button-lg"
+        className="self-center z-30 w-button-mobile-lg llg:w-button-lg"
         ariaLabel="Link to the programs page"
         landscapeBlock
       />

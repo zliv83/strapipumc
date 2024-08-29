@@ -33,10 +33,9 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
             <MyButton
               label="Explore Our Mission"
               href="/about"
-              size="lg"
               ariaLabel="Link to the about page"
               landscapeBlock
-              className="llg:w-button-lg"
+              className="w-button-mobile-lg llg:w-button-lg"
             />
           </div>
         </div>
