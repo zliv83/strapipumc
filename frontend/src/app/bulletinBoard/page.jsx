@@ -37,8 +37,11 @@ export default async function BulletinBoard() {
               <Link key={j} href={img.attributes.url} target="_blank">
                 <Image
                   src={img.attributes.url}
-                  alt={img.attributes.alternativeText}
-                  aria-label={img.attributes.alternativeText}
+                  alt={img.attributes.alternativeText || "User uploaded photo"}
+                  aria-label={
+                    img.attributes.alternativeText ||
+                    "This photo was uploaded by a user"
+                  }
                 />
               </Link>
             );
