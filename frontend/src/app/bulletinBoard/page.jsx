@@ -1,9 +1,9 @@
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
-import Image from "next/image";
+import { Image } from "@nextui-org/image";
 import PageView from "@/components/shared/pageView";
-import MyMasonry from "./components/Masonry";
+import Link from "next/link";
 
 const route = "/bulletin-board";
 
@@ -25,28 +25,25 @@ export default async function BulletinBoard() {
     data: { attributes },
   } = await fetchStrapi(route, { populate: "deep" });
 
-  console.log(attributes.Photos);
-
   const heroImg = attributes.HeroImage.data.attributes;
 
-  const contentMap = attributes?.BulletinBoardContent?.map((item, i) => {
-    const img = item.Image.data.attributes;
+  const contentMap = attributes.BullitenBoardContent.map((item, i) => {
     return (
       <div key={i} className="flex flex-col gap-6">
-        <h3 className="text-primary text-6xl text-center">{item.Title}</h3>
-        <MyMasonry>
-          <div>
-            <Image
-              className="self-center"
-              src={img.url}
-              alt={img.alternativeText}
-              width={img.width}
-              height={img.height}
-              aria-label={img.alternativeText}
-              priority={i === 1 ? true : false}
-            />
-          </div>
-        </MyMasonry>
+        <h2 className="text-primary text-4xl pb-6">{item.Title}</h2>
+        <div className="grid grid-cols-1 llg:grid-cols-2 gap-6 pb-6">
+          {item.Pictures.data.map((img, j) => {
+            return (
+              <Link key={j} href={img.attributes.url} target="_blank">
+                <Image
+                  src={img.attributes.url}
+                  alt={img.attributes.alternativeText}
+                  aria-label={img.attributes.alternativeText}
+                />
+              </Link>
+            );
+          })}
+        </div>
       </div>
     );
   });
@@ -64,7 +61,7 @@ export default async function BulletinBoard() {
         </p>
       </Hero>
       <PageView>
-        {attributes.BulletinBoardContent ? (
+        {attributes.BullitenBoardContent ? (
           contentMap
         ) : (
           <h3 className="text-primary text-6xl text-center">
