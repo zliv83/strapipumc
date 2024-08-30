@@ -23,18 +23,12 @@
         "audios"
       ]
     },
-    "BulletinBoardContent": {
-      "displayName": "BulletinBoardContent",
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.bulletin-board-content"
-    },
     "meta": {
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
     },
-    "Photos": {
+    "BullitenBoardContent": {
       "displayName": "MasonaryPhotos",
       "type": "component",
       "repeatable": true,

@@ -3,6 +3,7 @@ import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import Image from "next/image";
 import PageView from "@/components/shared/pageView";
+import MyMasonry from "./components/Masonry";
 
 const route = "/bulletin-board";
 
@@ -24,6 +25,8 @@ export default async function BulletinBoard() {
     data: { attributes },
   } = await fetchStrapi(route, { populate: "deep" });
 
+  console.log(attributes.Photos);
+
   const heroImg = attributes.HeroImage.data.attributes;
 
   const contentMap = attributes?.BulletinBoardContent?.map((item, i) => {
@@ -31,15 +34,19 @@ export default async function BulletinBoard() {
     return (
       <div key={i} className="flex flex-col gap-6">
         <h3 className="text-primary text-6xl text-center">{item.Title}</h3>
-        <Image
-          className="self-center"
-          src={img.url}
-          alt={img.alternativeText}
-          width={img.width}
-          height={img.height}
-          aria-label={img.alternativeText}
-          priority={i === 1 ? true : false}
-        />
+        <MyMasonry>
+          <div>
+            <Image
+              className="self-center"
+              src={img.url}
+              alt={img.alternativeText}
+              width={img.width}
+              height={img.height}
+              aria-label={img.alternativeText}
+              priority={i === 1 ? true : false}
+            />
+          </div>
+        </MyMasonry>
       </div>
     );
   });

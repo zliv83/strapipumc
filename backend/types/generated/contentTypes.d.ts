@@ -844,12 +844,8 @@ export interface ApiBulletinBoardBulletinBoard extends Schema.SingleType {
   };
   attributes: {
     HeroImage: Attribute.Media;
-    BulletinBoardContent: Attribute.Component<
-      'shared.bulletin-board-content',
-      true
-    >;
     meta: Attribute.Component<'meta.metadata'>;
-    Photos: Attribute.Component<'shared.masonary-photos', true>;
+    BullitenBoardContent: Attribute.Component<'shared.masonary-photos', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
