@@ -849,6 +849,7 @@ export interface ApiBulletinBoardBulletinBoard extends Schema.SingleType {
       true
     >;
     meta: Attribute.Component<'meta.metadata'>;
+    Photos: Attribute.Component<'shared.masonary-photos', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

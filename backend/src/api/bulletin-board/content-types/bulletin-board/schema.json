@@ -33,6 +33,12 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "Photos": {
+      "displayName": "MasonaryPhotos",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.masonary-photos"
     }
   }
 }

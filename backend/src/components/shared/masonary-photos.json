@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_masonary_photos",
+  "info": {
+    "displayName": "MasonaryPhotos"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Pictures": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    }
+  }
+}

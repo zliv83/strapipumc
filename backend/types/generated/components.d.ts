@@ -609,6 +609,17 @@ export interface SharedList extends Schema.Component {
   };
 }
 
+export interface SharedMasonaryPhotos extends Schema.Component {
+  collectionName: 'components_shared_masonary_photos';
+  info: {
+    displayName: 'MasonaryPhotos';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Pictures: Attribute.Media;
+  };
+}
+
 export interface SharedMedia extends Schema.Component {
   collectionName: 'components_shared_media';
   info: {
@@ -1033,6 +1044,7 @@ declare module '@strapi/types' {
       'shared.forms-info-array': SharedFormsInfoArray;
       'shared.list-items': SharedListItems;
       'shared.list': SharedList;
+      'shared.masonary-photos': SharedMasonaryPhotos;
       'shared.media': SharedMedia;
       'shared.my-meta': SharedMyMeta;
       'shared.my-table-rows': SharedMyTableRows;
