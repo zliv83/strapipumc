@@ -23,15 +23,11 @@ export const metadata = {
 };
 
 export default function Payments() {
-  const image = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero
-        img={image.url}
-        alt={image.alternativeText}
-        height={image.height}
-        width={image.width}
+        img="/payment.webp"
+        alt="Child with laptop and credit card"
         myHeight="h-[15rem] llg:h-[25rem] "
         className="object-[0%_25%]"
       >

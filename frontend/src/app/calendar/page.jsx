@@ -23,17 +23,14 @@ export const metadata = {
 };
 
 export default function Calendar() {
-  const image = attributes.HeroImg.data.attributes;
   const delayTable = attributes.my_table.data.attributes.tables;
   const remindIcon = attributes.RemindIcon.data.attributes;
 
   return (
     <>
       <Hero
-        img={image.url}
-        alt={image.alternativeText}
-        height={image.height}
-        width={image.width}
+        img="calednars.webp"
+        alt="Standup page calendar"
         myHeight="h-[15rem] llg:h-[30rem] "
       >
         <h1 className="text-PumcBlue text-6xl llg:text-9xl llg:self-start llg:ml-20">

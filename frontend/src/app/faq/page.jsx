@@ -13,7 +13,7 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
+};
 
 export default function FAQ() {
   const image = attributes.HeroImage.data.attributes;
@@ -21,10 +21,8 @@ export default function FAQ() {
   return (
     <>
       <Hero
-        img={image.url}
-        alt={image.alternativeText}
-        height={image.height}
-        width={image.width}
+        img="/testimonials.webp"
+        alt="Childrens hands spelling out the word testimonials"
         myHeight="h-[15rem] llg:h-[35rem]"
       />
       <PageView>

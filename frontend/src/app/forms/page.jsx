@@ -18,15 +18,11 @@ export const metadata = {
 };
 
 export default async function Forms() {
-  const image = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero
-        img={image.url}
-        alt={image.alternativeText}
-        height={image.height}
-        width={image.width}
+        img="/forms.webp"
+        alt="A folder with Forms on its tab over a keyboard"
         myHeight="h-[15rem] llg:h-[25rem] "
         className="object-[0%_65%] "
       />

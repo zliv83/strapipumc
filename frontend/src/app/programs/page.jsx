@@ -27,10 +27,8 @@ export default function Programs() {
   return (
     <>
       <Hero
-        img={heroImg.url}
-        alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
+        img="/programs.webp"
+        alt="Children playing with toys"
         myHeight="h-[15rem] llg:h-[25rem] "
       >
         <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>

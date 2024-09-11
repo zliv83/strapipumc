@@ -30,6 +30,11 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
     }
   }
 }

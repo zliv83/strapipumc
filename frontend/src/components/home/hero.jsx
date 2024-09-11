@@ -2,15 +2,15 @@ import Image from "next/image";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 
-const HomeHero = ({ img, title, subTitle, alt }) => {
+const HomeHero = ({ title, subTitle }) => {
   return (
     <section className={`relative w-full h-[100vh] llg:h-screen`}>
       <Image
-        src={img}
-        alt={alt}
+        src="/HomeHero.webp"
+        alt="Child coloring in a butterfly"
         fill
         className={`object-cover`}
-        aria-label={alt}
+        aria-label="Child coloring in a butterfly"
         priority
       />
       <ImageMask />

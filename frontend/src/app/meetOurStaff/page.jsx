@@ -25,8 +25,8 @@ export default function MeetOurStaff() {
   return (
     <>
       <Hero
-        img={heroImg.url}
-        alt={heroImg.alternativeText}
+        img="/staff.webp"
+        alt="Chalkboard with a rocket and planets on it in the background with a desk with teacher items in the forgound"
         height={heroImg.height}
         width={heroImg.width}
         myHeight="h-[15rem] llg:h-[28rem]"

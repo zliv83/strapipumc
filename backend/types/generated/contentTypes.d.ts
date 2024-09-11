@@ -1411,6 +1411,11 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
     Title: Attribute.String;
     HeroImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
+    testimonials: Attribute.Relation<
+      'api::testimonials-page.testimonials-page',
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

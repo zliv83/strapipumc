@@ -1,11 +1,40 @@
 import ProgramRegistrationCard from "@/components/shared/programRegistrationCard";
 import MyStarIcon from "@/components/shared/starIcon";
 
-export default async function ProgramGrid({ className, titleColor, programsData }) {
+export default async function ProgramGrid({
+  className,
+  titleColor,
+  programsData,
+}) {
   const programCardItems = programsData.data.map((item) => {
     const programcard = item.attributes;
+    const title = programcard.title;
+    const imageFileName = title
+      .replace(/[^a-zA-Z0-9]/g, "")
+      .replace(/\s+/g, "")
+      .toLowerCase();
+    const imageUrl = `/${imageFileName}.webp`;
+
+    let alternativeText;
+    switch (title) {
+      case "2 Year Old Playgroup":
+        alternativeText = "Child playing with a toy";
+        break;
+      case "3 Year Old Preschool":
+        alternativeText = "Child playing with blocksl";
+        break;
+      case "4/5's Pre-K":
+        alternativeText = "Child Picking out a book";
+        break;
+      case "Kindergarten Enrichment":
+        alternativeText =
+          "Childrens hands with one letter on each spelling testimonials";
+        break;
+      default:
+        alternativeText = `Image for ${title}`;
+    }
     return {
-      img: programcard.picture.data.attributes.url,
+      img: imageUrl,
       height: programcard.picture.data.attributes.height,
       width: programcard.picture.data.attributes.width,
       alt: programcard.picture.data.attributes.alternativeText,

@@ -18,13 +18,11 @@ export const metadata = {
 };
 
 export default function BulletinBoard() {
-  const heroImg = attributes.HeroImage.data.attributes;
-
   return (
     <div>
       <Hero
-        img={heroImg.url}
-        alt={heroImg.alternativeText}
+        img="/Bulletin.webp"
+        alt="Large tan cork bord on a orange wall"
         myHeight="h-[15rem] llg:h-[50rem]"
       >
         <ImageMask />

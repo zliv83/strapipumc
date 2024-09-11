@@ -5,7 +5,7 @@ import BlockContainer from "@/components/home/blockContainer";
 import { BlockH1 } from "@/components/shared/h1s";
 import Butterfly from "@/components/shared/butterfly";
 
-const AboutUs = ({ aboutus, img, alt, height, width }) => {
+const AboutUs = ({ aboutus }) => {
   return (
     <BlockContainer>
       <div className="relative">
@@ -18,11 +18,12 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
         >
           <BlockH1 className="llg:hidden">About Us</BlockH1>
           <Image
-            src={img}
-            alt={alt}
-            height={height}
-            width={width}
+            src="/aboutUsBlock.webp"
+            alt="A teacher reading a book to students"
+            height={800}
+            width={1200}
             className="rounded-xl"
+            aria-label="Child coloring in a butterfly"
             loading="lazy"
           />
           <p className="text-lg text-center llg:hidden">{aboutus}</p>
