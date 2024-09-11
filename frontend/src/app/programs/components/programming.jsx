@@ -9,6 +9,7 @@ export default function Programming({ classProgramming }) {
         width={classProgramming.icon.data.attributes.width}
         src={classProgramming.icon.data.attributes.url}
         className="self-start"
+        loading="lazy"
       />
       <div>
         <span className="font-bold text-2xl">{`${classProgramming.title}:`}</span>{" "}

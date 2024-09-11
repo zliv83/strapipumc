@@ -39,6 +39,7 @@ export default function ProgramRegistrationCard({
             className="rounded-r-none llg:rounded-b-none llg:h-[75%]"
             height={height}
             width={width}
+            loading="lazy"
           />
         </div>
         <div

@@ -1,9 +1,12 @@
+import dynamic from 'next/dynamic';
 import { Divider } from "@nextui-org/divider";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
-import MyTable from "@/components/shared/myTable";
+import Title from './components/Title'
+const ProgramTable = dynamic(() => import('./components/ProgramTable'))
+const ProgramOptions = dynamic(() => import('./components/ProgramOptions'))
 
 const {
   data: { attributes },
@@ -20,14 +23,6 @@ export const metadata = {
 
 export default function AboutUs() {
   const heroImg = attributes.HeroImage.data.attributes;
-
-  const Title = ({ children }) => {
-    return (
-      <h2 className="text-primary text-center text-4xl llg:text-left">
-        {children}
-      </h2>
-    );
-  };
 
   return (
     <>
@@ -53,24 +48,8 @@ export default function AboutUs() {
               pClassName="text-xl text-center llg:text-left llg:text-2xl"
             />
           </section>
-          <section aria-label="Student/Teacher Ratio Table Section">
-            <Title className="text-center text-4xl llg:text-left mb-6">
-              {attributes.RatioTitle}
-            </Title>
-            <MyTable
-              columns={attributes.my_tables.data.attributes.tables.columns}
-              rows={attributes.my_tables.data.attributes.tables.rows}
-              ariaLabel="PUMC vs State Teacher to Student Ratios"
-              className="pt-6"
-            />
-          </section>
-          <section aria-label="Program Options Section">
-            <Title>{attributes.ProgramText}</Title>
-            <WYSIWYG
-              content={attributes.ProgramOptions}
-              pClassName="text-2xl"
-            />
-          </section>
+          <ProgramTable title={attributes.RatioTitle} columns={attributes.my_tables.data.attributes.tables.columns} rows={attributes.my_tables.data.attributes.tables.rows} />
+          <ProgramOptions programText={attributes.ProgramText} programOptions={attributes.ProgramOptions} />
         </div>
       </PageView>
     </>

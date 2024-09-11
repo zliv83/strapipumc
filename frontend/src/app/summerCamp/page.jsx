@@ -4,8 +4,6 @@ import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import SummerCampInfo from "./components/summerCampInfo";
 
-const route = "/summer-camp";
-
 const {
   data: { attributes },
 } = await fetchStrapi("/summer-camp", { populate: "deep, 5" });
@@ -16,7 +14,7 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
+};
 
 export default function SummerCamp() {
   const heroImg = attributes.HeroImage.data.attributes;

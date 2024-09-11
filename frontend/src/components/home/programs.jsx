@@ -3,11 +3,11 @@ import BeeBackground from "./beeBackground";
 import { BlockH1 } from "@/components/shared/h1s";
 import ProgramGrid from "@/components/shared/programGrid";
 
-const Programs = ({ img }) => {
+const Programs = ({ img, programsData }) => {
   return (
     <BeeBackground main img={img}>
       <BlockH1 className="text-background">Programs</BlockH1>
-      <ProgramGrid titleColor="text-primary llg:text-foreground" />
+      <ProgramGrid titleColor="text-primary llg:text-foreground" programsData={programsData} />
       <MyButton
         href="/programs"
         label="Explore Programs"
@@ -17,6 +17,6 @@ const Programs = ({ img }) => {
       />
     </BeeBackground>
   );
-};
+}; 
 
 export default Programs;

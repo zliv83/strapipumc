@@ -1,16 +1,15 @@
+import dynamic from 'next/dynamic';
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/home/hero";
 const Programs = dynamic(() => import('@/components/home/programs'));
 const AboutUs = dynamic(() => import('@/components/home/aboutUs'));
 const TestimonialSection = dynamic(() => import('@/components/home/testimonials'));
 const Testimonials = dynamic(() => import('@/components/shared/testimonials'));
-import dynamic from 'next/dynamic';
 
-const route = "/home";
 
 const {
   data: { attributes },
-} = await fetchStrapi(route, { populate: "deep" });
+} = await fetchStrapi('/home', { populate: "deep" });
 
 
 export const metadata ={
@@ -34,13 +33,13 @@ export default function Home() {
         subTitle={attributes.HomeHero.SubTitle}
         alt={heroImg.alternativeText}
       />
-      <Programs img={attributes.BeeBackground.data.attributes.url} />
+      <Programs img={attributes.BeeBackground.data.attributes.url} programsData={attributes.programs} />
       <AboutUs
         aboutus={attributes.aboutus.content}
         img={aboutUsPicture.url}
         alt={aboutUsPicture.alternativeText}
         height={aboutUsPicture.height}
-        width={aboutUsPicture.width}
+        width={aboutUsPicture.width}  
       />
       <TestimonialSection
         img={testimonialImg.url}

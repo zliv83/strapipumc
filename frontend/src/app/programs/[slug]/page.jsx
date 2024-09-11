@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
@@ -5,12 +6,10 @@ import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import HeroMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
-import Programming from "../components/programming";
+const Programming = dynamic(() => import("../components/programming"));
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
-const route = "/programs";
-
-const {data} = await fetchStrapi('/programs', {populate: 'deep'}) 
+const { data } = await fetchStrapi("/programs", { populate: "deep" });
 
 export async function generateMetadata({ params }) {
   const slug = params.slug;

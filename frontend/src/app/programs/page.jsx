@@ -1,10 +1,11 @@
+import dynamic from "next/dynamic";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
-import ProgramGrid from "@/components/shared/programGrid";
+const ProgramGrid = dynamic(() => import("@/components/shared/programGrid"));
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Butterfly from "@/components/shared/butterfly";
 
@@ -18,7 +19,7 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
+};
 
 export default function Programs() {
   const heroImg = attributes.HeroImage.data.attributes;
@@ -54,6 +55,7 @@ export default function Programs() {
           shadow="lg"
           className="pt-6 llg:pt-12"
           titleColor="text-PumcBlue llg:text-primary"
+          programsData={attributes.programs}
         />
         <MyButton
           label="Tuition Info"

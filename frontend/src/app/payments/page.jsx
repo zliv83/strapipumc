@@ -1,3 +1,4 @@
+import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 
 import { fetchStrapi } from "lib/fetchStrapi";
@@ -5,7 +6,7 @@ import PageView from "@/components/shared/pageView";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
 import { HeroH1, BlockH1 } from "@/components/shared/h1s";
-import FeeTables from "@/components/shared/feeTables";
+const FeeTables = dynamic(() => import("../../components/shared/feeTables"));
 import MyButton from "@/components/shared/myButton";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
@@ -19,17 +20,7 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
-
-const MakeAPayment = ({ className }) => (
-  <MyButton
-    className={`self-center llg:self-end mt-6 ${className}`}
-    label="Make a Payment"
-    size="lg"
-    href="https://pumcpreschool.breezechms.com/give/online"
-    ariaLabel="Link to make a payment on the preschool's payment portal"
-  />
-);
+};
 
 export default function Payments() {
   const image = attributes.HeroImage.data.attributes;
@@ -56,7 +47,13 @@ export default function Payments() {
           content={attributes.TuitionInfoText}
           pClassName="text-2xl llg:text-3xl"
         />
-        <MakeAPayment />
+        <MyButton
+          className={`self-center llg:self-end mt-6`}
+          label="Make a Payment"
+          size="lg"
+          href="https://pumcpreschool.breezechms.com/give/online"
+          ariaLabel="Link to make a payment on the preschool's payment portal"
+        />
         <Divider className="mt-12" />
         <FeeTables tables={attributes.my_tables.data} />
       </PageView>

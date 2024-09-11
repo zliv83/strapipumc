@@ -43,6 +43,7 @@ export default function FAQAccorion({ faqs }) {
                 width={faq.image.data.attributes.width}
                 height={faq.image.data.attributes.height}
                 aria-label={faq.alt}
+                loading="lazy"
               />
             </Link>
             {faq.RemindText ? (

@@ -1,13 +1,8 @@
-import { fetchStrapi } from "lib/fetchStrapi";
 import ProgramRegistrationCard from "@/components/shared/programRegistrationCard";
 import MyStarIcon from "@/components/shared/starIcon";
 
-export default async function ProgramGrid({ className, titleColor }) {
-  const { data } = await fetchStrapi("/programs", {
-    populate: "*",
-  });
-
-  const programCardItems = data.map((item) => {
+export default async function ProgramGrid({ className, titleColor, programsData }) {
+  const programCardItems = programsData.data.map((item) => {
     const programcard = item.attributes;
     return {
       img: programcard.picture.data.attributes.url,

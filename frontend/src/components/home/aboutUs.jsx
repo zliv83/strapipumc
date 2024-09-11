@@ -23,6 +23,7 @@ const AboutUs = ({ aboutus, img, alt, height, width }) => {
             height={height}
             width={width}
             className="rounded-xl"
+            loading="lazy"
           />
           <p className="text-lg text-center llg:hidden">{aboutus}</p>
           <div className="hidden llg:flex flex-col gap-4 justify-center p-4">

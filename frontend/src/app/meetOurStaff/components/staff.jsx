@@ -19,7 +19,12 @@ export default async function Staff() {
   const staffMap = staffArray.map((member, i) => {
     return (
       <div key={i} className="grid llg:grid-cols-2 llg:px-24 gap-6 llg:gap-0">
-        <Image src={member.img} alt={member.alt} aria-label={member.alt} />
+        <Image
+          src={member.img}
+          alt={member.alt}
+          aria-label={member.alt}
+          loading="lazy"
+        />
         <div className={`flex flex-col gap-2 justify-center `}>
           <h3 className="text-primary text-center llg:text-left text-4xl">
             {member.name}

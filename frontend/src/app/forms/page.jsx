@@ -1,8 +1,9 @@
+import dynamic from "next/dynamic";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
-import FormsInfo from "./components/FormsInfo";
-import FormsAndHandbook from "./components/FormsAndHandbook";
 import PageView from "@/components/shared/pageView";
+import FormsInfo from "./components/FormsInfo";
+const FormsAndHandbook = dynamic(() => import("./components/FormsAndHandbook"));
 
 const {
   data: { attributes },
@@ -14,7 +15,7 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
+};
 
 export default async function Forms() {
   const image = attributes.HeroImage.data.attributes;
