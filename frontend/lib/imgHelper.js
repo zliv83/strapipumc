@@ -3,7 +3,7 @@ export default function imgHelper(title) {
     .replace(/[^a-zA-Z0-9]/g, "")
     .replace(/\s+/g, "")
     .toLowerCase();
-  const image = `/${imageFileName}.webp`;
+  const imageUrl = `/${imageFileName}.webp`;
 
   let alternativeText;
   switch (title) {
@@ -24,5 +24,5 @@ export default function imgHelper(title) {
       alternativeText = `Image for ${title}`;
   }
 
-  return { image, alternativeText };
+  return { image: imageUrl, alternativeText };
 }
