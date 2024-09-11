@@ -18,7 +18,7 @@ export default async function sitemap() {
     "/programs/kindergarten-enrichment",
   ];
 
-  const url = "https://strapipumc.vercel.app";
+  const url = "https://pumcpreschool.com";
 
   const allRoutes = routes.map((route) => ({
     url: `${url}${route}`,
