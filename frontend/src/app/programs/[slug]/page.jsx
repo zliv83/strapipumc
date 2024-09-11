@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 
+import imgHelper from "lib/imgHelper";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
@@ -29,38 +30,13 @@ export default async function ProgramPage({ params }) {
   const program = data.find((item) => item.attributes.slug === slug);
   const attributes = program.attributes;
   const title = attributes.title;
-  const imageFileName = title
-    .replace(/[^a-zA-Z0-9]/g, "")
-    .replace(/\s+/g, "")
-    .toLowerCase();
-  const img = `/${imageFileName}.webp`;
-
-  let alternativeText;
-  switch (title) {
-    case "2 Year Old Playgroup":
-      alternativeText = "Child playing with a toy";
-      break;
-    case "3 Year Old Preschool":
-      alternativeText = "Child playing with blocksl";
-      break;
-    case "4/5's Pre-K":
-      alternativeText = "Child Picking out a book";
-      break;
-    case "Kindergarten Enrichment":
-      alternativeText =
-        "Childrens hands with one letter on each spelling testimonials";
-      break;
-    default:
-      alternativeText = `Image for ${title}`;
-  }
+  const { image, alternativeText } = imgHelper(title);
 
   return (
     <>
       <Hero
-        img={img}
+        img={image}
         alt={alternativeText}
-        height={img.height}
-        width={img.width}
         myHeight="h-[15rem] llg:h-[35rem] "
       >
         <HeroMask />

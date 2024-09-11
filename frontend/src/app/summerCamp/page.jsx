@@ -6,7 +6,7 @@ import SummerCampInfo from "./components/summerCampInfo";
 
 const {
   data: { attributes },
-} = await fetchStrapi("/summer-camp", { populate: "deep, 5" });
+} = await fetchStrapi("/summer-camp", { populate: "deep" });
 
 export const metadata = {
   title: attributes.meta.metaTitle,
@@ -17,17 +17,14 @@ export const metadata = {
 };
 
 export default function SummerCamp() {
-  const heroImg = attributes.HeroImage.data.attributes;
-  const sunImg = attributes.SunPicture.data.attributes;
-
   const Sun = () => {
     return (
       <div className="max-h-24 max-w-24">
         <Image
-          src={sunImg.url}
-          alt={sunImg.alternativeText}
-          width={sunImg.width}
-          height={sunImg.height}
+          src="/sun.webp"
+          alt="An illustration of the sun smiling"
+          width={3600}
+          height={3600}
         />
       </div>
     );
@@ -60,10 +57,8 @@ export default function SummerCamp() {
   return (
     <>
       <Hero
-        img={heroImg.url}
-        alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
+        img="/SummerCamp.webp"
+        alt="Illustration of children playing on a hill in the sun"
         myHeight="h-[15rem] llg:h-[45rem] "
       />
       <PageView className="llg:bg-PumcYellow">

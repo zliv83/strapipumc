@@ -45,7 +45,7 @@ export default function Home() {
         img={testimonialImg.url}
         alt={testimonialImg.alternativeText}
       >
-        <Testimonials top />
+        {/*<Testimonials top />*/}
       </TestimonialSection>
     </div>
   );

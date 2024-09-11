@@ -29,7 +29,7 @@ export default function Testimoinals() {
       <PageView className="bg-PumcGreen">
         <section>
           <HeroH1 className="text-primary">{data.attributes.Title}</HeroH1>
-          <Testimonials testimonials={data} />
+          <Testimonials testimonials={data.attributes.testimonials} />
         </section>
       </PageView>
     </>

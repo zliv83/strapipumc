@@ -1,15 +1,10 @@
-import { fetchStrapi } from "lib/fetchStrapi";
 import { Card, CardBody } from "@nextui-org/card";
 import { QuoteUpIcon } from "hugeicons-react";
 import MyStarIcon from "@/components/shared/starIcon";
 import WYSIWYG from "./WYSIWYG";
 
-export default async function Testimonials({ top }) {
-  const { data } = await fetchStrapi("/testimonials", {
-    populate: "deep",
-  });
-
-  const allTestimonials = data[0].attributes.testimonial;
+export default async function Testimonials({ top, testimonials }) {
+  const allTestimonials = testimonials.data[0].attributes.testimonial;
   const topTestimonials = allTestimonials.slice(0, 2);
 
   const testimonialsArray = top ? topTestimonials : allTestimonials;

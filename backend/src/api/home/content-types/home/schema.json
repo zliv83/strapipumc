@@ -53,6 +53,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::program.program"
+    },
+    "testimonials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::testimonial.testimonial"
     }
   }
 }

@@ -2,14 +2,14 @@ import BlockContainer from "@/components/home/blockContainer";
 
 import Image from "next/image";
 
-const BeeBackground = ({ children, main, className, img }) => {
+const BeeBackground = ({ children, className }) => {
   return (
     <BlockContainer
       id="background"
       className={`flex flex-col gap-6 bg-PumcYellow relative  ${className}`}
     >
       <Image
-        src={img}
+        src="/bee.svg"
         alt=""
         aria-hidden="true"
         fill

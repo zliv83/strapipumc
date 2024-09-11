@@ -1063,6 +1063,11 @@ export interface ApiHomeHome extends Schema.SingleType {
       'oneToMany',
       'api::program.program'
     >;
+    testimonials: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::testimonial.testimonial'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

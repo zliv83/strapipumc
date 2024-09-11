@@ -1,4 +1,5 @@
 import ProgramRegistrationCard from "@/components/shared/programRegistrationCard";
+import imgHelper from "lib/imgHelper";
 
 export default function registrationCards({ data }) {
   const registrationCards = data.map((card) => {
@@ -8,16 +9,18 @@ export default function registrationCards({ data }) {
     } else if (card.ClassCancelled) {
       modifierText = "Class Calncelled";
     }
-    const image = card.ClassPicture.data.attributes;
+    const title = card.ClassName;
+    const { image, alternativeText } = imgHelper(title);
+
     return (
       <ProgramRegistrationCard
         key={card.id}
         href={card.href}
-        img={image.url}
-        alt={image.alternativeText}
+        img={image}
+        alt={alternativeText}
         title={card.ClassName}
-        height={image.height}
-        width={image.width}
+        height={853}
+        width={1280}
         cardHeight="llg:min-h-[30rem]"
         titleColor="text-primary"
       >

@@ -26,10 +26,8 @@ export default function Registration() {
   return (
     <>
       <Hero
-        img={image.url}
-        alt={image.alternativeText}
-        height={image.height}
-        width={image.width}
+        img="/registration.webp"
+        alt="A blackboard coverd with rainbows and clouds"
         myHeight="h-[15rem] llg:h-[28rem]"
       >
         <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>

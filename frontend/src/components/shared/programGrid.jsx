@@ -1,3 +1,4 @@
+import imgHelper from "lib/imgHelper";
 import ProgramRegistrationCard from "@/components/shared/programRegistrationCard";
 import MyStarIcon from "@/components/shared/starIcon";
 
@@ -9,35 +10,13 @@ export default async function ProgramGrid({
   const programCardItems = programsData.data.map((item) => {
     const programcard = item.attributes;
     const title = programcard.title;
-    const imageFileName = title
-      .replace(/[^a-zA-Z0-9]/g, "")
-      .replace(/\s+/g, "")
-      .toLowerCase();
-    const imageUrl = `/${imageFileName}.webp`;
+    const { image, alternativeText } = imgHelper(title);
 
-    let alternativeText;
-    switch (title) {
-      case "2 Year Old Playgroup":
-        alternativeText = "Child playing with a toy";
-        break;
-      case "3 Year Old Preschool":
-        alternativeText = "Child playing with blocksl";
-        break;
-      case "4/5's Pre-K":
-        alternativeText = "Child Picking out a book";
-        break;
-      case "Kindergarten Enrichment":
-        alternativeText =
-          "Childrens hands with one letter on each spelling testimonials";
-        break;
-      default:
-        alternativeText = `Image for ${title}`;
-    }
     return {
-      img: imageUrl,
+      img: image,
       height: programcard.picture.data.attributes.height,
       width: programcard.picture.data.attributes.width,
-      alt: programcard.picture.data.attributes.alternativeText,
+      alt: alternativeText,
       description: programcard.programCardList.map(
         (item) => item.ProgramListItem
       ),
@@ -53,8 +32,8 @@ export default async function ProgramGrid({
         href={item.href}
         img={item.img}
         alt={item.alt}
-        width={item.width}
-        height={item.height}
+        width={1280}
+        height={853}
         title={item.title}
         titleColor={titleColor}
         ariaLabel={item.ariaLabel}
