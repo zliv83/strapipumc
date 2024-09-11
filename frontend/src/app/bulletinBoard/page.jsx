@@ -5,26 +5,20 @@ import { Image } from "@nextui-org/image";
 import PageView from "@/components/shared/pageView";
 import Link from "next/link";
 
-const route = "/bulletin-board";
+const {
+  data: { attributes },
+} = await fetchStrapi("/bulletin-board", { populate: "deep" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function BulletinBoard() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-
+export default function BulletinBoard() {
   const heroImg = attributes.HeroImage.data.attributes;
 
   const contentMap = attributes.BullitenBoardContent.map((item, i) => {

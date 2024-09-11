@@ -5,28 +5,19 @@ import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 
-const route = "/testimonials-page";
+const {
+  data: { attributes },
+} = await fetchStrapi("/testimonials-page", { populate: "deep, 5" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function Testimoinals() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, {
-    populate: "deep",
-  });
-
+export default function Testimoinals() {
   const image = attributes.HeroImage.data.attributes;
 
   return (

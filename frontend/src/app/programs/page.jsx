@@ -8,27 +8,19 @@ import ProgramGrid from "@/components/shared/programGrid";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Butterfly from "@/components/shared/butterfly";
 
-const route = "/programs-page";
+const {
+  data: { attributes },
+} = await fetchStrapi("/programs-page", { populate: "deep, 4" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function Programs() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, {
-    populate: "deep, 4",
-  });
+export default function Programs() {
   const heroImg = attributes.HeroImage.data.attributes;
 
   return (

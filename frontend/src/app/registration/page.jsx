@@ -7,27 +7,19 @@ import ProgramRegistrationCard from "@/components/shared/programRegistrationCard
 import FeeTables from "@/components/shared/feeTables";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
-const route = "/registration";
+const {
+  data: { attributes },
+} = await fetchStrapi("/registration", { populate: "deep, 5" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function Registration() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, {
-    populate: "deep, 5",
-  });
+export default function Registration() {
   const image = attributes.HeroImage.data.attributes;
 
   const registrationCards = attributes.RegistraionCard.map((card) => {

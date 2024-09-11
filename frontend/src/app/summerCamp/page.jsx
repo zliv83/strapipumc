@@ -6,23 +6,19 @@ import SummerCampInfo from "./components/summerCampInfo";
 
 const route = "/summer-camp";
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+const {
+  data: { attributes },
+} = await fetchStrapi("/summer-camp", { populate: "deep, 5" });
+
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function SummerCamp() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
+export default function SummerCamp() {
   const heroImg = attributes.HeroImage.data.attributes;
   const sunImg = attributes.SunPicture.data.attributes;
 

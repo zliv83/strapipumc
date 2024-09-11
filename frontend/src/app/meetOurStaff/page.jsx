@@ -6,22 +6,20 @@ import Staff from "./components/staff";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import PageView from "@/components/shared/pageView";
 
-const route = "/staff-page";
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-  };
+const {
+  data: { attributes },
+} = await fetchStrapi('/staff-page', { populate: "deep" });
+
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
-export default async function MeetOurStaff() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
+export default function MeetOurStaff() {
   const heroImg = attributes.HeroImage.data.attributes;
 
   return (

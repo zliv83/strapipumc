@@ -4,25 +4,19 @@ import FormsInfo from "./components/FormsInfo";
 import FormsAndHandbook from "./components/FormsAndHandbook";
 import PageView from "@/components/shared/pageView";
 
-const route = "/form";
+const {
+  data: { attributes },
+} = await fetchStrapi("/form", { populate: "deep" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
 export default async function Forms() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
   const image = attributes.HeroImage.data.attributes;
 
   return (

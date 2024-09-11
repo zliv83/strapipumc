@@ -14,20 +14,14 @@ const alegreya = Alegreya({
   display: "swap",
 });
 
-const route = "/global";
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" }, 3600);
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+
+export const metaData = {
+  robots: {
+    index: true
+  }
 }
+
 
 export default async function RootLayout({ children }) {
   return (

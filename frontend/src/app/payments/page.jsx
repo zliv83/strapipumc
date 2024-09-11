@@ -9,19 +9,16 @@ import FeeTables from "@/components/shared/feeTables";
 import MyButton from "@/components/shared/myButton";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 
-const route = "/payment";
+const {
+  data: { attributes },
+} = await fetchStrapi("/payment", { populate: "deep, 5" });
 
-export async function generateMetadata() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep" });
-  return {
-    title: attributes.meta.metaTitle,
-    description: attributes.meta.metaDescription,
-    robots: {
-      index: true,
-    },
-  };
+export const metadata = {
+  title: attributes.meta.metaTitle,
+  description: attributes.meta.metaDescription,
+  robots: {
+    index: true,
+  },
 }
 
 const MakeAPayment = ({ className }) => (
@@ -34,10 +31,7 @@ const MakeAPayment = ({ className }) => (
   />
 );
 
-export default async function Payments() {
-  const {
-    data: { attributes },
-  } = await fetchStrapi(route, { populate: "deep, 5" });
+export default function Payments() {
   const image = attributes.HeroImage.data.attributes;
 
   return (

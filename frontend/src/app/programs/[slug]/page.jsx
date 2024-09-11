@@ -10,8 +10,9 @@ import WYSIWYG from "@/components/shared/WYSIWYG";
 
 const route = "/programs";
 
+const {data} = await fetchStrapi('/programs', {populate: 'deep'}) 
+
 export async function generateMetadata({ params }) {
-  const { data } = await fetchStrapi(route, { populate: "deep" });
   const slug = params.slug;
   const program = data.find((item) => item.attributes.slug === slug);
   const attributes = program.attributes;
@@ -25,7 +26,6 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProgramPage({ params }) {
-  const { data } = await fetchStrapi(route, { populate: "deep" });
   const slug = params.slug;
   const program = data.find((item) => item.attributes.slug === slug);
   const attributes = program.attributes;
