@@ -1058,6 +1058,11 @@ export interface ApiHomeHome extends Schema.SingleType {
     TestimonialImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
     BeeBackground: Attribute.Media;
+    programs: Attribute.Relation<
+      'api::home.home',
+      'oneToMany',
+      'api::program.program'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1194,6 +1199,11 @@ export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
     Title: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
     Butterfly: Attribute.Media;
+    programs: Attribute.Relation<
+      'api::programs-page.programs-page',
+      'oneToMany',
+      'api::program.program'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
