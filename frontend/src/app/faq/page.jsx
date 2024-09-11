@@ -21,8 +21,8 @@ export default function FAQ() {
   return (
     <>
       <Hero
-        img="/testimonials.webp"
-        alt="Childrens hands spelling out the word testimonials"
+        img="/FAQ.webp"
+        alt="Blocks spelling out the word FAQ"
         myHeight="h-[15rem] llg:h-[35rem]"
       />
       <PageView>

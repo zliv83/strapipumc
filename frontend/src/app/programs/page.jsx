@@ -22,8 +22,6 @@ export const metadata = {
 };
 
 export default function Programs() {
-  const heroImg = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero

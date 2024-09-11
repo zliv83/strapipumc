@@ -21,31 +21,16 @@ export const metadata = {
 };
 
 export default function Home() {
-  const testimonialImg = attributes.TestimonialImage.data.attributes;
-  const aboutUsPicture = attributes.aboutus.AboutUsPicture.data.attributes;
-
   return (
     <div>
       <Hero
         title={attributes.HomeHero.title}
         subTitle={attributes.HomeHero.SubTitle}
       />
-      <Programs
-        img={attributes.BeeBackground.data.attributes.url}
-        programsData={attributes.programs}
-      />
-      <AboutUs
-        aboutus={attributes.aboutus.content}
-        img={aboutUsPicture.url}
-        alt={aboutUsPicture.alternativeText}
-        height={aboutUsPicture.height}
-        width={aboutUsPicture.width}
-      />
-      <TestimonialSection
-        img={testimonialImg.url}
-        alt={testimonialImg.alternativeText}
-      >
-        {/*<Testimonials top />*/}
+      <Programs programsData={attributes.programs} />
+      <AboutUs aboutus={attributes.aboutus.content} />
+      <TestimonialSection>
+        <Testimonials top testimonials={attributes.testimonials} />
       </TestimonialSection>
     </div>
   );

@@ -1,17 +1,16 @@
 import Image from "next/image";
 
-import { host } from "lib/fetchStrapi";
-
 import MyButton from "@/components/shared/myButton";
 import { BlockH1 } from "@/components/shared/h1s";
 import BlockContainer from "@/components/home/blockContainer";
 import HeroMask from "@/components/shared/imageMask";
 
-export default function TestimonialSection({ img, alt, children }) {
+export default function TestimonialSection({ children }) {
+  const alt = "blue background with rainbows and flowers";
   return (
     <div className="relative w-full">
       <Image
-        src={img}
+        src="/testimonialsBackground.webp"
         alt={alt}
         fill
         className="object-cover"

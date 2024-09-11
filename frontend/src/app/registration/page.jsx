@@ -21,8 +21,6 @@ export const metadata = {
 };
 
 export default function Registration() {
-  const image = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero

@@ -1,17 +1,16 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
-import Title from './components/Title'
-const ProgramTable = dynamic(() => import('./components/ProgramTable'))
-const ProgramOptions = dynamic(() => import('./components/ProgramOptions'))
+import Title from "./components/Title";
+const ProgramTable = dynamic(() => import("./components/ProgramTable"));
+const ProgramOptions = dynamic(() => import("./components/ProgramOptions"));
 
 const {
   data: { attributes },
 } = await fetchStrapi("/about-us", { populate: "deep, 5" });
-
 
 export const metadata = {
   title: attributes.meta.metaTitle,
@@ -19,18 +18,14 @@ export const metadata = {
   robots: {
     index: true,
   },
-}
+};
 
 export default function AboutUs() {
-  const heroImg = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero
-        img={heroImg.url}
-        alt={heroImg.alternativeText}
-        height={heroImg.height}
-        width={heroImg.width}
+        img="/aboutus.webp"
+        alt="Powell United Methodist Church's Logo"
         myHeight="h-[15rem] llg:h-[30rem]"
       />
       <PageView className="llg:bg-PumcGreen">
@@ -48,8 +43,15 @@ export default function AboutUs() {
               pClassName="text-xl text-center llg:text-left llg:text-2xl"
             />
           </section>
-          <ProgramTable title={attributes.RatioTitle} columns={attributes.my_tables.data.attributes.tables.columns} rows={attributes.my_tables.data.attributes.tables.rows} />
-          <ProgramOptions programText={attributes.ProgramText} programOptions={attributes.ProgramOptions} />
+          <ProgramTable
+            title={attributes.RatioTitle}
+            columns={attributes.my_tables.data.attributes.tables.columns}
+            rows={attributes.my_tables.data.attributes.tables.rows}
+          />
+          <ProgramOptions
+            programText={attributes.ProgramText}
+            programOptions={attributes.ProgramOptions}
+          />
         </div>
       </PageView>
     </>
