@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 
-import PUMCLogo from "@/components/shared/logo";
 import FooterLinks from "@/components/footer/footerLinks";
 import Copyright from "@/components/footer/copyright";
 import Socials from "@/components/footer/socials";
@@ -16,7 +16,13 @@ const footer = () => {
           id="footer grid"
           className="flex flex-col gap-12 pt-6 pb-16 llg:pt-0 llg:pb-0 llg:gap-0 llg:grid llg:grid-cols-[45%_35%_20%] items-center justify-items-end"
         >
-          <PUMCLogo className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start" />
+          <Image
+            src="/logo.svg"
+            alt="PUMC Logo"
+            width={2948}
+            height={1292}
+            className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start"
+          />
           <FooterLinks className="hidden llg:flex" />
           <Socials className="llg:hidden" />
           <MyButton

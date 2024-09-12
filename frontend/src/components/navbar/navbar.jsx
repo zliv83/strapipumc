@@ -16,7 +16,6 @@ import {
   NavbarItem,
   NavbarMenuItem,
 } from "@nextui-org/navbar";
-import PUMCLogo from "@/components/shared/logo";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -99,7 +98,13 @@ const Navbar = () => {
             onClick={() => setIsMenuOpen(false)}
             prefetch={false}
           >
-            <PUMCLogo className="llg:w-[15rem] llg:h-[6rem] sm: h-[6rem] sm: w-[10rem]" />
+            <Image
+              src="/logo.svg"
+              alt="PUMC Logo"
+              width={2948}
+              height={1292}
+              className="llg:w-[15rem] llg:h-[6rem] sm: h-[6rem] sm: w-[10rem]"
+            />
           </Link>
         </NavbarBrand>
       </NavbarContent>
