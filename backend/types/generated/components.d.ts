@@ -616,7 +616,7 @@ export interface SharedMasonaryPhotos extends Schema.Component {
   attributes: {
     Title: Attribute.String;
     Pictures: Attribute.Media;
-    description: Attribute.Text;
+    description: Attribute.Blocks;
   };
 }
 
