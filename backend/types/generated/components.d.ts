@@ -611,10 +611,12 @@ export interface SharedMasonaryPhotos extends Schema.Component {
   collectionName: 'components_shared_masonary_photos';
   info: {
     displayName: 'MasonaryPhotos';
+    description: '';
   };
   attributes: {
     Title: Attribute.String;
     Pictures: Attribute.Media;
+    description: Attribute.Text;
   };
 }
 

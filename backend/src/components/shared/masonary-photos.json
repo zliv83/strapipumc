@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_masonary_photos",
   "info": {
-    "displayName": "MasonaryPhotos"
+    "displayName": "MasonaryPhotos",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -9,14 +10,18 @@
       "type": "string"
     },
     "Pictures": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
