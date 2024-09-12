@@ -321,7 +321,6 @@ export interface SectionsHero extends Schema.Component {
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
-    picture: Attribute.Media & Attribute.Required;
     SubTitle: Attribute.String;
   };
 }
@@ -381,7 +380,6 @@ export interface SectionsRichText extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
-    AboutUsPicture: Attribute.Media;
   };
 }
 
@@ -664,7 +662,6 @@ export interface SharedNewRegCard extends Schema.Component {
   };
   attributes: {
     ClassName: Attribute.String;
-    ClassPicture: Attribute.Media;
     Schedule: Attribute.String;
     ClassFull: Attribute.Boolean;
     ClassCancelled: Attribute.Boolean;

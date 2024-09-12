@@ -18,17 +18,6 @@
     "StaffInfoText": {
       "type": "blocks"
     },
-    "HeroImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "HeroTitle": {
       "type": "string"
     },

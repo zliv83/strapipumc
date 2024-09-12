@@ -15,17 +15,6 @@
     "HeroTitle": {
       "type": "string"
     },
-    "HeroImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "Title": {
       "type": "string"
     },

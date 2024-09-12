@@ -9,17 +9,6 @@
     "ClassName": {
       "type": "string"
     },
-    "ClassPicture": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "Schedule": {
       "type": "string"
     },

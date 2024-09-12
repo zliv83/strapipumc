@@ -12,17 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeroImage": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "meta": {
       "type": "component",
       "repeatable": false,

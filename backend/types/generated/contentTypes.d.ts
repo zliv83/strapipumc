@@ -800,7 +800,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     Title: Attribute.String;
     ProgramText: Attribute.String;
     alt: Attribute.String;
@@ -843,7 +842,6 @@ export interface ApiBulletinBoardBulletinBoard extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
     BullitenBoardContent: Attribute.Component<'shared.masonary-photos', true>;
     createdAt: Attribute.DateTime;
@@ -876,7 +874,6 @@ export interface ApiCalendarCalendar extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImg: Attribute.Media;
     DownloadableCalendars: Attribute.Media;
     my_table: Attribute.Relation<
       'api::calendar.calendar',
@@ -916,7 +913,6 @@ export interface ApiFaqFaq extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     Title: Attribute.String;
     faqQuestions: Attribute.Component<'shared.faq-questions-answers', true>;
     meta: Attribute.Component<'meta.metadata'>;
@@ -942,7 +938,6 @@ export interface ApiFormForm extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     Title: Attribute.String;
     FormsInfoTitle: Attribute.String;
     FormsAndHandbookTitle: Attribute.String;
@@ -1055,9 +1050,7 @@ export interface ApiHomeHome extends Schema.SingleType {
   attributes: {
     HomeHero: Attribute.Component<'sections.hero'>;
     aboutus: Attribute.Component<'sections.rich-text'>;
-    TestimonialImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
-    BeeBackground: Attribute.Media;
     programs: Attribute.Relation<
       'api::home.home',
       'oneToMany',
@@ -1120,7 +1113,6 @@ export interface ApiPaymentPayment extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     HeroText: Attribute.String;
     TuitionInfoTitle: Attribute.String;
     TuitionInfoText: Attribute.Blocks;
@@ -1198,7 +1190,6 @@ export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     HeroText: Attribute.String;
     ProgramsIntro: Attribute.Blocks;
     Title: Attribute.String;
@@ -1240,7 +1231,6 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
   };
   attributes: {
     HeroTitle: Attribute.String;
-    HeroImage: Attribute.Media;
     Title: Attribute.String;
     SubTitle: Attribute.String;
     alt: Attribute.String;
@@ -1314,7 +1304,6 @@ export interface ApiStaffPageStaffPage extends Schema.SingleType {
   attributes: {
     StaffInfoTitle: Attribute.String;
     StaffInfoText: Attribute.Blocks;
-    HeroImage: Attribute.Media;
     HeroTitle: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
@@ -1347,10 +1336,8 @@ export interface ApiSummerCampSummerCamp extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroImage: Attribute.Media;
     Title: Attribute.String;
     SubTitle: Attribute.String;
-    SunPicture: Attribute.Media;
     SummerCampInfo: Attribute.Component<'shared.summer-camp-info', true>;
     meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
@@ -1414,7 +1401,6 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
   };
   attributes: {
     Title: Attribute.String;
-    HeroImage: Attribute.Media;
     meta: Attribute.Component<'meta.metadata'>;
     testimonials: Attribute.Relation<
       'api::testimonials-page.testimonials-page',

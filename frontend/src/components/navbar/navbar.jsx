@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -91,7 +92,7 @@ const Navbar = () => {
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           className="llg:hidden z-10"
         />
-        <NavbarBrand id="fart">
+        <NavbarBrand>
           <Link
             href="/"
             aria-label="Home Page"

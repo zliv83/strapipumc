@@ -12,17 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeroImg": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "DownloadableCalendars": {
       "type": "media",
       "multiple": true,
@@ -48,14 +37,15 @@
       "type": "string"
     },
     "RemindIcon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }
