@@ -1,6 +1,5 @@
 import Link from "next/link";
 import Image from "next/image";
-import WYSIWYG from "@/components/shared/WYSIWYG";
 
 export default function Content({ content }) {
   const contentMap = content.map((item, i) => {

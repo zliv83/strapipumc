@@ -28,7 +28,7 @@ const HomeHero = ({ title, subTitle }) => {
           size="lg"
           href="/registration"
           ariaLabel="Link to the registration page"
-          className="llg:hidden self-center"
+          alignment="llg:hidden self-center"
         />
       </div>
     </section>

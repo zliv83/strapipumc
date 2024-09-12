@@ -41,11 +41,11 @@ export default function Programs() {
           pClassName="text-2xl text-center llg:text-left llg:text-4xl"
         />
         <MyButton
+          alignment="hidden llg:flex llg:self-end"
           label="Tuition Info"
           size="lg"
           href="/payments"
           ariaLabel="Link to the payments page"
-          className="hidden llg:flex llg:self-end"
         />
         <ProgramGrid
           shadow="lg"

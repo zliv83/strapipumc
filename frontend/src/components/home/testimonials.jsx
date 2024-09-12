@@ -28,7 +28,7 @@ export default function TestimonialSection({ children }) {
         {children}
         <MyButton
           label="Hear from our families"
-          className="z-30 w-button-mobile-lg llg:w-button-lg"
+          className="z-30 w-button-mobile-lg llg:w-button-lg llg:h-[4rem]"
           href="/testimonials"
           ariaLabel="Link to the testimonial page"
           landscapeBlock

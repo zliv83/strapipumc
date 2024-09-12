@@ -12,9 +12,10 @@ const Programs = ({ programsData }) => {
         programsData={programsData}
       />
       <MyButton
+        alignment="self-center"
         href="/programs"
         label="Explore Programs"
-        className="self-center z-30 w-button-mobile-lg llg:w-button-lg"
+        className="self-center z-30 w-button-mobile-lg llg:w-button-lg llg:h-[4rem]"
         ariaLabel="Link to the programs page"
         landscapeBlock
       />

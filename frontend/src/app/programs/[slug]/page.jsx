@@ -51,7 +51,7 @@ export default async function ProgramPage({ params }) {
             {attributes.programDescription}
           </h2>
           <MyButton
-            className="self-center llg:self-end"
+            alignment="self-center llg:self-end"
             label="Tuition Info"
             size="lg"
             href="/registration"

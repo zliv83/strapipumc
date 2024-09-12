@@ -23,20 +23,25 @@ const MyButton = ({
   size,
   landscapeBlock,
   ariaLabel,
+  alignment,
 }) => {
   return (
-    <Button
-      as={Link}
-      color={color}
+    <Link
       href={href}
-      variant={variant}
-      aria-label={ariaLabel}
-      className={`${className} ${buttonSize(size)} ${
-        landscapeBlock ? "llg:self-end" : ""
-      } text-xl llg:text-2xl`}
+      prefetch={false}
+      className={`${alignment} ${landscapeBlock ? "llg:self-end" : ""}`}
     >
-      {label}
-    </Button>
+      <Button
+        color={color}
+        variant={variant}
+        aria-label={ariaLabel}
+        className={`${className} ${buttonSize(size)} ${
+          landscapeBlock ? "llg:self-end" : ""
+        } text-xl llg:text-2xl`}
+      >
+        {label}
+      </Button>
+    </Link>
   );
 };
 

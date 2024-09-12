@@ -37,7 +37,7 @@ const AboutUs = ({ aboutus }) => {
               href="/about"
               ariaLabel="Link to the about page"
               landscapeBlock
-              className="w-button-mobile-lg llg:w-button-lg"
+              className="w-button-mobile-lg llg:w-button-lg llg:h-[4rem]"
             />
           </div>
         </div>

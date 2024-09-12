@@ -44,7 +44,8 @@ export default function Payments() {
           pClassName="text-2xl llg:text-3xl"
         />
         <MyButton
-          className={`self-center llg:self-end mt-6`}
+          alignment="self-center llg:self-end"
+          className="mt-6 w-[12rem]"
           label="Make a Payment"
           size="lg"
           href="https://pumcpreschool.breezechms.com/give/online"
