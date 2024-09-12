@@ -7,7 +7,7 @@ export default function registrationCards({ data }) {
     if (card.ClassFull) {
       modifierText = "Class Full";
     } else if (card.ClassCancelled) {
-      modifierText = "Class Calncelled";
+      modifierText = "Class Cancelled";
     }
     const title = card.ClassName;
     const { image, alternativeText } = imgHelper(title);

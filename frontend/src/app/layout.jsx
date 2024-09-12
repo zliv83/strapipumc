@@ -4,24 +4,21 @@ import { Alegreya } from "next/font/google";
 
 import { NextUIProvider } from "@nextui-org/system";
 
+import dynamic from "next/dynamic";
 import "styles/globals.css";
-import { fetchStrapi } from "lib/fetchStrapi";
 import Navbar from "@/components/navbar/navbar";
-import Footer from "@/components/footer/footer";
+const Footer = dynamic(() => import("@/components/footer/footer"));
 
 const alegreya = Alegreya({
   subsets: ["latin"],
   display: "swap",
 });
 
-
-
 export const metaData = {
   robots: {
-    index: true
-  }
-}
-
+    index: true,
+  },
+};
 
 export default async function RootLayout({ children }) {
   return (
