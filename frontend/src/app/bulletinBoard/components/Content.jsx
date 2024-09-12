@@ -6,12 +6,12 @@ export default function Content({ content }) {
   const contentMap = content.map((item, i) => {
     return (
       <div key={i} className="flex flex-col gap-6">
-        <h2 className="text-primary text-4xl pb-6">{item.Title}</h2>
-        {item.description?.data?.length > 0 ? (
-          <WYSIWYG content={item.description} />
+        <h2 className="text-primary text-6xl pb-6">{item.Title}</h2>
+        {item.description ? (
+          <h3 className="text-4xl">{item.description}</h3>
         ) : null}
         <div className="grid grid-cols-1 llg:grid-cols-2 gap-6 pb-6">
-          {item.Pictures?.data?.length > 0
+          {item.Pictures?.data
             ? item.Pictures.data.map((img, j) => {
                 return (
                   <Link
