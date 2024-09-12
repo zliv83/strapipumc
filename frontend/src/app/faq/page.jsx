@@ -16,8 +16,6 @@ export const metadata = {
 };
 
 export default function FAQ() {
-  const image = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero

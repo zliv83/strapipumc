@@ -9,7 +9,7 @@ const BeeBackground = ({ children, className }) => {
       className={`flex flex-col gap-6 bg-PumcYellow relative  ${className}`}
     >
       <Image
-        src="/bee.svg"
+        src="/Bee.svg"
         alt=""
         aria-hidden="true"
         fill

@@ -97,6 +97,7 @@ const Navbar = () => {
             href="/"
             aria-label="Home Page"
             onClick={() => setIsMenuOpen(false)}
+            prefetch={false}
           >
             <PUMCLogo className="llg:w-[15rem] llg:h-[6rem] sm: h-[6rem] sm: w-[10rem]" />
           </Link>
@@ -121,6 +122,7 @@ const Navbar = () => {
               color={menuItem.path === path ? "primary" : "foreground"}
               onClick={() => setIsMenuOpen(false)}
               aria-label={menuItem.ariaLabel}
+              prefetch={false}
             >
               {menuItem.label}
             </Link>

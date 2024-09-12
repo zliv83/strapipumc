@@ -9,6 +9,7 @@ const Socials = ({ className }) => {
         href="https://www.facebook.com/people/Powell-United-Methodist-Church-Preschool/61550998390123/"
         aria-label="Link to our Facebook Page"
         target="_blank"
+        prefetch={false}
       >
         <Facebook02Icon size={48} />
       </Link>

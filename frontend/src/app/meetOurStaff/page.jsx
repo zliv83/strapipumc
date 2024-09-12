@@ -20,8 +20,6 @@ export const metadata = {
 };
 
 export default function MeetOurStaff() {
-  const heroImg = attributes.HeroImage.data.attributes;
-
   return (
     <>
       <Hero

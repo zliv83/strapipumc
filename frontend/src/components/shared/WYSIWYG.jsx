@@ -38,6 +38,7 @@ export default function WYSIWYG({
               href={url}
               className="text-[#0000EE]"
               aria-label={linkAriaLabel}
+              prefetch={false}
             >
               {children}
             </Link>

@@ -89,6 +89,7 @@ const LinkBar = () => {
         key={`${link.label} ${i}`}
         href="/programs"
         aria-label="Link to the programs page"
+        prefetch={false}
       >
         <Button
           disableRipple

@@ -5,7 +5,7 @@ const Links = ({ label, items, className, ariaLabel }) => {
     <div className={`flex flex-col ${className}`}>
       <span className="text-xl font-bold pb-2">{label}</span>
       {items.map((item, i) => (
-        <Link key={i} href={item.href} aria-label={ariaLabel}>
+        <Link key={i} href={item.href} aria-label={ariaLabel} prefetch={false}>
           <span>{item.label}</span>
         </Link>
       ))}

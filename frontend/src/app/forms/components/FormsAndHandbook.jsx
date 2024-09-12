@@ -19,6 +19,7 @@ export default async function FormsAndHandbook({ title, form }) {
               target="_blank"
               key={i}
               aria-label={`Link to ${item.form}`}
+              prefetch={false}
             >
               <div className="w-full">
                 <h3 className="text-3xl text-primary py-4">{item.form}</h3>

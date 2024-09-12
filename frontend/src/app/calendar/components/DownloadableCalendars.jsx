@@ -9,6 +9,7 @@ export default function DownloadableCalendars({ calendars }) {
       href={calendar.attributes.url}
       aria-label={calendar.attributes.alternativeText}
       target="_blank"
+      prefetch={false}
     >
       {calendar.attributes.caption}
     </Link>

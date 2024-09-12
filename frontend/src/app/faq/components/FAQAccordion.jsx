@@ -36,6 +36,7 @@ export default function FAQAccorion({ faqs }) {
               href={`${faq.ImageLink ? faq.ImageLink : "#"}`}
               aria-label={faq.image.data.attributes.alternativeText}
               target="_blank"
+              prefetch={false}
             >
               <Image
                 src={faq.image.data.attributes.url}
