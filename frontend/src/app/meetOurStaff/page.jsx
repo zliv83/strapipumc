@@ -5,6 +5,7 @@ import ImageMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
+import AttributesChecker from "@/components/shared/AttributesChecker";
 const Staff = dynamic(() => import("./components/staff"));
 
 const {
@@ -20,27 +21,30 @@ export const metadata = {
 };
 
 export default function MeetOurStaff() {
+  const { StaffInfoText, staff } = attributes;
   return (
-    <>
+    <AttributesChecker attributes={attributes}>
       <Hero
         img="/staff.webp"
         alt="Chalkboard with a rocket and planets on it in the background with a desk with teacher items in the forgound"
         myHeight="h-[15rem] llg:h-[28rem]"
       >
         <ImageMask />
-        <HeroH1 className="z-30">{attributes.HeroTitle}</HeroH1>
+        <HeroH1 className="z-30">Meet Our Staff</HeroH1>
       </Hero>
       <PageView>
         <h2 className="text-primary text-center text-5xl llg:text-6xl">
-          {attributes.StaffInfoTitle}
+          Our Caring & Qualified Team
         </h2>
-        <WYSIWYG
-          content={attributes.StaffInfoText}
-          pClassName="text-2xl llg:text-2xl text-center llg:text-left"
-        />
+        {StaffInfoText && (
+          <WYSIWYG
+            content={attributes.StaffInfoText}
+            pClassName="text-2xl llg:text-2xl text-center llg:text-left"
+          />
+        )}
         <div className="pb-12" />
-        <Staff />
+        {staff && <Staff />}
       </PageView>
-    </>
+    </AttributesChecker>
   );
 }

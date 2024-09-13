@@ -18,13 +18,15 @@
     "StaffInfoText": {
       "type": "blocks"
     },
-    "HeroTitle": {
-      "type": "string"
-    },
     "meta": {
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "staff": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.staff"
     }
   }
 }

@@ -1265,8 +1265,8 @@ export interface ApiStaffPageStaffPage extends Schema.SingleType {
   attributes: {
     StaffInfoTitle: Attribute.String;
     StaffInfoText: Attribute.Blocks;
-    HeroTitle: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
+    staff: Attribute.Component<'shared.staff', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
