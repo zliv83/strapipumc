@@ -6,8 +6,7 @@ import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Title from "./components/Title";
 import AttributesChecker from "@/components/shared/AttributesChecker";
-const ProgramTable = dynamic(() => import("./components/ProgramTable"));
-const ProgramOptions = dynamic(() => import("./components/ProgramOptions"));
+const MyTable = dynamic(() => import("@/components/shared/myTable"));
 
 const {
   data: { attributes },
@@ -22,6 +21,8 @@ export const metadata = {
 };
 
 export default function AboutUs() {
+  const { AboutParagraph, my_tables, ProgramOptions } = attributes;
+  const table = my_tables?.data?.attributes?.tables;
   return (
     <AttributesChecker attributes={attributes}>
       <Hero
@@ -36,31 +37,35 @@ export default function AboutUs() {
           </h1>
           <Divider />
           <section aria-label="About Paragraph Section">
-            {attributes.Title ? (
-              <Title className="text-center text-4xl llg:text-left">
-                {attributes.Title}
-              </Title>
-            ) : null}
-            {attributes.AboutParagraph ? (
+            <Title className="text-center text-4xl llg:text-left">
+              Over 30 years at Powell United Methodist Church - All Are Welcome
+            </Title>
+            {AboutParagraph ? (
               <WYSIWYG
-                content={attributes.AboutParagraph}
+                content={AboutParagraph}
                 pClassName="text-xl text-center llg:text-left llg:text-2xl"
               />
             ) : null}
           </section>
-          {attributes.my_tables?.data === null ? null : (
-            <ProgramTable
-              title={attributes.RatioTitle}
-              columns={attributes.my_tables.data.attributes.tables.columns}
-              rows={attributes.my_tables.data.attributes.tables.rows}
-            />
-          )}
-          {attributes.ProgramText && attributes.ProgramOptions ? (
-            <ProgramOptions
-              programText={attributes.ProgramText}
-              programOptions={attributes.ProgramOptions}
-            />
-          ) : null}
+          <section aria-label="Student/Teacher Ratio Table Section">
+            <Title className="text-center text-4xl llg:text-left mb-6">
+              Low Student to Teacher Ratios and Class Sizes
+            </Title>
+            {my_tables && (
+              <MyTable
+                columns={table.columns}
+                rows={table.rows}
+                ariaLabel="PUMC vs State Teacher to Student Ratios"
+                className="pt-6"
+              />
+            )}
+          </section>
+          <section aria-label="Program Options Section">
+            <Title>Program Options to fit your schedule</Title>
+            {ProgramOptions && (
+              <WYSIWYG content={ProgramOptions} pClassName="text-2xl" />
+            )}
+          </section>
         </div>
       </PageView>
     </AttributesChecker>

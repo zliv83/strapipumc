@@ -800,8 +800,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    ProgramText: Attribute.String;
-    alt: Attribute.String;
     my_tables: Attribute.Relation<
       'api::about-us.about-us',
       'oneToOne',
@@ -809,7 +807,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     >;
     ProgramOptions: Attribute.Blocks;
     AboutParagraph: Attribute.Blocks;
-    RatioTitle: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

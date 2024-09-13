@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ProgramText": {
-      "type": "string"
-    },
-    "alt": {
-      "type": "string"
-    },
     "my_tables": {
       "type": "relation",
       "relation": "oneToOne",
@@ -28,9 +22,6 @@
     },
     "AboutParagraph": {
       "type": "blocks"
-    },
-    "RatioTitle": {
-      "type": "string"
     },
     "meta": {
       "type": "component",
