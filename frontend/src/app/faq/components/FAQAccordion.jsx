@@ -8,6 +8,7 @@ import MyTable from "@/components/shared/myTable";
 
 export default function FAQAccorion({ faqs }) {
   const faqMap = faqs.map((faq, i) => {
+    if (!faq) return null;
     return (
       <AccordionItem
         key={i}

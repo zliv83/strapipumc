@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 import { Divider } from "@nextui-org/divider";
 
@@ -16,13 +17,16 @@ const footer = () => {
           id="footer grid"
           className="flex flex-col gap-12 pt-6 pb-16 llg:pt-0 llg:pb-0 llg:gap-0 llg:grid llg:grid-cols-[45%_35%_20%] items-center justify-items-end"
         >
-          <Image
-            src="/logo.svg"
-            alt="PUMC Logo"
-            width={2948}
-            height={1292}
-            className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start"
-          />
+          <Link href="/" prefetch={false}>
+            <Image
+              src="/pumc-preschool-logo.svg"
+              alt="Logo for Powell United Methodist Preschool in Powell, Ohio"
+              width={2948}
+              height={1292}
+              className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start"
+            />
+          </Link>
+
           <FooterLinks className="hidden llg:flex" />
           <Socials className="llg:hidden" />
           <MyButton

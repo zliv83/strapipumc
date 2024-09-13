@@ -23,13 +23,10 @@ export const metadata = {
 };
 
 export default function Calendar() {
-  const delayTable = attributes.my_table.data.attributes.tables;
-  const remindIcon = attributes.RemindIcon.data.attributes;
-
   return (
     <>
       <Hero
-        img="calednars.webp"
+        img="/calendars.webp"
         alt="Standup page calendar"
         myHeight="h-[15rem] llg:h-[30rem] "
       >
@@ -55,8 +52,18 @@ export default function Calendar() {
           <DownloadableCalendars
             calendars={attributes.DownloadableCalendars.data}
           />
-          <CalendarTable columns={delayTable.columns} rows={delayTable.rows} />
-          <Remind src={remindIcon.url} alt={remindIcon.alternativeText} />
+          {attributes.my_table?.data === null ? null : (
+            <CalendarTable
+              columns={attributes.my_table?.data?.attributes?.tables?.columns}
+              rows={attributes.my_table?.data?.attributes?.tables?.rows}
+            />
+          )}
+          {attributes.RemindIcon ? (
+            <Remind
+              src={attributes.RemindIcon?.data?.attributes?.url}
+              alt={attributes.RemindIcon?.data?.attributes?.alternativeText}
+            />
+          ) : null}
         </div>
       </PageView>
     </>

@@ -586,6 +586,17 @@ export interface SharedFormsInfoArray extends Schema.Component {
   };
 }
 
+export interface SharedFormsInformation extends Schema.Component {
+  collectionName: 'components_shared_forms_informations';
+  info: {
+    displayName: 'forms_information';
+  };
+  attributes: {
+    Title: Attribute.String;
+    description: Attribute.Blocks;
+  };
+}
+
 export interface SharedListItems extends Schema.Component {
   collectionName: 'components_shared_list_items';
   info: {
@@ -614,7 +625,7 @@ export interface SharedMasonaryPhotos extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     Pictures: Attribute.Media;
     description: Attribute.Text;
   };
@@ -1041,6 +1052,7 @@ declare module '@strapi/types' {
       'shared.fee-rows': SharedFeeRows;
       'shared.forms-and-handbook-card': SharedFormsAndHandbookCard;
       'shared.forms-info-array': SharedFormsInfoArray;
+      'shared.forms-information': SharedFormsInformation;
       'shared.list-items': SharedListItems;
       'shared.list': SharedList;
       'shared.masonary-photos': SharedMasonaryPhotos;

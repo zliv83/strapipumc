@@ -800,7 +800,7 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.String & Attribute.Required;
     ProgramText: Attribute.String;
     alt: Attribute.String;
     my_tables: Attribute.Relation<
@@ -939,8 +939,6 @@ export interface ApiFormForm extends Schema.SingleType {
   };
   attributes: {
     Title: Attribute.String;
-    FormsInfoTitle: Attribute.String;
-    FormsAndHandbookTitle: Attribute.String;
     Form: Attribute.Component<'shared.forms-and-handbook-card', true>;
     form_information: Attribute.Relation<
       'api::form.form',
@@ -948,6 +946,7 @@ export interface ApiFormForm extends Schema.SingleType {
       'api::form-information.form-information'
     >;
     meta: Attribute.Component<'meta.metadata'>;
+    formsInfo: Attribute.Component<'shared.forms-information', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

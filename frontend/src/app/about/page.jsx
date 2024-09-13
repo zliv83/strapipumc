@@ -5,6 +5,7 @@ import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Title from "./components/Title";
+import AttributesChecker from "@/components/shared/AttributesChecker";
 const ProgramTable = dynamic(() => import("./components/ProgramTable"));
 const ProgramOptions = dynamic(() => import("./components/ProgramOptions"));
 
@@ -22,7 +23,7 @@ export const metadata = {
 
 export default function AboutUs() {
   return (
-    <>
+    <AttributesChecker attributes={attributes}>
       <Hero
         img="/aboutus.webp"
         alt="Powell United Methodist Church's Logo"
@@ -35,25 +36,33 @@ export default function AboutUs() {
           </h1>
           <Divider />
           <section aria-label="About Paragraph Section">
-            <Title className="text-center text-4xl llg:text-left">
-              {attributes.Title}
-            </Title>
-            <WYSIWYG
-              content={attributes.AboutParagraph}
-              pClassName="text-xl text-center llg:text-left llg:text-2xl"
-            />
+            {attributes.Title ? (
+              <Title className="text-center text-4xl llg:text-left">
+                {attributes.Title}
+              </Title>
+            ) : null}
+            {attributes.AboutParagraph ? (
+              <WYSIWYG
+                content={attributes.AboutParagraph}
+                pClassName="text-xl text-center llg:text-left llg:text-2xl"
+              />
+            ) : null}
           </section>
-          <ProgramTable
-            title={attributes.RatioTitle}
-            columns={attributes.my_tables.data.attributes.tables.columns}
-            rows={attributes.my_tables.data.attributes.tables.rows}
-          />
-          <ProgramOptions
-            programText={attributes.ProgramText}
-            programOptions={attributes.ProgramOptions}
-          />
+          {attributes.my_tables?.data === null ? null : (
+            <ProgramTable
+              title={attributes.RatioTitle}
+              columns={attributes.my_tables.data.attributes.tables.columns}
+              rows={attributes.my_tables.data.attributes.tables.rows}
+            />
+          )}
+          {attributes.ProgramText && attributes.ProgramOptions ? (
+            <ProgramOptions
+              programText={attributes.ProgramText}
+              programOptions={attributes.ProgramOptions}
+            />
+          ) : null}
         </div>
       </PageView>
-    </>
+    </AttributesChecker>
   );
 }

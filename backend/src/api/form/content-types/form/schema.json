@@ -15,12 +15,6 @@
     "Title": {
       "type": "string"
     },
-    "FormsInfoTitle": {
-      "type": "string"
-    },
-    "FormsAndHandbookTitle": {
-      "type": "string"
-    },
     "Form": {
       "displayName": "FormsAndHandbookCard",
       "type": "component",
@@ -36,6 +30,12 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "formsInfo": {
+      "displayName": "forms_information",
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.forms-information"
     }
   }
 }

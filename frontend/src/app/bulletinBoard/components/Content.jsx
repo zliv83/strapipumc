@@ -5,7 +5,9 @@ export default function Content({ content }) {
   const contentMap = content.map((item, i) => {
     return (
       <div key={i} className="flex flex-col gap-6">
-        <h2 className="text-primary text-6xl pb-6">{item.Title}</h2>
+        {item.Title ? (
+          <h2 className="text-primary text-6xl pb-6">{item.Title}</h2>
+        ) : null}
         {item.description ? (
           <h3 className="text-4xl">{item.description}</h3>
         ) : null}

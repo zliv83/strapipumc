@@ -24,7 +24,9 @@ export default function FAQ() {
         myHeight="h-[15rem] llg:h-[35rem]"
       />
       <PageView>
-        <FAQAccordion faqs={attributes.faqQuestions} />
+        {attributes?.faqQuestions ? (
+          <FAQAccordion faqs={attributes.faqQuestions} />
+        ) : null}
       </PageView>
     </>
   );

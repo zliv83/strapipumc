@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_shared_forms_informations",
+  "info": {
+    "displayName": "forms_information"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    }
+  }
+}

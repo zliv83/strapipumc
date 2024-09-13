@@ -99,8 +99,8 @@ const Navbar = () => {
             prefetch={false}
           >
             <Image
-              src="/logo.svg"
-              alt="PUMC Logo"
+              src="/pumc-preschool-logo.svg"
+              alt="Logo for Powell United Methodist Preschool in Powell, Ohio"
               width={2948}
               height={1292}
               className="llg:w-[15rem] llg:h-[6rem] sm: h-[6rem] sm: w-[10rem]"
