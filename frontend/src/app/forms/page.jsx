@@ -23,8 +23,7 @@ export const metadata = {
 };
 
 export default async function Forms() {
-  const { form_information, Form } = attributes;
-  const formAttributes = form_information?.data?.attributes;
+  const { formsInfo, Form } = attributes;
   return (
     <AttributesChecker attributes={attributes}>
       <Hero
@@ -39,7 +38,7 @@ export default async function Forms() {
             Forms Information
           </h1>
           <Divider className="my-6 llg:my-12" />
-          {formAttributes && <FormsInfo formInfo={formAttributes.FormsInfo} />}
+          {formsInfo && <FormsInfo formInfo={formsInfo} />}
         </section>
         <section>
           <BlockH1 className="pb-6 text-primary">Forms and Handbook</BlockH1>

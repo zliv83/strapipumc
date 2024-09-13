@@ -12,10 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string",
-      "required": true
-    },
     "ProgramText": {
       "type": "string"
     },

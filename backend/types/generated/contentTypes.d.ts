@@ -800,7 +800,6 @@ export interface ApiAboutUsAboutUs extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String & Attribute.Required;
     ProgramText: Attribute.String;
     alt: Attribute.String;
     my_tables: Attribute.Relation<
@@ -938,12 +937,9 @@ export interface ApiFormForm extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
-    Form: Attribute.Component<'shared.forms-and-handbook-card', true>;
-    form_information: Attribute.Relation<
-      'api::form.form',
-      'oneToOne',
-      'api::form-information.form-information'
+    formsAndHandbook: Attribute.Component<
+      'shared.forms-and-handbook-card',
+      true
     >;
     meta: Attribute.Component<'meta.metadata'>;
     formsInfo: Attribute.Component<'shared.forms-information', true>;
@@ -953,37 +949,6 @@ export interface ApiFormForm extends Schema.SingleType {
     createdBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::form.form', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiFormInformationFormInformation
-  extends Schema.CollectionType {
-  collectionName: 'form_informations';
-  info: {
-    singularName: 'form-information';
-    pluralName: 'form-informations';
-    displayName: 'FormInformation';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    FormsInfo: Attribute.Component<'shared.forms-info-array', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::form-information.form-information',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::form-information.form-information',
-      'oneToOne',
-      'admin::user'
-    > &
       Attribute.Private;
   };
 }
@@ -1477,7 +1442,6 @@ declare module '@strapi/types' {
       'api::calendar.calendar': ApiCalendarCalendar;
       'api::faq.faq': ApiFaqFaq;
       'api::form.form': ApiFormForm;
-      'api::form-information.form-information': ApiFormInformationFormInformation;
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::my-table.my-table': ApiMyTableMyTable;

@@ -6,7 +6,7 @@ export default async function FormsInfo({ formInfo }) {
       <h2 className="text-primary text-center llg:text-left text-4xl">
         {item.Title}
       </h2>
-      <WYSIWYG content={item.Text} />
+      <WYSIWYG content={item.description} />
     </section>
   ));
 

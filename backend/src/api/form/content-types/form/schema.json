@@ -12,19 +12,11 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
-    "Form": {
+    "formsAndHandbook": {
       "displayName": "FormsAndHandbookCard",
       "type": "component",
       "repeatable": true,
       "component": "shared.forms-and-handbook-card"
-    },
-    "form_information": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::form-information.form-information"
     },
     "meta": {
       "type": "component",
