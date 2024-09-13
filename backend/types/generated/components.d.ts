@@ -571,7 +571,6 @@ export interface SharedFormsAndHandbookCard extends Schema.Component {
     form: Attribute.String;
     description: Attribute.String;
     href: Attribute.String;
-    FormPDF: Attribute.Media;
   };
 }
 

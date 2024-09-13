@@ -23,7 +23,7 @@ export const metadata = {
 };
 
 export default async function Forms() {
-  const { formsInfo, Form } = attributes;
+  const { formsInfo, formsAndHandbook } = attributes;
   return (
     <AttributesChecker attributes={attributes}>
       <Hero
@@ -43,7 +43,7 @@ export default async function Forms() {
         <section>
           <BlockH1 className="pb-6 text-primary">Forms and Handbook</BlockH1>
           <Card className="p-8">
-            {Form && <FormsAndHandbook form={Form} />}
+            {formsAndHandbook && <FormsAndHandbook form={formsAndHandbook} />}
           </Card>
         </section>
       </PageView>
