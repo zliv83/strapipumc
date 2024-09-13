@@ -38,12 +38,12 @@ export default function MeetOurStaff() {
         </h2>
         {StaffInfoText && (
           <WYSIWYG
-            content={attributes.StaffInfoText}
-            pClassName="text-2xl llg:text-2xl text-center llg:text-left"
+            content={StaffInfoText}
+            pClassName="text-2xl text-center llg:text-left"
           />
         )}
         <div className="pb-12" />
-        {staff && <Staff />}
+        {staff && <Staff staff={staff} />}
       </PageView>
     </AttributesChecker>
   );
