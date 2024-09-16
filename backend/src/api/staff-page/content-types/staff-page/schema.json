@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "StaffInfoTitle": {
-      "type": "string"
-    },
     "StaffInfoText": {
       "type": "blocks"
     },

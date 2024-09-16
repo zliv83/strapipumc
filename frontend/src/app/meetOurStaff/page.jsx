@@ -1,29 +1,26 @@
 import dynamic from "next/dynamic";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
+
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
-import AttributesChecker from "@/components/shared/AttributesChecker";
+import NoData from "@/components/shared/NoData";
 const Staff = dynamic(() => import("./components/staff"));
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/staff-page", { populate: "deep" });
+const { staff, StaffInfoText, metadata, hasError } = await pageData(
+  "/staff-page"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function MeetOurStaff() {
-  const { StaffInfoText, staff } = attributes;
+  if (hasError) {
+    return <NoData />;
+  }
   return (
-    <AttributesChecker attributes={attributes}>
+    <>
       <Hero
         img="/staff.webp"
         alt="Chalkboard with a rocket and planets on it in the background with a desk with teacher items in the forgound"
@@ -45,6 +42,6 @@ export default function MeetOurStaff() {
         <div className="pb-12" />
         {staff && <Staff staff={staff} />}
       </PageView>
-    </AttributesChecker>
+    </>
   );
 }

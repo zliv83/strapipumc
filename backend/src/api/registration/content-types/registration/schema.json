@@ -12,16 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeroTitle": {
-      "type": "string"
-    },
     "Title": {
-      "type": "string"
-    },
-    "SubTitle": {
-      "type": "string"
-    },
-    "alt": {
       "type": "string"
     },
     "my_tables": {

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
@@ -8,20 +8,19 @@ import PageView from "@/components/shared/pageView";
 const ProgramGrid = dynamic(() => import("@/components/shared/programGrid"));
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Butterfly from "@/components/shared/butterfly";
+import NoData from "@/components/shared/NoData";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/programs-page", { populate: "deep, 4" });
+const { ProgramsIntro, programs, metadata, hasError } = await pageData(
+  "/programs-page",
+  "deep, 4"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function Programs() {
+  if (hasError) {
+    return <NoData />;
+  }
   return (
     <>
       <Hero
@@ -29,15 +28,15 @@ export default function Programs() {
         alt="Children playing with toys"
         myHeight="h-[15rem] llg:h-[25rem] "
       >
-        <HeroH1 className="z-30">{attributes.HeroText}</HeroH1>
+        <HeroH1 className="z-30">Programs</HeroH1>
         <ImageMask />
       </Hero>
       <PageView className="llg:bg-PumcYellow">
         <h1 className="text-primary text-center llg:text-left text-6xl llg:text-8xl">
-          {attributes.Title}
+          View Our Programs
         </h1>
         <WYSIWYG
-          content={attributes.ProgramsIntro}
+          content={ProgramsIntro}
           pClassName="text-2xl text-center llg:text-left llg:text-4xl"
         />
         <MyButton
@@ -51,7 +50,7 @@ export default function Programs() {
           shadow="lg"
           className="pt-6 llg:pt-12"
           titleColor="text-PumcBlue llg:text-primary"
-          programsData={attributes.programs}
+          programsData={programs}
         />
         <MyButton
           label="Tuition Info"

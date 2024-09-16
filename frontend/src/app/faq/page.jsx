@@ -1,21 +1,17 @@
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import FAQAccordion from "./components/FAQAccordion";
 import PageView from "@/components/shared/pageView";
+import NoData from "@/components/shared/NoData";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/faq", { populate: "deep, 6" });
+const { faqQuestions, metadata, hasError } = await pageData("/faq", "deep, 6");
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function FAQ() {
+  if (hasError) {
+    return <NoData />;
+  }
   return (
     <>
       <Hero
@@ -24,9 +20,7 @@ export default function FAQ() {
         myHeight="h-[15rem] llg:h-[35rem]"
       />
       <PageView>
-        {attributes?.faqQuestions ? (
-          <FAQAccordion faqs={attributes.faqQuestions} />
-        ) : null}
+        {faqQuestions ? <FAQAccordion faqs={faqQuestions} /> : null}
       </PageView>
     </>
   );

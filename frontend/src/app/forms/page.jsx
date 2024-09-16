@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import { Divider } from "@nextui-org/divider";
 import { Card } from "@nextui-org/card";
 
@@ -7,25 +7,21 @@ import { BlockH1 } from "@/components/shared/h1s";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import FormsInfo from "./components/FormsInfo";
-import AttributesChecker from "@/components/shared/AttributesChecker";
+import NoData from "@/components/shared/NoData";
 const FormsAndHandbook = dynamic(() => import("./components/FormsAndHandbook"));
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/form", { populate: "deep" });
+const { formsInfo, formsAndHandbook, metadata, hasError } = await pageData(
+  "/form"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default async function Forms() {
-  const { formsInfo, formsAndHandbook } = attributes;
+  if (hasError) {
+    return <NoData />;
+  }
   return (
-    <AttributesChecker attributes={attributes}>
+    <>
       <Hero
         img="/forms.webp"
         alt="A folder with Forms on its tab over a keyboard"
@@ -47,6 +43,6 @@ export default async function Forms() {
           </Card>
         </section>
       </PageView>
-    </AttributesChecker>
+    </>
   );
 }

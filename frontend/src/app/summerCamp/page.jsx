@@ -1,22 +1,21 @@
 import Image from "next/image";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
-import SummerCampInfo from "./components/summerCampInfo";
+import SummerCampInfoComponent from "./components/summerCampInfo";
+import NoData from "@/components/shared/NoData";
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/summer-camp", { populate: "deep" });
+const { SubTitle, SummerCampInfo, metadata, hasError } = await pageData(
+  "/registration",
+  "deep, 5"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function SummerCamp() {
+  if (hasError) {
+    return <NoData />;
+  }
   const Sun = () => {
     return (
       <div className="max-h-24 max-w-24">
@@ -30,9 +29,7 @@ export default function SummerCamp() {
     );
   };
 
-  const Subtitle = () => (
-    <h3 className="text-5xl text-center">{attributes.SubTitle}</h3>
-  );
+  const Subtitle = () => <h3 className="text-5xl text-center">{SubTitle}</h3>;
 
   const Desktop = () => (
     <div className="hidden llg:flex flex-col gap-12 p-12">
@@ -41,7 +38,7 @@ export default function SummerCamp() {
         <Subtitle />
         <Sun />
       </div>
-      <SummerCampInfo summerCampInfo={attributes.SummerCampInfo} />
+      <SummerCampInfoComponent summerCampInfo={SummerCampInfo} />
     </div>
   );
 
@@ -49,7 +46,7 @@ export default function SummerCamp() {
     <div className="flex flex-col gap-12 llg:hidden items-center p-6">
       <Subtitle />
       <Sun />
-      <SummerCampInfo summerCampInfo={attributes.SummerCampInfo} />
+      <SummerCampInfoComponent summerCampInfo={SummerCampInfo} />
       <Sun />
     </div>
   );
@@ -64,7 +61,7 @@ export default function SummerCamp() {
       <PageView className="llg:bg-PumcYellow">
         <div className="flex flex-col gap-12">
           <h1 className="text-center text-7xl llg:text-9xl text-primary">
-            {attributes.Title}
+            Summer Fun camp at PUMC Preschool
           </h1>
           <Desktop />
           <Mobile />

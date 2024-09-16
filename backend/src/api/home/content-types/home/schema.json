@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HomeHero": {
-      "type": "component",
-      "repeatable": false,
-      "component": "sections.hero"
-    },
     "aboutus": {
       "type": "component",
       "repeatable": false,

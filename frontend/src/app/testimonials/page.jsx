@@ -1,23 +1,21 @@
-import { fetchStrapi } from "lib/fetchStrapi";
-
+import pageData from "lib/pageData";
 import Testimonials from "@/components/shared/testimonials";
 import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
+import NoData from "@/components/shared/NoData";
 
-const { data } = await fetchStrapi("/testimonials-page", {
-  populate: "deep, 5",
-});
+const { testimonials, metadata, hasError } = await pageData(
+  "/testimonials-page",
+  "deep, 5"
+);
 
-export const metadata = {
-  title: data.attributes.meta.metaTitle,
-  description: data.attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function Testimoinals() {
+  if (hasError) {
+    return <NoData />;
+  }
   return (
     <>
       <Hero
@@ -28,8 +26,8 @@ export default function Testimoinals() {
       />
       <PageView className="bg-PumcGreen">
         <section>
-          <HeroH1 className="text-primary">{data.attributes.Title}</HeroH1>
-          <Testimonials testimonials={data.attributes.testimonials} />
+          <HeroH1 className="text-primary">See what others have to say!</HeroH1>
+          <Testimonials testimonials={testimonials} />
         </section>
       </PageView>
     </>

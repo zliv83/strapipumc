@@ -12,9 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
     "meta": {
       "type": "component",
       "repeatable": false,

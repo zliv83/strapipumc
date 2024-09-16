@@ -12,12 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "HeroText": {
-      "type": "string"
-    },
-    "TuitionInfoTitle": {
-      "type": "string"
-    },
     "TuitionInfoText": {
       "type": "blocks"
     },

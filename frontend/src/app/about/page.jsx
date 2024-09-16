@@ -1,30 +1,25 @@
 import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Title from "./components/Title";
-import AttributesChecker from "@/components/shared/AttributesChecker";
+import NoData from "@/components/shared/NoData";
 const MyTable = dynamic(() => import("@/components/shared/myTable"));
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/about-us", { populate: "deep, 5" });
+const { AboutParagraph, my_tables, ProgramOptions, metadata, hasError } =
+  await pageData("/about-us", "deep, 5");
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function AboutUs() {
-  const { AboutParagraph, my_tables, ProgramOptions } = attributes;
+  if (hasError) {
+    return <NoData />;
+  }
   const table = my_tables?.data?.attributes?.tables;
   return (
-    <AttributesChecker attributes={attributes}>
+    <>
       <Hero
         img="/aboutus.webp"
         alt="Powell United Methodist Church's Logo"
@@ -68,6 +63,6 @@ export default function AboutUs() {
           </section>
         </div>
       </PageView>
-    </AttributesChecker>
+    </>
   );
 }

@@ -1,28 +1,27 @@
 import dynamic from "next/dynamic";
 
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import Block from "./components/Block";
+import NoData from "@/components/shared/NoData";
 const CalendarTable = dynamic(() => import("./components/CalendarTable"));
 const Remind = dynamic(() => import("./components/Remind"));
-const DownloadableCalendars = dynamic(() =>
+const DownloadableCalendarsCompnent = dynamic(() =>
   import("./components/DownloadableCalendars")
 );
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/calendar", { populate: "deep, 5" });
+const { RemindIcon, DownloadableCalendars, my_table, metadata, hasError } =
+  await pageData("/calendar", "deep, 5");
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function Calendar() {
+  if (hasError) {
+    return <NoData />;
+  }
+  const table = my_table?.data?.attributes?.tables;
+  const icon = RemindIcon?.data?.attributes;
   return (
     <>
       <Hero
@@ -49,20 +48,14 @@ export default function Calendar() {
               src="https://embed.styledcalendar.com/assets/parent-window.js"
             ></script>
           </Block>
-          <DownloadableCalendars
-            calendars={attributes.DownloadableCalendars.data}
+          <DownloadableCalendarsCompnent
+            calendars={DownloadableCalendars.data}
           />
-          {attributes.my_table?.data === null ? null : (
-            <CalendarTable
-              columns={attributes.my_table?.data?.attributes?.tables?.columns}
-              rows={attributes.my_table?.data?.attributes?.tables?.rows}
-            />
+          {my_table?.data === null ? null : (
+            <CalendarTable columns={table?.columns} rows={table?.rows} />
           )}
-          {attributes.RemindIcon ? (
-            <Remind
-              src={attributes.RemindIcon?.data?.attributes?.url}
-              alt={attributes.RemindIcon?.data?.attributes?.alternativeText}
-            />
+          {RemindIcon ? (
+            <Remind src={icon?.url} alt={icon?.alternativeText} />
           ) : null}
         </div>
       </PageView>

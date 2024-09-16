@@ -877,7 +877,6 @@ export interface ApiCalendarCalendar extends Schema.SingleType {
       'api::my-table.my-table'
     >;
     meta: Attribute.Component<'meta.metadata'>;
-    RemindText: Attribute.String;
     RemindIcon: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1009,7 +1008,6 @@ export interface ApiHomeHome extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HomeHero: Attribute.Component<'sections.hero'>;
     aboutus: Attribute.Component<'sections.rich-text'>;
     meta: Attribute.Component<'meta.metadata'>;
     programs: Attribute.Relation<
@@ -1074,8 +1072,6 @@ export interface ApiPaymentPayment extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroText: Attribute.String;
-    TuitionInfoTitle: Attribute.String;
     TuitionInfoText: Attribute.Blocks;
     my_tables: Attribute.Relation<
       'api::payment.payment',
@@ -1151,11 +1147,8 @@ export interface ApiProgramsPageProgramsPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroText: Attribute.String;
     ProgramsIntro: Attribute.Blocks;
-    Title: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
-    Butterfly: Attribute.Media;
     programs: Attribute.Relation<
       'api::programs-page.programs-page',
       'oneToMany',
@@ -1191,10 +1184,7 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    HeroTitle: Attribute.String;
     Title: Attribute.String;
-    SubTitle: Attribute.String;
-    alt: Attribute.String;
     my_tables: Attribute.Relation<
       'api::registration.registration',
       'oneToMany',
@@ -1263,7 +1253,6 @@ export interface ApiStaffPageStaffPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    StaffInfoTitle: Attribute.String;
     StaffInfoText: Attribute.Blocks;
     meta: Attribute.Component<'meta.metadata'>;
     staff: Attribute.Component<'shared.staff', true>;
@@ -1297,7 +1286,6 @@ export interface ApiSummerCampSummerCamp extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
     SubTitle: Attribute.String;
     SummerCampInfo: Attribute.Component<'shared.summer-camp-info', true>;
     meta: Attribute.Component<'meta.metadata'>;
@@ -1361,7 +1349,6 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    Title: Attribute.String;
     meta: Attribute.Component<'meta.metadata'>;
     testimonials: Attribute.Relation<
       'api::testimonials-page.testimonials-page',

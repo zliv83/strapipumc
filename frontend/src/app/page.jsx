@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/home/hero";
+import NoData from "@/components/shared/NoData";
 const Programs = dynamic(() => import("@/components/home/programs"));
 const AboutUs = dynamic(() => import("@/components/home/aboutUs"));
 const TestimonialSection = dynamic(() =>
@@ -8,29 +9,23 @@ const TestimonialSection = dynamic(() =>
 );
 const Testimonials = dynamic(() => import("@/components/shared/testimonials"));
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/home", { populate: "deep" });
+const { programs, aboutus, testimonials, metadata, hasError } = await pageData(
+  "/home"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function Home() {
+  if (hasError) {
+    return <NoData />;
+  }
   return (
     <div>
-      <Hero
-        title={attributes.HomeHero.title}
-        subTitle={attributes.HomeHero.SubTitle}
-      />
-      <Programs programsData={attributes.programs} />
-      <AboutUs aboutus={attributes.aboutus.content} />
+      <Hero />
+      <Programs programsData={programs} />
+      <AboutUs aboutus={aboutus.content} />
       <TestimonialSection>
-        <Testimonials top testimonials={attributes.testimonials} />
+        <Testimonials top testimonials={testimonials} />
       </TestimonialSection>
     </div>
   );

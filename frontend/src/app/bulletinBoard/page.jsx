@@ -1,23 +1,21 @@
 import dynamic from "next/dynamic";
-import { fetchStrapi } from "lib/fetchStrapi";
+import pageData from "lib/pageData";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import PageView from "@/components/shared/pageView";
+import NoData from "@/components/shared/NoData";
 const Content = dynamic(() => import("./components/Content"));
 
-const {
-  data: { attributes },
-} = await fetchStrapi("/bulletin-board", { populate: "deep" });
+const { BullitenBoardContent, metadata, hasError } = await pageData(
+  "/bulletin-board"
+);
 
-export const metadata = {
-  title: attributes.meta.metaTitle,
-  description: attributes.meta.metaDescription,
-  robots: {
-    index: true,
-  },
-};
+export { metadata };
 
 export default function BulletinBoard() {
+  if (hasError) {
+    return <NoData />;
+  }
   return (
     <div>
       <Hero
@@ -31,7 +29,7 @@ export default function BulletinBoard() {
         </p>
       </Hero>
       <PageView>
-        <Content content={attributes.BullitenBoardContent} />
+        <Content content={BullitenBoardContent} />
       </PageView>
     </div>
   );

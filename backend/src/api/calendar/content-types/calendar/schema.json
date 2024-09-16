@@ -33,9 +33,6 @@
       "repeatable": false,
       "component": "meta.metadata"
     },
-    "RemindText": {
-      "type": "string"
-    },
     "RemindIcon": {
       "type": "media",
       "multiple": false,
