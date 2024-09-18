@@ -21,6 +21,8 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
 
+  console.log(path);
+
   const menuItems = [
     {
       label: "Home",
@@ -124,7 +126,9 @@ const Navbar = () => {
           <NavbarMenuItem key={`${menuItem.label}-${i}`}>
             <Link
               href={menuItem.path}
-              color={menuItem.path === path ? "primary" : "foreground"}
+              className={
+                menuItem.path === path ? "text-primary" : "text-foreground"
+              }
               onClick={() => setIsMenuOpen(false)}
               aria-label={menuItem.ariaLabel}
               prefetch={false}
