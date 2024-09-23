@@ -54,7 +54,7 @@ export default function SummerCamp() {
   return (
     <>
       <Hero
-        img="/SummerCamp.webp"
+        img="/Camp.webp"
         alt="Illustration of children playing on a hill in the sun"
         myHeight="h-[15rem] llg:h-[45rem] "
       />
