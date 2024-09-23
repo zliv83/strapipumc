@@ -6,7 +6,7 @@ import SummerCampInfoComponent from "./components/summerCampInfo";
 import NoData from "@/components/shared/NoData";
 
 const { SubTitle, SummerCampInfo, metadata, hasError } = await pageData(
-  "/summer-camp",
+  "/registration",
   "deep, 5"
 );
 

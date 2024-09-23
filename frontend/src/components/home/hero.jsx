@@ -3,18 +3,15 @@ import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 
 const HomeHero = () => {
-  const image = "/HomeHero.webp";
   return (
-    <section className="relative w-full h-[100vh] llg:h-screen">
+    <section className={`relative w-full h-[100vh] llg:h-screen`}>
       <Image
-        src={image}
+        src="/HomeHero.webp"
         alt="Child coloring in a butterfly"
         fill
         className="object-cover"
         aria-label="Child coloring in a butterfly"
         priority
-        placeholder="blur"
-        blurDataURL={image}
       />
       <ImageMask />
       <div className="z-30 absolute pb-20 llg:pb-28 llg:w-[80%] h-full flex flex-col justify-center gap-20 llg:pl-12">
