@@ -1,22 +1,33 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/home/hero";
 import NoData from "@/components/shared/NoData";
-const Programs = dynamic(() => import("@/components/home/programs"));
-const AboutUs = dynamic(() => import("@/components/home/aboutUs"));
-const TestimonialSection = dynamic(() =>
-  import("@/components/home/testimonials")
-);
-const Testimonials = dynamic(() => import("@/components/shared/testimonials"));
+import Programs from "@/components/home/programs";
+import AboutUs from "@/components/home/aboutUs";
+import TestimonialSection from "@/components/home/testimonials";
+import Testimonials from "@/components/shared/testimonials";
 
-const { programs, aboutus, testimonials, metadata, hasError } = await pageData(
-  "/home"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/home", { populate: "deep" });
 
-export default function Home() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function Home() {
+  const {
+    data: {
+      attributes: { programs, aboutus, testimonials },
+      error,
+    },
+  } = await fetchStrapi("/home", { populate: "deep" });
+  if (error) {
     return <NoData />;
   }
   return (

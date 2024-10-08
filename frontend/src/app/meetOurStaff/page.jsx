@@ -1,22 +1,34 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
-
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import NoData from "@/components/shared/NoData";
-const Staff = dynamic(() => import("./components/staff"));
+import Staff from "./components/staff";
 
-const { staff, StaffInfoText, metadata, hasError } = await pageData(
-  "/staff-page"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/staff-page", { populate: "deep" });
 
-export default function MeetOurStaff() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function MeetOurStaff() {
+  const {
+    data: {
+      attributes: { staff, StaffInfoText },
+      error,
+    },
+  } = await fetchStrapi("/staff-page", { populate: "deep" });
+  if (error) {
     return <NoData />;
   }
   return (

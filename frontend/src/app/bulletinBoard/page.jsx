@@ -1,19 +1,32 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
-const Content = dynamic(() => import("./components/Content"));
+import Content from "./components/Content";
 
-const { BullitenBoardContent, metadata, hasError } = await pageData(
-  "/bulletin-board"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/bulletin-board", { populate: "deep" });
 
-export default function BulletinBoard() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function BulletinBoard() {
+  const {
+    data: {
+      attributes: { BullitenBoardContent },
+      error,
+    },
+  } = await fetchStrapi("/bulletin-board", { populate: "deep" });
+  if (error) {
     return <NoData />;
   }
   return (

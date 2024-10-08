@@ -1,19 +1,32 @@
 import Image from "next/image";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import SummerCampInfoComponent from "./components/summerCampInfo";
 import NoData from "@/components/shared/NoData";
 
-const { SubTitle, SummerCampInfo, metadata, hasError } = await pageData(
-  "/summer-camp",
-  "deep, 5"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/summer-camp", { populate: "deep" });
 
-export default function SummerCamp() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function SummerCamp() {
+  const {
+    data: {
+      attributes: { SubTitle, SummerCampInfo },
+      error,
+    },
+  } = await fetchStrapi("/summer-camp", { populate: "deep" });
+  if (error) {
     return <NoData />;
   }
   const Sun = () => {

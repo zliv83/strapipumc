@@ -1,15 +1,31 @@
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import FAQAccordion from "./components/FAQAccordion";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
 
-const { faqQuestions, metadata, hasError } = await pageData("/faq", "deep, 6");
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/faq", { populate: "deep, 6" });
 
-export default function FAQ() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function FAQ() {
+  const {
+    data: {
+      attributes: { faqQuestions },
+      error,
+    },
+  } = await fetchStrapi("/faq", { populate: "deep, 6" });
+  if (error) {
     return <NoData />;
   }
   return (

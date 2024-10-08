@@ -1,19 +1,32 @@
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Testimonials from "@/components/shared/testimonials";
 import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
 
-const { testimonials, metadata, hasError } = await pageData(
-  "/testimonials-page",
-  "deep, 5"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/testimonials-page", { populate: "deep, 5" });
 
-export default function Testimoinals() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function Testimoinals() {
+  const {
+    data: {
+      attributes: { testimonials },
+      error,
+    },
+  } = await fetchStrapi("/testimonials-page", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   return (

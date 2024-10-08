@@ -21,8 +21,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const path = usePathname();
 
-  console.log(path);
-
   const menuItems = [
     {
       label: "Home",

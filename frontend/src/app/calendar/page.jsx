@@ -1,23 +1,34 @@
-import dynamic from "next/dynamic";
-
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import Block from "./components/Block";
 import NoData from "@/components/shared/NoData";
-const CalendarTable = dynamic(() => import("./components/CalendarTable"));
-const Remind = dynamic(() => import("./components/Remind"));
-const DownloadableCalendarsCompnent = dynamic(() =>
-  import("./components/DownloadableCalendars")
-);
+import CalendarTable from "./components/CalendarTable";
+import Remind from "./components/Remind";
+import DownloadableCalendarsCompnent from "./components/DownloadableCalendars";
 
-const { RemindIcon, DownloadableCalendars, my_table, metadata, hasError } =
-  await pageData("/calendar", "deep, 5");
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/calendar", { populate: "deep, 5" });
 
-export default function Calendar() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function Calendar() {
+  const {
+    data: {
+      attributes: { RemindIcon, DownloadableCalendars, my_table },
+      error,
+    },
+  } = await fetchStrapi("/calendar", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   const table = my_table?.data?.attributes?.tables;

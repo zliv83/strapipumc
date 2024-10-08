@@ -1,25 +1,37 @@
-import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import PageView from "@/components/shared/pageView";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
 import { HeroH1, BlockH1 } from "@/components/shared/h1s";
-const FeeTables = dynamic(() => import("../../components/shared/feeTables"));
+import FeeTables from "../../components/shared/feeTables";
 import MyButton from "@/components/shared/myButton";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import NoData from "@/components/shared/NoData";
 
-const { TuitionInfoText, my_tables, metadata, hasError } = await pageData(
-  "/payment",
-  "deep, 5"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/payment", { populate: "deep, 5" });
 
-export default function Payments() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function Payments() {
+  const {
+    data: {
+      attributes: { TuitionInfoText, my_tables },
+      error,
+    },
+  } = await fetchStrapi("/payment", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   return (

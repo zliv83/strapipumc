@@ -22,8 +22,6 @@ export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
     return data;
   } catch (error) {
     console.error(error);
-    throw new Error(
-      `Please check if your server is running and you set all the required tokens.`
-    );
+    return { error: true, message: error.message };
   }
 }

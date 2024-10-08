@@ -1,20 +1,34 @@
-import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Title from "./components/Title";
 import NoData from "@/components/shared/NoData";
-const MyTable = dynamic(() => import("@/components/shared/myTable"));
+import MyTable from "@/components/shared/myTable";
 
-const { AboutParagraph, my_tables, ProgramOptions, metadata, hasError } =
-  await pageData("/about-us", "deep, 5");
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/about-us", { populate: "deep, 5" });
 
-export default function AboutUs() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function AboutUs() {
+  const {
+    data: {
+      attributes: { AboutParagraph, my_tables, ProgramOptions },
+      error,
+    },
+  } = await fetchStrapi("/about-us", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   const table = my_tables?.data?.attributes?.tables;

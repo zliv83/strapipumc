@@ -1,5 +1,4 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import { Divider } from "@nextui-org/divider";
 import { Card } from "@nextui-org/card";
 
@@ -8,16 +7,30 @@ import Hero from "@/components/shared/hero";
 import PageView from "@/components/shared/pageView";
 import FormsInfo from "./components/FormsInfo";
 import NoData from "@/components/shared/NoData";
-const FormsAndHandbook = dynamic(() => import("./components/FormsAndHandbook"));
+import FormsAndHandbook from "./components/FormsAndHandbook";
 
-const { formsInfo, formsAndHandbook, metadata, hasError } = await pageData(
-  "/form"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/form", { populate: "deep" });
+
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
 
 export default async function Forms() {
-  if (hasError) {
+  const {
+    data: {
+      attributes: { formsInfo, formsAndHandbook },
+      error,
+    },
+  } = await fetchStrapi("/form", { populate: "deep" });
+  if (error) {
     return <NoData />;
   }
   return (
