@@ -1060,6 +1060,45 @@ export interface ApiMyTableMyTable extends Schema.CollectionType {
   };
 }
 
+export interface ApiNextYearRegistrationNextYearRegistration
+  extends Schema.SingleType {
+  collectionName: 'next_year_registrations';
+  info: {
+    singularName: 'next-year-registration';
+    pluralName: 'next-year-registrations';
+    displayName: 'NextYearRegistration';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    my_tables: Attribute.Relation<
+      'api::next-year-registration.next-year-registration',
+      'oneToMany',
+      'api::my-table.my-table'
+    >;
+    meta: Attribute.Component<'meta.metadata'>;
+    RegistrationRichText: Attribute.Blocks;
+    RegistrationCard: Attribute.Component<'shared.registration-card', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::next-year-registration.next-year-registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::next-year-registration.next-year-registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPaymentPayment extends Schema.SingleType {
   collectionName: 'payments';
   info: {
@@ -1212,36 +1251,6 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
   };
 }
 
-export interface ApiStaffStaff extends Schema.CollectionType {
-  collectionName: 'staffs';
-  info: {
-    singularName: 'staff';
-    pluralName: 'staffs';
-    displayName: 'Staff';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    staff: Attribute.Component<'shared.staff', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::staff.staff',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::staff.staff',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiStaffPageStaffPage extends Schema.SingleType {
   collectionName: 'staff_pages';
   info: {
@@ -1374,36 +1383,6 @@ export interface ApiTestimonialsPageTestimonialsPage extends Schema.SingleType {
   };
 }
 
-export interface ApiTopTestimonialTopTestimonial extends Schema.CollectionType {
-  collectionName: 'top_testimonials';
-  info: {
-    singularName: 'top-testimonial';
-    pluralName: 'top-testimonials';
-    displayName: 'TopTestimonials';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    testimonial: Attribute.Component<'shared.testimonial', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::top-testimonial.top-testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::top-testimonial.top-testimonial',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1430,16 +1409,15 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::my-table.my-table': ApiMyTableMyTable;
+      'api::next-year-registration.next-year-registration': ApiNextYearRegistrationNextYearRegistration;
       'api::payment.payment': ApiPaymentPayment;
       'api::program.program': ApiProgramProgram;
       'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::registration.registration': ApiRegistrationRegistration;
-      'api::staff.staff': ApiStaffStaff;
       'api::staff-page.staff-page': ApiStaffPageStaffPage;
       'api::summer-camp.summer-camp': ApiSummerCampSummerCamp;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
       'api::testimonials-page.testimonials-page': ApiTestimonialsPageTestimonialsPage;
-      'api::top-testimonial.top-testimonial': ApiTopTestimonialTopTestimonial;
     }
   }
 }

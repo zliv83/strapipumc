@@ -9,25 +9,17 @@
     "ClassName": {
       "type": "string"
     },
-    "ClassImage": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ]
-    },
     "Schedule": {
       "type": "string"
     },
-    "open": {
+    "ClassCancelled": {
       "type": "boolean"
     },
-    "Cancelled": {
+    "ClassFull": {
       "type": "boolean"
+    },
+    "href": {
+      "type": "string"
     }
   }
 }

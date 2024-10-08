@@ -5,7 +5,7 @@ import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
 import FeeTables from "@/components/shared/feeTables";
-import RegistraionCardCompnent from "./components/RegistrationCard";
+import RegistraionCardCompnent from "../registration/components/RegistrationCard";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyButton from "@/components/shared/myButton";
 
@@ -61,13 +61,11 @@ export default async function Registration() {
               fill out and pay the registration fee (tables below)
             </h2>
           </div>
-          {nextYearRegistration ? (
-            <MyButton
-              className="h-[4rem]"
-              href="/"
-              label="Looking for next year?"
-            />
-          ) : null}
+          <MyButton
+            className="h-[4rem]"
+            href="/registration"
+            label="Back to Current Year"
+          />
         </div>
         <div
           id="card grid"

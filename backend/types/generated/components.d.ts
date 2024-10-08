@@ -820,10 +820,10 @@ export interface SharedRegistrationCard extends Schema.Component {
   };
   attributes: {
     ClassName: Attribute.String;
-    ClassImage: Attribute.Media;
     Schedule: Attribute.String;
-    open: Attribute.Boolean;
-    Cancelled: Attribute.Boolean;
+    ClassCancelled: Attribute.Boolean;
+    ClassFull: Attribute.Boolean;
+    href: Attribute.String;
   };
 }
 
