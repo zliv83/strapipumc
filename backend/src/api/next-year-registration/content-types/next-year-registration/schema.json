@@ -1,0 +1,36 @@
+{
+  "kind": "singleType",
+  "collectionName": "next_year_registrations",
+  "info": {
+    "singularName": "next-year-registration",
+    "pluralName": "next-year-registrations",
+    "displayName": "NextYearRegistration"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "my_tables": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::my-table.my-table"
+    },
+    "meta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "meta.metadata"
+    },
+    "RegistrationRichText": {
+      "type": "blocks"
+    },
+    "RegistrationCard": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.registration-card"
+    }
+  }
+}
