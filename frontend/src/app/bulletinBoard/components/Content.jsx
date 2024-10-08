@@ -4,7 +4,10 @@ import Image from "next/image";
 export default function Content({ content }) {
   const contentMap = content.map((item, i) => {
     return (
-      <div key={i} className="flex flex-col gap-6">
+      <div
+        key={i}
+        className="flex flex-col gap-6 justify-center items-center text-center llg:text-left llg:items-start px-6 llg:px-0"
+      >
         {item.Title ? (
           <h2 className="text-primary text-6xl pb-6">{item.Title}</h2>
         ) : null}

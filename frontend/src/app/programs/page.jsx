@@ -1,24 +1,36 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import ImageMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
-const ProgramGrid = dynamic(() => import("@/components/shared/programGrid"));
+import ProgramGrid from "@/components/shared/programGrid";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import Butterfly from "@/components/shared/butterfly";
 import NoData from "@/components/shared/NoData";
 
-const { ProgramsIntro, programs, metadata, hasError } = await pageData(
-  "/programs-page",
-  "deep, 4"
-);
+export const dynamic = "force-dynamic";
 
-export { metadata };
+const {
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/programs-page", { populate: "deep, 4" });
 
-export default function Programs() {
-  if (hasError) {
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
+
+export default async function Programs() {
+  const {
+    data: {
+      attributes: { ProgramsIntro, programs },
+      error,
+    },
+  } = await fetchStrapi("/programs-page", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   return (

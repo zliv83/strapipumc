@@ -1,4 +1,3 @@
-import dynamic from "next/dynamic";
 import { Divider } from "@nextui-org/divider";
 
 import imgHelper from "lib/imgHelper";
@@ -7,8 +6,10 @@ import Hero from "@/components/shared/hero";
 import { HeroH1 } from "@/components/shared/h1s";
 import HeroMask from "@/components/shared/imageMask";
 import MyButton from "@/components/shared/myButton";
-const Programming = dynamic(() => import("../components/programming"));
+import Programming from "../components/programming";
 import WYSIWYG from "@/components/shared/WYSIWYG";
+
+export const dynamic = "force-dynamic";
 
 const { data } = await fetchStrapi("/programs", { populate: "deep" });
 
@@ -26,6 +27,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function ProgramPage({ params }) {
+  const { data } = await fetchStrapi("/programs", { populate: "deep" });
   const slug = params.slug;
   const program = data.find((item) => item.attributes.slug === slug);
   const attributes = program.attributes;

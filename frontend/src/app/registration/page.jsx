@@ -1,29 +1,41 @@
-import dynamic from "next/dynamic";
-import pageData from "lib/pageData";
+import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
 import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
-const FeeTables = dynamic(() => import("@/components/shared/feeTables"));
-const RegistraionCardCompnent = dynamic(() =>
-  import("./components/RegistrationCard")
-);
-const WYSIWYG = dynamic(() => import("@/components/shared/WYSIWYG"));
+import FeeTables from "@/components/shared/feeTables";
+import RegistraionCardCompnent from "./components/RegistrationCard";
+import WYSIWYG from "@/components/shared/WYSIWYG";
+
+export const dynamic = "force-dynamic";
 
 const {
-  Title,
-  RegistraionCard,
-  my_tables,
-  RegistrationRichText,
-  metadata,
-  hasError,
-} = await pageData("/registration", "deep, 5");
+  data: {
+    attributes: { meta },
+  },
+} = await fetchStrapi("/registration", { populate: "deep, 5" });
 
-export { metadata };
+export const metadata = {
+  title: meta?.metaTitle,
+  description: meta?.metaDescription,
+  robots: { index: true },
+};
 
-export default function Registration() {
-  if (hasError) {
+export default async function Registration() {
+  const {
+    data: {
+      attributes: {
+        Title,
+        RegistraionCard,
+        my_tables,
+        RegistrationRichText,
+        nextYearRegistration,
+      },
+      error,
+    },
+  } = await fetchStrapi("/registration", { populate: "deep, 5" });
+  if (error) {
     return <NoData />;
   }
   return (
