@@ -15,7 +15,7 @@ const {
   data: {
     attributes: { meta },
   },
-} = await fetchStrapi("/registration", { populate: "deep, 5" });
+} = await fetchStrapi("/next-year-registration", { populate: "deep, 5" });
 
 export const metadata = {
   title: meta?.metaTitle,
@@ -26,17 +26,11 @@ export const metadata = {
 export default async function Registration() {
   const {
     data: {
-      attributes: {
-        Title,
-        RegistraionCard,
-        my_tables,
-        RegistrationRichText,
-        nextYearRegistration,
-      },
+      attributes: { Title, RegistraionCard, my_tables, RegistrationRichText },
       error,
     },
-  } = await fetchStrapi("/registration", { populate: "deep, 5" });
-  if (error) {
+  } = await fetchStrapi("/next-year-registration", { populate: "deep, 5" });
+  if (error || !Title) {
     return <NoData />;
   }
 
@@ -71,13 +65,17 @@ export default async function Registration() {
           id="card grid"
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
-          <RegistraionCardCompnent data={RegistraionCard} />
+          {RegistraionCard ? (
+            <RegistraionCardCompnent data={RegistraionCard} />
+          ) : null}
         </div>
         <FeeTables tables={my_tables.data} />
-        <WYSIWYG
-          content={RegistrationRichText}
-          linkAriaLabel="Link to preschools payment portal"
-        />
+        {RegistrationRichText ? (
+          <WYSIWYG
+            content={RegistrationRichText}
+            linkAriaLabel="Link to preschools payment portal"
+          />
+        ) : null}
       </PageView>
     </>
   );

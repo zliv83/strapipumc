@@ -9,10 +9,10 @@ export default function Content({ content }) {
         className="flex flex-col gap-6 justify-center items-center text-center llg:text-left llg:items-start px-6 llg:px-0"
       >
         {item.Title ? (
-          <h2 className="text-primary text-6xl pb-6">{item.Title}</h2>
+          <h2 className="text-primary text-4xl pb-6">{item.Title}</h2>
         ) : null}
         {item.description ? (
-          <h3 className="text-4xl">{item.description}</h3>
+          <h3 className="text-2xl">{item.description}</h3>
         ) : null}
         <div className="grid grid-cols-1 llg:grid-cols-2 gap-6 pb-6">
           {item.Pictures?.data

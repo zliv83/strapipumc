@@ -36,7 +36,7 @@ export default async function Registration() {
       error,
     },
   } = await fetchStrapi("/registration", { populate: "deep, 5" });
-  if (error) {
+  if (error || !Title) {
     return <NoData />;
   }
 
@@ -73,13 +73,17 @@ export default async function Registration() {
           id="card grid"
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
-          <RegistraionCardCompnent data={RegistraionCard} />
+          {RegistraionCard ? (
+            <RegistraionCardCompnent data={RegistraionCard} />
+          ) : null}
         </div>
         <FeeTables tables={my_tables.data} />
-        <WYSIWYG
-          content={RegistrationRichText}
-          linkAriaLabel="Link to preschools payment portal"
-        />
+        {RegistrationRichText ? (
+          <WYSIWYG
+            content={RegistrationRichText}
+            linkAriaLabel="Link to preschools payment portal"
+          />
+        ) : null}
       </PageView>
     </>
   );
