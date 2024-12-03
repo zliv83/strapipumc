@@ -15,7 +15,7 @@ const {
   data: {
     attributes: { meta },
   },
-} = await fetchStrapi("/next-year-registration", { populate: "deep, 5" });
+} = await fetchStrapi("/registration", { populate: "deep, 5" });
 
 export const metadata = {
   title: meta?.metaTitle,
@@ -29,10 +29,32 @@ export default async function Registration() {
       attributes: { Title, RegistraionCard, my_tables, RegistrationRichText },
       error,
     },
-  } = await fetchStrapi("/next-year-registration", { populate: "deep, 5" });
+  } = await fetchStrapi("/registration", { populate: "deep, 5" });
   if (error || !Title) {
     return <NoData />;
   }
+
+  const filteredTables = my_tables.data.filter(
+    (table) =>
+      table.attributes.tables.title === "MorningNextYear" ||
+      table.attributes.tables.title === "AfternoonNextYear"
+  );
+
+  const incrementYears = (str) => {
+    const yearPattern = /(\d{4}) - (\d{4})/;
+    const match = str.match(yearPattern);
+    if (match) {
+      const firstYear = parseInt(match[1], 10);
+      const secondYear = parseInt(match[2], 10);
+
+      const newFirstYear = firstYear + 1;
+      const newSecondYear = secondYear + 1;
+
+      return str.replace(yearPattern, `${newFirstYear} - ${newSecondYear}`);
+    }
+
+    return str;
+  };
 
   return (
     <>
@@ -48,12 +70,12 @@ export default async function Registration() {
         <div className="flex flex-col llg:flex-row items-center mb-[2rem] llg:mb-0 llg:items-start justify-between">
           <div className="flex flex-col gap-2">
             <HeroH1 className="text-center llg:text-left text-primary text-6xl">
-              {Title}
+              {incrementYears(Title)}
             </HeroH1>
-            <h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
+            {/*<h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
               Select the desired class below to access the registration form,
               fill out and pay the registration fee (tables below)
-            </h2>
+            </h2>*/}
           </div>
           <MyButton
             className="h-[4rem]"
@@ -61,15 +83,15 @@ export default async function Registration() {
             label="Back to Current Year"
           />
         </div>
-        <div
+        {/*<div
           id="card grid"
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
           {RegistraionCard ? (
             <RegistraionCardCompnent data={RegistraionCard} />
           ) : null}
-        </div>
-        <FeeTables tables={my_tables.data} />
+        </div>*/}
+        <FeeTables tables={filteredTables} />
         {RegistrationRichText ? (
           <WYSIWYG
             content={RegistrationRichText}

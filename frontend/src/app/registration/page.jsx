@@ -40,6 +40,12 @@ export default async function Registration() {
     return <NoData />;
   }
 
+  const filteredTables = my_tables.data.filter(
+    (table) =>
+      table.attributes.tables.title === "MorningCurrent" ||
+      table.attributes.tables.title === "AfternoonCurrent"
+  );
+
   return (
     <>
       <Hero
@@ -64,7 +70,7 @@ export default async function Registration() {
           {nextYearRegistration ? (
             <MyButton
               className="h-[4rem]"
-              href="/"
+              href="/nextYearRegistration"
               label="Looking for next year?"
             />
           ) : null}
@@ -77,7 +83,7 @@ export default async function Registration() {
             <RegistraionCardCompnent data={RegistraionCard} />
           ) : null}
         </div>
-        <FeeTables tables={my_tables.data} />
+        <FeeTables tables={filteredTables} />
         {RegistrationRichText ? (
           <WYSIWYG
             content={RegistrationRichText}
