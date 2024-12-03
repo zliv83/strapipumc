@@ -34,7 +34,7 @@ export default async function BulletinBoard() {
       <Hero
         img="/Bulletin.webp"
         alt="Large tan cork bord on a orange wall"
-        myHeight="h-[15rem] llg:h-[50rem]"
+        myHeight="h-[15rem]"
       >
         <ImageMask />
         <p className="text-6xl llg:text-9xl z-30">

@@ -21,7 +21,6 @@ export async function fetchStrapi(path, urlParamsObj, revalidate = 60) {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.error(error);
     return { error: true, message: error.message };
   }
 }

@@ -5,7 +5,7 @@ import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
 import FeeTables from "@/components/shared/feeTables";
-import RegistraionCardCompnent from "./components/RegistrationCard";
+import RegistraionCardCompnent from "../registration/components/RegistrationCard";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyButton from "@/components/shared/myButton";
 
@@ -26,13 +26,7 @@ export const metadata = {
 export default async function Registration() {
   const {
     data: {
-      attributes: {
-        Title,
-        RegistraionCard,
-        my_tables,
-        RegistrationRichText,
-        nextYearRegistration,
-      },
+      attributes: { Title, RegistraionCard, my_tables, RegistrationRichText },
       error,
     },
   } = await fetchStrapi("/registration", { populate: "deep, 5" });
@@ -42,9 +36,25 @@ export default async function Registration() {
 
   const filteredTables = my_tables.data.filter(
     (table) =>
-      table.attributes.tables.title === "MorningCurrent" ||
-      table.attributes.tables.title === "AfternoonCurrent"
+      table.attributes.tables.title === "MorningNextYear" ||
+      table.attributes.tables.title === "AfternoonNextYear"
   );
+
+  const incrementYears = (str) => {
+    const yearPattern = /(\d{4}) - (\d{4})/;
+    const match = str.match(yearPattern);
+    if (match) {
+      const firstYear = parseInt(match[1], 10);
+      const secondYear = parseInt(match[2], 10);
+
+      const newFirstYear = firstYear + 1;
+      const newSecondYear = secondYear + 1;
+
+      return str.replace(yearPattern, `${newFirstYear} - ${newSecondYear}`);
+    }
+
+    return str;
+  };
 
   return (
     <>
@@ -60,29 +70,27 @@ export default async function Registration() {
         <div className="flex flex-col llg:flex-row items-center mb-[2rem] llg:mb-0 llg:items-start justify-between">
           <div className="flex flex-col gap-2">
             <HeroH1 className="text-center llg:text-left text-primary text-6xl">
-              {Title}
+              {incrementYears(Title)}
             </HeroH1>
-            <h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
+            {/*<h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
               Select the desired class below to access the registration form,
               fill out and pay the registration fee (tables below)
-            </h2>
+            </h2>*/}
           </div>
-          {nextYearRegistration ? (
-            <MyButton
-              className="h-[4rem]"
-              href="/nextYearRegistration"
-              label="Looking for next year?"
-            />
-          ) : null}
+          <MyButton
+            className="h-[4rem]"
+            href="/registration"
+            label="Back to Current Year"
+          />
         </div>
-        <div
+        {/*<div
           id="card grid"
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
           {RegistraionCard ? (
             <RegistraionCardCompnent data={RegistraionCard} />
           ) : null}
-        </div>
+        </div>*/}
         <FeeTables tables={filteredTables} />
         {RegistrationRichText ? (
           <WYSIWYG
