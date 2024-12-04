@@ -4,7 +4,7 @@
   "info": {
     "singularName": "registration",
     "pluralName": "registrations",
-    "displayName": "Registration",
+    "displayName": "Registration-1",
     "description": ""
   },
   "options": {
@@ -33,7 +33,13 @@
       "repeatable": true,
       "component": "shared.new-reg-card"
     },
-    "nextYearRegistration": {
+    "nextYearRegistrationButton": {
+      "type": "boolean"
+    },
+    "currentYear": {
+      "type": "boolean"
+    },
+    "nextYear": {
       "type": "boolean"
     }
   }

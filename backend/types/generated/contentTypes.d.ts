@@ -1060,45 +1060,6 @@ export interface ApiMyTableMyTable extends Schema.CollectionType {
   };
 }
 
-export interface ApiNextYearRegistrationNextYearRegistration
-  extends Schema.SingleType {
-  collectionName: 'next_year_registrations';
-  info: {
-    singularName: 'next-year-registration';
-    pluralName: 'next-year-registrations';
-    displayName: 'NextYearRegistration';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Title: Attribute.String;
-    my_tables: Attribute.Relation<
-      'api::next-year-registration.next-year-registration',
-      'oneToMany',
-      'api::my-table.my-table'
-    >;
-    meta: Attribute.Component<'meta.metadata'>;
-    RegistrationRichText: Attribute.Blocks;
-    RegistrationCard: Attribute.Component<'shared.registration-card', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::next-year-registration.next-year-registration',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::next-year-registration.next-year-registration',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiPaymentPayment extends Schema.SingleType {
   collectionName: 'payments';
   info: {
@@ -1216,7 +1177,7 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
   info: {
     singularName: 'registration';
     pluralName: 'registrations';
-    displayName: 'Registration';
+    displayName: 'Registration-1';
     description: '';
   };
   options: {
@@ -1232,7 +1193,9 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     RegistrationRichText: Attribute.Blocks;
     meta: Attribute.Component<'meta.metadata'>;
     RegistraionCard: Attribute.Component<'shared.new-reg-card', true>;
-    nextYearRegistration: Attribute.Boolean;
+    nextYearRegistrationButton: Attribute.Boolean;
+    currentYear: Attribute.Boolean;
+    nextYear: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1244,6 +1207,47 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::registration.registration',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRegistration2Registration2 extends Schema.SingleType {
+  collectionName: 'registration_2s';
+  info: {
+    singularName: 'registration-2';
+    pluralName: 'registration-2s';
+    displayName: 'Registration-2';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    my_tables: Attribute.Relation<
+      'api::registration-2.registration-2',
+      'oneToMany',
+      'api::my-table.my-table'
+    >;
+    RegistrationRichText: Attribute.Blocks;
+    meta: Attribute.Component<'meta.metadata'>;
+    RegistrationCard: Attribute.Component<'shared.registration-card', true>;
+    nextYearRegistrationButton: Attribute.Boolean;
+    currentYear: Attribute.Boolean;
+    nextYear: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::registration-2.registration-2',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::registration-2.registration-2',
       'oneToOne',
       'admin::user'
     > &
@@ -1409,11 +1413,11 @@ declare module '@strapi/types' {
       'api::global.global': ApiGlobalGlobal;
       'api::home.home': ApiHomeHome;
       'api::my-table.my-table': ApiMyTableMyTable;
-      'api::next-year-registration.next-year-registration': ApiNextYearRegistrationNextYearRegistration;
       'api::payment.payment': ApiPaymentPayment;
       'api::program.program': ApiProgramProgram;
       'api::programs-page.programs-page': ApiProgramsPageProgramsPage;
       'api::registration.registration': ApiRegistrationRegistration;
+      'api::registration-2.registration-2': ApiRegistration2Registration2;
       'api::staff-page.staff-page': ApiStaffPageStaffPage;
       'api::summer-camp.summer-camp': ApiSummerCampSummerCamp;
       'api::testimonial.testimonial': ApiTestimonialTestimonial;
