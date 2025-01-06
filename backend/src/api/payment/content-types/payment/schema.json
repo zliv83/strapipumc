@@ -25,7 +25,7 @@
       "repeatable": false,
       "component": "meta.metadata"
     },
-    "year": {
+    "currentYear": {
       "type": "string"
     }
   }
