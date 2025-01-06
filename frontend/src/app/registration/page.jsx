@@ -1,3 +1,4 @@
+import { fetchRegistrationData } from "lib/fetchRegistration";
 import { fetchStrapi } from "lib/fetchStrapi";
 import Hero from "@/components/shared/hero";
 import HeroMask from "@/components/shared/imageMask";
@@ -5,7 +6,7 @@ import { HeroH1 } from "@/components/shared/h1s";
 import PageView from "@/components/shared/pageView";
 import NoData from "@/components/shared/NoData";
 import FeeTables from "@/components/shared/feeTables";
-import RegistraionCardCompnent from "./components/RegistrationCard";
+import RegistrationCardComponent from "./components/RegistrationCard";
 import WYSIWYG from "@/components/shared/WYSIWYG";
 import MyButton from "@/components/shared/myButton";
 
@@ -25,27 +26,17 @@ export const metadata = {
 
 export default async function Registration() {
   const {
-    data: {
-      attributes: {
-        Title,
-        RegistraionCard,
-        my_tables,
-        RegistrationRichText,
-        nextYearRegistration,
-      },
-      error,
-    },
-  } = await fetchStrapi("/registration", { populate: "deep, 5" });
+    Title,
+    RegistraionCard,
+    my_tables,
+    RegistrationRichText,
+    nextYearRegistrationButton,
+    error,
+  } = await fetchRegistrationData("currentYear");
+
   if (error || !Title) {
     return <NoData />;
   }
-
-  const filteredTables = my_tables.data.filter(
-    (table) =>
-      table.attributes.tables.title === "MorningCurrent" ||
-      table.attributes.tables.title === "AfternoonCurrent"
-  );
-
   return (
     <>
       <Hero
@@ -67,7 +58,7 @@ export default async function Registration() {
               fill out and pay the registration fee (tables below)
             </h2>
           </div>
-          {nextYearRegistration ? (
+          {nextYearRegistrationButton ? (
             <MyButton
               className="h-[4rem]"
               href="/nextYearRegistration"
@@ -80,10 +71,10 @@ export default async function Registration() {
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
           {RegistraionCard ? (
-            <RegistraionCardCompnent data={RegistraionCard} />
+            <RegistrationCardComponent data={RegistraionCard} />
           ) : null}
         </div>
-        <FeeTables tables={filteredTables} />
+        <FeeTables tables={my_tables.data} />
         {RegistrationRichText ? (
           <WYSIWYG
             content={RegistrationRichText}

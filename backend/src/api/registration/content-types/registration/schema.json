@@ -28,7 +28,7 @@
       "repeatable": false,
       "component": "meta.metadata"
     },
-    "RegistraionCard": {
+    "RegistrationCard": {
       "type": "component",
       "repeatable": true,
       "component": "shared.new-reg-card"
@@ -41,6 +41,9 @@
     },
     "nextYear": {
       "type": "boolean"
+    },
+    "RegistrationDescription": {
+      "type": "blocks"
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "registration-2",
     "pluralName": "registration-2s",
-    "displayName": "Registration-2"
+    "displayName": "Registration-2",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -40,6 +41,9 @@
     },
     "nextYear": {
       "type": "boolean"
+    },
+    "RegistrationDescription": {
+      "type": "blocks"
     }
   }
 }
