@@ -22,7 +22,7 @@ export default function FeeTables({ tables, year }) {
   return (
     <div className="flex flex-col gap-6">
       <h2 className="text-5xl text-primary text-center llg:text-left pt-6 llg:pt-12">
-        {year ? `${year} Tution Fees` : "Tution Fees"}
+        Tuition Schedule
       </h2>
       {tablesMap}
     </div>
