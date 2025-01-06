@@ -2,6 +2,7 @@ import Link from "next/link";
 import Block from "./Block";
 
 export default function DownloadableCalendars({ calendars }) {
+  console.log(calendars);
   const calendarMap = calendars.map((calendar, i) => (
     <Link
       key={i}

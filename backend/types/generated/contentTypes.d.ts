@@ -1192,10 +1192,11 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     >;
     RegistrationRichText: Attribute.Blocks;
     meta: Attribute.Component<'meta.metadata'>;
-    RegistraionCard: Attribute.Component<'shared.new-reg-card', true>;
+    RegistrationCard: Attribute.Component<'shared.new-reg-card', true>;
     nextYearRegistrationButton: Attribute.Boolean;
     currentYear: Attribute.Boolean;
     nextYear: Attribute.Boolean;
+    RegistrationDescription: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1220,6 +1221,7 @@ export interface ApiRegistration2Registration2 extends Schema.SingleType {
     singularName: 'registration-2';
     pluralName: 'registration-2s';
     displayName: 'Registration-2';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1237,6 +1239,7 @@ export interface ApiRegistration2Registration2 extends Schema.SingleType {
     nextYearRegistrationButton: Attribute.Boolean;
     currentYear: Attribute.Boolean;
     nextYear: Attribute.Boolean;
+    RegistrationDescription: Attribute.Blocks;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

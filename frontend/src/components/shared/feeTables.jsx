@@ -1,12 +1,10 @@
 import MyTable from "@/components/shared/myTable";
 
 export default function FeeTables({ tables }) {
-  console.log(tables);
   const tablesMap = tables.map((item, i) => {
     const title = (str) => {
-      const capitalLetters = str.match(/[A-Z]/g);
-      const secondCapitalIndex = str.indexOf(capitalLetters[1]);
-      return str.slice(0, secondCapitalIndex);
+      const dashIndex = str.indexOf("-");
+      return dashIndex === -1 ? str : str.slice(0, dashIndex).trim();
     };
     return (
       <div key={i} className="flex flex-col gap-6">
