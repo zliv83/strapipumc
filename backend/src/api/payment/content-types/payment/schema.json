@@ -24,6 +24,9 @@
       "type": "component",
       "repeatable": false,
       "component": "meta.metadata"
+    },
+    "year": {
+      "type": "string"
     }
   }
 }

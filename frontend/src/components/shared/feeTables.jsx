@@ -1,6 +1,6 @@
 import MyTable from "@/components/shared/myTable";
 
-export default function FeeTables({ tables }) {
+export default function FeeTables({ tables, year }) {
   const tablesMap = tables.map((item, i) => {
     const title = (str) => {
       const dashIndex = str.indexOf("-");
@@ -22,7 +22,7 @@ export default function FeeTables({ tables }) {
   return (
     <div className="flex flex-col gap-6">
       <h2 className="text-5xl text-primary text-center llg:text-left pt-6 llg:pt-12">
-        Tuition Schedule
+        {year ? `${year} Tution Fees` : "Tution Fees"}
       </h2>
       {tablesMap}
     </div>
