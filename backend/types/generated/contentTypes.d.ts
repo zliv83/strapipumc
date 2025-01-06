@@ -1079,6 +1079,7 @@ export interface ApiPaymentPayment extends Schema.SingleType {
       'api::my-table.my-table'
     >;
     meta: Attribute.Component<'meta.metadata'>;
+    currentYear: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

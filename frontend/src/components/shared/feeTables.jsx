@@ -1,6 +1,6 @@
 import MyTable from "@/components/shared/myTable";
 
-export default function FeeTables({ tables }) {
+export default function FeeTables({ tables, year }) {
   const tablesMap = tables.map((item, i) => {
     const title = (str) => {
       const dashIndex = str.indexOf("-");

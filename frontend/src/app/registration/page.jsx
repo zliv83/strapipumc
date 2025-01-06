@@ -32,6 +32,7 @@ export default async function Registration() {
     RegistrationRichText,
     nextYearRegistrationButton,
     error,
+    RegistrationDescription,
   } = await fetchRegistrationData("currentYear");
 
   if (error || !Title) {
@@ -54,8 +55,7 @@ export default async function Registration() {
               {Title}
             </HeroH1>
             <h2 className="text-center text-2xl py-6 llg:py-12 llg:text-left">
-              Select the desired class below to access the registration form,
-              fill out and pay the registration fee (tables below)
+              <WYSIWYG content={RegistrationDescription} />
             </h2>
           </div>
           {nextYearRegistrationButton ? (
