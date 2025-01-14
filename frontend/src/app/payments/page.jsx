@@ -27,7 +27,7 @@ export const metadata = {
 export default async function Payments() {
   const {
     data: {
-      attributes: { TuitionInfoText, my_tables },
+      attributes: { TuitionInfoText, my_tables, currentYear },
       error,
     },
   } = await fetchStrapi("/payment", { populate: "deep, 5" });
@@ -58,7 +58,7 @@ export default async function Payments() {
           ariaLabel="Link to make a payment on the preschool's payment portal"
         />
         <Divider className="mt-12" />
-        <FeeTables tables={my_tables.data} />
+        <FeeTables tables={my_tables.data} year={currentYear} />
       </PageView>
     </>
   );

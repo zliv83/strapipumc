@@ -27,7 +27,7 @@ export const metadata = {
 export default async function Registration() {
   const {
     Title,
-    RegistraionCard,
+    RegistrationCard,
     my_tables,
     RegistrationRichText,
     nextYearRegistrationButton,
@@ -38,6 +38,7 @@ export default async function Registration() {
   if (error || !Title) {
     return <NoData />;
   }
+
   return (
     <>
       <Hero
@@ -70,8 +71,8 @@ export default async function Registration() {
           id="card grid"
           className="grid grid-cols-1 gap-6 llg:gap-16 llg:grid-cols-4"
         >
-          {RegistraionCard ? (
-            <RegistrationCardComponent data={RegistraionCard} />
+          {RegistrationCard ? (
+            <RegistrationCardComponent data={RegistrationCard} />
           ) : null}
         </div>
         <FeeTables tables={my_tables.data} />

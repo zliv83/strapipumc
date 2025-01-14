@@ -44,6 +44,9 @@
     },
     "RegistrationDescription": {
       "type": "blocks"
+    },
+    "isCurrentYear": {
+      "type": "boolean"
     }
   }
 }

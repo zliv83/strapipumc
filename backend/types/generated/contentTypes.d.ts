@@ -1198,6 +1198,7 @@ export interface ApiRegistrationRegistration extends Schema.SingleType {
     currentYear: Attribute.Boolean;
     nextYear: Attribute.Boolean;
     RegistrationDescription: Attribute.Blocks;
+    isCurrentYear: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1241,6 +1242,7 @@ export interface ApiRegistration2Registration2 extends Schema.SingleType {
     currentYear: Attribute.Boolean;
     nextYear: Attribute.Boolean;
     RegistrationDescription: Attribute.Blocks;
+    isCurrentYear: Attribute.Boolean;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
