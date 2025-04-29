@@ -33,13 +33,35 @@ export default async function NextYearRegistration() {
     nextYearRegistrationButton,
     error,
     RegistrationDescription,
+    isCurrentYear,
   } = await fetchRegistrationData("nextYear");
-
-  console.log("RegistrationDescription", RegistrationDescription);
 
   if (error || !Title) {
     return <NoData />;
   }
+
+  const registrationButton = () => {
+    if (nextYearRegistrationButton) {
+      if (isCurrentYear) {
+        return (
+          <MyButton
+            className="h-[4rem]"
+            href="/registration2"
+            label="Looking for this year?"
+          />
+        );
+      } else if (!isCurrentYear) {
+        return (
+          <MyButton
+            className="h-[4rem]"
+            href="/registration"
+            label="Looking for next year?"
+          />
+        );
+      }
+    }
+  };
+
   return (
     <>
       <Hero
@@ -60,13 +82,7 @@ export default async function NextYearRegistration() {
               <WYSIWYG content={RegistrationDescription} />
             </h2>
           </div>
-          {nextYearRegistrationButton ? (
-            <MyButton
-              className="h-[4rem]"
-              href="/nextYearRegistration"
-              label="Looking for next year?"
-            />
-          ) : null}
+          {registrationButton()}
         </div>
         <div
           id="card grid"

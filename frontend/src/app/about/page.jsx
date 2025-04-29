@@ -47,7 +47,7 @@ export default async function AboutUs() {
           <Divider />
           <section aria-label="About Paragraph Section">
             <Title className="text-center text-4xl llg:text-left">
-              Over 30 years at Powell United Methodist Church - All Are Welcome
+              Over 35 years at Powell United Methodist Church - All Are Welcome
             </Title>
             {AboutParagraph ? (
               <WYSIWYG

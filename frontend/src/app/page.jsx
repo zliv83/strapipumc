@@ -23,10 +23,13 @@ export const metadata = {
 export default async function Home() {
   const {
     data: {
-      attributes: { programs, aboutus, testimonials },
+      attributes: { programs, aboutus, testimonials, ModalOnOff, ModalImage },
       error,
     },
   } = await fetchStrapi("/home", { populate: "deep" });
+
+  console.log("ModalOnOff", ModalOnOff);
+
   if (error) {
     return <NoData />;
   }

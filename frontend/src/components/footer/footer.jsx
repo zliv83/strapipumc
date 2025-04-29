@@ -15,18 +15,32 @@ const footer = () => {
       <footer className="p-12">
         <div
           id="footer grid"
-          className="flex flex-col gap-12 pt-6 pb-16 llg:pt-0 llg:pb-0 llg:gap-0 llg:grid llg:grid-cols-[45%_35%_20%] items-center justify-items-end"
+          className="flex flex-col llg:flex-row flex-col gap-6 justify-center items-center w-full p-8 llg:p-4"
         >
-          <Link href="/" prefetch={false}>
-            <Image
-              src="/pumc-preschool-logo.svg"
-              alt="Logo for Powell United Methodist Preschool in Powell, Ohio"
-              width={2948}
-              height={1292}
-              className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] place-self-start"
-            />
-          </Link>
-
+          <div className="flex flex-col items-center justify-center gap-2 llg:gap-0">
+            {" "}
+            <Link href="/" prefetch={false}>
+              {" "}
+              <Image
+                src="/pumc-preschool-logo.svg"
+                alt="Logo for Powell United Methodist Preschool in Powell, Ohio"
+                width={2948}
+                height={1292}
+                className="llg:w-[18rem] llg:h-[12rem] sm:h-[6rem] sm:w-[10rem] "
+              />{" "}
+            </Link>{" "}
+            <p className="text-center llg:text-left">
+              {" "}
+              825 E. Olentangy St. Powell, Ohio 43065 <br /> Phone: (614)
+              847-3773 <br /> Director: Linda Franz <br /> Email:{" "}
+              <a href="mailto:directorpumcpreschool@gmail.com">
+                {" "}
+                directorpumcpreschool@gmail.com{" "}
+              </a>{" "}
+              <br /> School Year Office Hours: Mon - Thurs 9:00am - 3:00pm{" "}
+              <br /> Summer Office Hours: See Google Calendar{" "}
+            </p>{" "}
+          </div>
           <FooterLinks className="hidden llg:flex" />
           <Socials className="llg:hidden" />
           <MyButton

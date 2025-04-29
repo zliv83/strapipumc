@@ -1020,6 +1020,8 @@ export interface ApiHomeHome extends Schema.SingleType {
       'oneToMany',
       'api::testimonial.testimonial'
     >;
+    ModalOnOff: Attribute.Boolean;
+    ModalImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
