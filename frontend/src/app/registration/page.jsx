@@ -33,11 +33,34 @@ export default async function Registration() {
     nextYearRegistrationButton,
     error,
     RegistrationDescription,
+    isCurrentYear,
   } = await fetchRegistrationData("currentYear");
 
   if (error || !Title) {
     return <NoData />;
   }
+
+  const registrationButton = () => {
+    if (nextYearRegistrationButton) {
+      if (isCurrentYear) {
+        return (
+          <MyButton
+            className="h-[4rem]"
+            href="/registration2"
+            label="Looking for this year?"
+          />
+        );
+      } else if (!isCurrentYear) {
+        return (
+          <MyButton
+            className="h-[4rem]"
+            href="/registration"
+            label="Looking for next year?"
+          />
+        );
+      }
+    }
+  };
 
   return (
     <>
@@ -59,13 +82,7 @@ export default async function Registration() {
               <WYSIWYG content={RegistrationDescription} />
             </h2>
           </div>
-          {nextYearRegistrationButton ? (
-            <MyButton
-              className="h-[4rem]"
-              href="/nextYearRegistration"
-              label="Looking for next year?"
-            />
-          ) : null}
+          {registrationButton()}
         </div>
         <div
           id="card grid"

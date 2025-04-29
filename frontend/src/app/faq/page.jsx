@@ -21,7 +21,7 @@ export const metadata = {
 export default async function FAQ() {
   const {
     data: {
-      attributes: { faqQuestions },
+      attributes: { faqQuestions, Title },
       error,
     },
   } = await fetchStrapi("/faq", { populate: "deep, 6" });
@@ -35,6 +35,9 @@ export default async function FAQ() {
         alt="Blocks spelling out the word FAQ"
         myHeight="h-[15rem] llg:h-[35rem]"
       />
+      <h2 className="text-center text-[3rem] mt-[1rem] text-primary">
+        {Title}
+      </h2>
       <PageView>
         {faqQuestions ? <FAQAccordion faqs={faqQuestions} /> : null}
       </PageView>
